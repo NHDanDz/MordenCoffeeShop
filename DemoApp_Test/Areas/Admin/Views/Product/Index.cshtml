@@ -1,0 +1,1171 @@
+﻿@model X.PagedList.IPagedList<DemoApp_Test.Models.HienThiSanPham>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@{
+    int startIndex = (Model.PageNumber - 1) * Model.PageSize + 1;
+    int endIndex = startIndex + Model.Count - 1;
+
+}
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet">
+<!-- Css Styles -->
+<link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="~/css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/style.css" type="text/css">
+
+<style>
+    /* Styles chung cho tất cả các filter */
+    .shop__sidebar__brand label,
+    .shop__sidebar__type label,
+    .shop__sidebar__size label,
+    .shop__sidebar__price label {
+        position: relative;
+        padding: 8px 15px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        display: block;
+        width: 100%;
+        font-size: 14px;
+        color: #111111;
+        text-transform: capitalize;
+    }
+
+        /* Active state cho tất cả các filter */
+        .shop__sidebar__brand label.active,
+        .shop__sidebar__type label.active,
+        .shop__sidebar__size label.active,
+        .shop__sidebar__price label.active {
+            background-color: #e53637;
+            color: white;
+        }
+
+    /* Ẩn radio button mặc định */
+    .shop__sidebar__brand input[type="radio"],
+    .shop__sidebar__type input[type="radio"],
+    .shop__sidebar__size input[type="radio"],
+    .shop__sidebar__price input[type="radio"] {
+        display: none;
+    }
+
+    /* Hover effect cho tất cả các filter */
+    .shop__sidebar__brand label:hover,
+    .shop__sidebar__type label:hover,
+    .shop__sidebar__size label:hover,
+    .shop__sidebar__price label:hover {
+        background-color: #f8d7da;
+    }
+
+    /* Hover effect cho trạng thái active */
+    .shop__sidebar__brand label.active:hover,
+    .shop__sidebar__type label.active:hover,
+    .shop__sidebar__size label.active:hover,
+    .shop__sidebar__price label.active:hover {
+        background-color: #c82333;
+    }
+
+    /* Specific styles cho price filter */
+    .shop__sidebar__price {
+        padding: 0;
+    }
+
+        .shop__sidebar__price label {
+            margin-bottom: 8px;
+            text-align: left;
+            border: 1px solid transparent;
+        }
+
+            .shop__sidebar__price label:last-child {
+                margin-bottom: 0;
+            }
+
+    /* Card styles */
+    .shop__sidebar__accordion .card {
+        border: none;
+        margin-bottom: 25px;
+    }
+
+    .shop__sidebar__accordion .card-heading {
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+        .shop__sidebar__accordion .card-heading a {
+            color: #111111;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            padding: 10px 0;
+        }
+
+    .shop__sidebar__accordion .card-body {
+        padding: 0;
+    }
+    /* Modal styles */
+    .modal-content {
+        border: none;
+        border-radius: 15px;
+    }
+
+    .modal-body {
+        padding: 30px;
+    }
+
+    .modal .close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 24px;
+        z-index: 1;
+        opacity: 0.7;
+        transition: all 0.3s;
+    }
+
+        .modal .close:hover {
+            opacity: 1;
+        }
+
+    /* Product Image */
+    .product__details__pic {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .product__details__pic img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+    /* Product Details */
+    .product__details__text h4 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #111111;
+    }
+
+    .product__details__price {
+        font-size: 30px;
+        color: #e53637;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    /* Options Styling */
+    .product__details__options {
+        margin-bottom: 30px;
+    }
+
+    .option-title {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        color: #111111;
+        margin-bottom: 10px;
+    }
+
+    .custom-select {
+        width: 100%;
+        height: 45px;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 0 15px;
+        font-size: 15px;
+        color: #444444;
+        transition: all 0.3s;
+    }
+
+        .custom-select:focus {
+            border-color: #e53637;
+            box-shadow: none;
+            outline: none;
+        }
+
+    /* Quantity Input */
+    .pro-qty-2 {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .quantity-btn {
+        width: 45px;
+        height: 45px;
+        border: none;
+        background: none;
+        font-size: 18px;
+        color: #111111;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+        .quantity-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+    .quantity-input {
+        width: 60px;
+        height: 45px;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        color: #111111;
+        background: transparent;
+    }
+
+    /* Add to Cart Button */
+    .primary-btn {
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 14px 32px;
+        color: #ffffff;
+        background: #e53637;
+        border: none;
+        border-radius: 8px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+        .primary-btn:hover {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .primary-btn i {
+            margin-right: 8px;
+        }
+
+    /* Rating */
+    .rating {
+        margin-bottom: 20px;
+    }
+
+        .rating i {
+            color: #e3c01c;
+            margin-right: 3px;
+        }
+
+    /* Responsive Styles */
+    @@media (max-width: 991px) {
+        .modal-dialog {
+            max-width: 95%;
+            margin: 20px auto;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .modal-body {
+            padding: 20px;
+        }
+
+        .product__details__text {
+            padding-top: 20px;
+        }
+    }
+    /* Vô hiệu hóa click trên tiêu đề */
+    .card-heading a {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    /* Luôn hiển thị nội dung */
+    #collapseOne,
+    #collapseTwo,
+    #collapseThree,
+    #collapseFour {
+        display: block !important;
+    }
+
+    /* Loại bỏ icon mũi tên (nếu có) */
+    .card-heading a::after,
+    .card-heading a::before {
+        display: none !important;
+    }
+
+    /* Đảm bảo card-body luôn hiển thị */
+    .card-body {
+        display: block !important;
+    }
+
+    .shop__sidebar__accordion .card {
+        border: none !important;
+        border-radius: 0 !important;
+        margin-bottom: 25px !important;
+    }
+
+        .shop__sidebar__accordion .card:last-child {
+            margin-bottom: 0 !important;
+        }
+
+            .shop__sidebar__accordion .card:last-child .card-body {
+                padding-bottom: 0 !important;
+                border-bottom: none !important;
+            }
+
+    .shop__sidebar__accordion .card-body {
+        padding: 0 !important;
+        padding-top: 10px !important;
+        padding-bottom: 20px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+    }
+
+    .shop__sidebar__accordion .card-heading {
+        cursor: pointer !important;
+    }
+
+        .shop__sidebar__accordion .card-heading a {
+            color: #111111 !important;
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            display: block !important;
+        }
+</style>
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion">
+                            <div class="card">
+                                <div class="card-heading" style="text-align: center !important; ">
+                                    <a data-toggle="collapse" data-target="#collapseOne">Loại đồ uống</a>
+                                </div>
+                                <div id="collapseOne" class="show">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__type">
+                                            <ul>
+
+                                                @foreach (var item in ViewBag.typeCoffees)
+                                                {
+                                                    <label for="@item.Type_id" style="text-align: center !important; ">
+                                                        @item.TypeName
+                                                        <input type="radio" id="@item.Type_id" name="type" value="@item.Type_id">
+                                                    </label>
+                                                }
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading" style="text-align: center !important; ">
+                                    <a data-toggle="collapse" data-target="#collapseTwo">Hãng đồ uống</a>
+                                </div>
+                                <div id="collapseTwo" class="show">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__brand">
+                                            <ul>
+                                                @foreach (var item in ViewBag.Brands)
+                                                {
+                                                    <label for="@item.Brand_id" style="text-align: center !important; ">
+                                                        @item.BrandName
+                                                        <input type="radio" id="@item.Brand_id" name="brand" value="@item.Brand_id">
+                                                    </label>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading" style="text-align: center !important; ">
+                                    <a data-toggle="collapse" data-target="#collapseThree">Lọc theo giá</a>
+                                </div>
+                                <div id="collapseThree" class="show">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price">
+                                            <label for="price1" style="text-align: center !important; ">
+                                                $0.00 - $5.00
+                                                <input type="radio" id="price1" name="price" value="0-5">
+                                            </label>
+                                            <label for="price2" style="text-align: center !important; ">
+                                                $5.00 - $10.00
+                                                <input type="radio" id="price2" name="price" value="5-10">
+                                            </label>
+                                            <label for="price3"style="text-align: center !important; ">
+                                                $10.00 - $15.00
+                                                <input type="radio" id="price3" name="price" value="10-15">
+                                            </label>
+                                            <label for="price4" style="text-align: center !important; ">
+                                                $15.00 - $20.00
+                                                <input type="radio" id="price4" name="price" value="15-20">
+                                            </label>
+                                            <label for="price5"style="text-align: center !important; ">
+                                                $20.00 - $25.00
+                                                <input type="radio" id="price5" name="price" value="20-25">
+                                            </label>
+                                            <label for="price6" style="text-align: center !important; ">
+                                                $25.00+
+                                                <input type="radio" id="price6" name="price" value="25+">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-heading" style="text-align: center !important; ">
+                                    <a data-toggle="collapse" data-target="#collapseFour">Size đồ uống</a>
+                                </div>
+                                <div id="collapseFour" class="show">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__size">
+                                            @foreach (var item in ViewBag.Sizes)
+                                            {
+                                                <label for="@item.SizeDetail" style="text-align: center !important; ">
+                                                    @item.SizeDetail
+                                                    <input type="radio" id="@item.SizeDetail" name="size1" value="@item.SizeDetail">
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                                <p>Showing 1–12 of @Model.Count() results</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__right">
+                                <p>Sort by Price:</p>
+                                <select id="priceSort" name="sortOrder">
+                                    <option value="">Default</option>
+                                    <option value="asc" @(ViewBag.CurrentSort == "asc" ? "selected" : "")>Low To High</option>
+                                    <option value="desc" @(ViewBag.CurrentSort == "desc" ? "selected" : "")>High To Low</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="product-section">
+
+
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix">
+                                <div class="product__item" data-product-id="@item.Ten_Sanpham">
+                                    <div class="product__item__pic set-bg" data-setbg="@Url.Content("~/img/" + (item.Ten_Nhasanxuat ?? "default") + "/" + (item.Ten_loai ?? "default") + "/" + (item.Link1 ?? "default.jpg"))">
+
+                                        <ul class="product__hover">
+                                            <li>
+                                                <a href="#" class="delete-btn" data-product-id="@item.Ma_Sanpham" data-product-name="@item.Ten_Sanpham">
+                                                    <img src="~/img/icon/delete.png" alt="">
+                                                    <span>Delete</span>
+                                                </a>
+                                            </li>
+                                            <li class="quick-view">
+                                                <a href="#" class="detail-btn" data-product-id="@item.Ma_Sanpham">
+                                                    <img src="~/img/icon/search.png" alt="">
+                                                    <span>Detail</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6>@item.Ten_Sanpham</h6>
+                                        <div class="rating">
+                                            @{
+                                                int fullStars = (int)(item.Rating / 20);
+                                                bool hasHalfStar = (item.Rating % 20 >= 10);
+                                            }
+                                            @for (int i = 0; i < fullStars; i++)
+                                            {
+                                                <i class="fa fa-star" style="color: #FFD700;"></i>
+                                            }
+                                            @if (hasHalfStar)
+                                            {
+                                                <i class="fa fa-star-half-o" style="color: #FFD700;"></i>
+                                            }
+                                            @for (int i = fullStars + (hasHalfStar ? 1 : 0); i < 5; i++)
+                                            {
+                                                <i class="fa fa-star-o" style="color: #FFD700;"></i>
+                                            }
+                                            <small>(@item.ReviewCount)</small>
+                                        </div>
+                                        <h5>$ @(item.Giagoc - (item.Giagoc * item.Discount / 100))</h5>
+                                        <h6 class="text-muted ml-2"><del>$ @item.Giagoc</del></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    @if (ViewBag.TotalPages > 0)
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="product__pagination">
+                                    @if (ViewBag.CurrentPage > 1)
+                                    {
+                                        <a href="#" class="page-link1" data-page="@(ViewBag.CurrentPage - 1)">&laquo;</a>
+                                    }
+
+                                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                    {
+                                        if (i == ViewBag.CurrentPage)
+                                        {
+                                            <a class="active page-link1" href="#" data-page="@i">@i</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#" class="page-link1" data-page="@i">@i</a>
+                                        }
+                                    }
+
+                                    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                                    {
+                                        <a href="#" class="page-link1" data-page="@(ViewBag.CurrentPage + 1)">&raquo;</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                
+            </div>
+          
+        </div>
+        
+</section>
+<style>
+    .product-image {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .custom-btn:active {
+        background-color: red; /* Màu nền khi nút được nhấn */
+        border-color: red; /* Màu viền khi nút được nhấn */
+        color: white; /* Màu chữ khi nút được nhấn */
+    }
+
+    #lst tbody tr:hover {
+        background-color: coral;
+    }
+
+    .table td, .table th {
+        padding: 0.25rem;
+        width: auto;
+        vertical-align: middle;
+        border-top: 1px solid #dee2e6;
+    }
+</style>
+ 
+
+<script src="~/js/jquery-3.6.0.min.js"></script>
+
+<script src="~/js/bootstrap.min.js"></script>
+<script src="js/vendor/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Lấy các tham số từ URL hiện tại
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Đánh dấu radio button đã được chọn
+        if (urlParams.has('typeId')) {
+            const typeRadio = document.querySelector(`input[name="type"][value="${urlParams.get('typeId')}"]`);
+            if (typeRadio) {
+                typeRadio.checked = true;
+                typeRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('brandId')) {
+            const brandRadio = document.querySelector(`input[name="brand"][value="${urlParams.get('brandId')}"]`);
+            if (brandRadio) {
+                brandRadio.checked = true;
+                brandRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('priceRange')) {
+            let priceValue;
+            switch(urlParams.get('priceRange')) {
+                case '1': priceValue = '0-5'; break;
+                case '2': priceValue = '5-10'; break;
+                case '3': priceValue = '10-15'; break;
+                case '4': priceValue = '15-20'; break;
+                case '5': priceValue = '20-25'; break;
+                case '6': priceValue = '25+'; break;
+            }
+            const priceRadio = document.querySelector(`input[name="price"][value="${priceValue}"]`);
+            if (priceRadio) {
+                priceRadio.checked = true;
+                priceRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('size')) {
+            const sizeRadio = document.querySelector(`input[name="size1"][value="${urlParams.get('size')}"]`);
+            if (sizeRadio) {
+                sizeRadio.checked = true;
+                sizeRadio.closest('label').classList.add('active');
+            }
+        }
+    });
+    document.querySelectorAll('.shop__sidebar__price input[type="radio"], .shop__sidebar__size input[type="radio"], .shop__sidebar__brand input[type="radio"], .shop__sidebar__type input[type="radio"]').forEach(radio => {
+        radio.addEventListener('click', function() {
+            // Kiểm tra nếu radio button đã được chọn
+            if (this.closest('label').classList.contains('active')) {
+                // Nếu đang active, gỡ class "active"
+                this.closest('label').classList.remove('active');
+                this.checked = false; // bỏ chọn radio button
+
+                // Gọi handleFilter để cập nhật URL và refresh trang
+                handleFilter();
+            } else {
+                // Nếu không, gỡ bỏ class "active" khỏi tất cả nhãn cùng nhóm
+                document.querySelectorAll(`input[name="${this.name}"]`).forEach(input => {
+                    input.closest('label').classList.remove('active');
+                });
+                // Thêm class "active" vào nhãn của radio button vừa được chọn
+                this.closest('label').classList.add('active');
+
+                // Gọi handleFilter để cập nhật URL và refresh trang
+                handleFilter();
+            }
+        });
+    });
+
+</script>
+
+
+<script>
+
+        // Hàm chính để xử lý việc lọc
+       function handleFilter() {
+        // Lấy URL hiện tại và các tham số
+        const currentUrl = new URL(window.location.href);
+        const urlParams = currentUrl.searchParams;
+
+        // Lấy giá trị từ các radio button
+        const selectedType = document.querySelector('input[name="type"]:checked')?.value;
+        const selectedBrand = document.querySelector('input[name="brand"]:checked')?.value;
+        const selectedPrice = document.querySelector('input[name="price"]:checked')?.value;
+        const selectedSize = document.querySelector('input[name="size1"]:checked')?.value;
+
+        // Xử lý type
+        if (selectedType) {
+            urlParams.set('typeId', selectedType);
+        } else {
+            urlParams.delete('typeId');
+        }
+
+        // Xử lý brand
+        if (selectedBrand) {
+            urlParams.set('brandId', selectedBrand);
+        } else {
+            urlParams.delete('brandId');
+        }
+
+        // Xử lý price
+        if (selectedPrice) {
+            let priceRange;
+            switch(selectedPrice) {
+                case '0-5': priceRange = '1'; break;
+                case '5-10': priceRange = '2'; break;
+                case '10-15': priceRange = '3'; break;
+                case '15-20': priceRange = '4'; break;
+                case '20-25': priceRange = '5'; break;
+                case '25+': priceRange = '6'; break;
+            }
+            if (priceRange) {
+                urlParams.set('priceRange', priceRange);
+            }
+        } else {
+            urlParams.delete('priceRange');
+        }
+
+        // Xử lý size
+        if (selectedSize) {
+            urlParams.set('size', selectedSize);
+        } else {
+            urlParams.delete('size');
+        }
+
+        // Reset về trang 1
+        urlParams.set('page', '1');
+
+        // Giữ lại tham số sort nếu có
+        const sortOrder = document.getElementById('priceSort').value;
+        if (sortOrder) {
+            urlParams.set('sort', sortOrder);
+        }
+
+        // Chuyển hướng đến URL mới
+        window.location.href = currentUrl.toString();
+    }
+
+    // Thêm event listener cho tất cả các radio button
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterInputs = document.querySelectorAll('input[type="radio"]');
+        filterInputs.forEach(input => {
+            input.addEventListener('change', handleFilter);
+        });
+
+        // Đánh dấu các radio button đã được chọn từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.has('typeId')) {
+            const typeRadio = document.querySelector(`input[name="type"][value="${urlParams.get('typeId')}"]`);
+            if (typeRadio) {
+                typeRadio.checked = true;
+                typeRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('brandId')) {
+            const brandRadio = document.querySelector(`input[name="brand"][value="${urlParams.get('brandId')}"]`);
+            if (brandRadio) {
+                brandRadio.checked = true;
+                brandRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('priceRange')) {
+            let priceValue;
+            switch(urlParams.get('priceRange')) {
+                case '1':
+                    priceValue = '0-5';
+                    break;
+                case '2':
+                    priceValue = '5-10';
+                    break;
+                case '3':
+                    priceValue = '10-15';
+                    break;
+                case '4':
+                    priceValue = '15-20';
+                    break;
+                case '5':
+                    priceValue = '20-25';
+                    break;
+                case '6':
+                    priceValue = '25+';
+                    break;
+            }
+            const priceRadio = document.querySelector(`input[name="price"][value="${priceValue}"]`);
+            if (priceRadio) {
+                priceRadio.checked = true;
+                priceRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('size')) {
+            const sizeRadio = document.querySelector(`input[name="size1"][value="${urlParams.get('size')}"]`);
+            if (sizeRadio) {
+                sizeRadio.checked = true;
+                sizeRadio.closest('label').classList.add('active');
+            }
+        }
+    });
+        // Xử lý phân trang
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('page-link1')) {
+            e.preventDefault();
+            const page = e.target.getAttribute('data-page');
+
+            // Lấy các giá trị filter hiện tại từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Tạo object chứa các tham số hiện tại
+            let currentParams = {
+                page: page
+            };
+
+            // Giữ lại các filter đang được chọn
+            if (urlParams.has('brandId')) {
+                currentParams.brandId = urlParams.get('brandId');
+            }
+            if (urlParams.has('typeId')) {
+                currentParams.typeId = urlParams.get('typeId');
+            }
+            if (urlParams.has('size')) {
+                currentParams.size = urlParams.get('size');
+            }
+
+            // Tạo query string mới
+            const queryString = Object.keys(currentParams)
+                .map(key => `${key}=${currentParams[key]}`)
+                .join('&');
+
+            // Chuyển hướng với tất cả các tham số
+            window.location.href = `/Admin/Product/Index?${queryString}`;
+        }
+    });
+        // Xử lý sắp xếp theo giá
+    $(document).ready(function() {
+        $('#priceSort').change(function() {
+            const sortOrder = $(this).val();
+            const currentUrl = new URL(window.location.href);
+            const urlParams = currentUrl.searchParams;
+
+            // Cập nhật hoặc thêm tham số sort vào URL
+            if (sortOrder) {
+                urlParams.set('sort', sortOrder);
+            } else {
+                urlParams.delete('sort');
+            }
+
+            // Reset về trang 1 khi thay đổi sort
+            urlParams.set('page', '1');
+
+            // Chuyển hướng với các tham số mới
+            window.location.href = currentUrl.toString();
+        });
+    });
+</script>
+
+<script>
+    function Hoi(event){
+        var result = confirm("Bạn có chắc chắn xóa sản phẩm?");
+        if (result == true) {
+
+        }
+        else {
+            event.preventDefault();
+           // window.location.href='../SanPham/Index';
+        }
+    }
+
+    function toggleCardBody(show) {
+        var cardBody = document.getElementById("advancedSearch");
+        cardBody.style.display = show ? "block" : "none";
+    }
+
+</script>
+
+<!-- Thêm modal này vào cuối file, trước closing body tag -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa sản phẩm: <strong id="productNameToDelete"></strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thêm script này vào cuối file, sau các script khác -->
+<script>
+    let productIdToDelete = null;
+
+    // Xử lý sự kiện click nút delete
+    $(document).on('click', '.delete-btn', function(e) {
+        e.preventDefault();
+        productIdToDelete = $(this).data('product-id');
+        const productName = $(this).data('product-name');
+
+        $('#productNameToDelete').text(productName);
+        $('#deleteConfirmModal').modal('show');
+    });
+
+    // Xử lý sự kiện click nút confirm delete
+    $('#confirmDelete').on('click', function() {
+        if (productIdToDelete) {
+            // Gửi request xóa
+            $.ajax({
+                url: '/Admin/Product/Delete/' + productIdToDelete,
+                type: 'POST',
+                success: function(result) {
+                    if (result.success) {
+                        // Reload trang sau khi xóa thành công
+                        window.location.reload();
+                    } else {
+                        alert('Không thể xóa sản phẩm. Vui lòng thử lại.');
+                    }
+                },
+                error: function() {
+                    alert('Đã xảy ra lỗi khi xóa sản phẩm.');
+                },
+                complete: function() {
+                    $('#deleteConfirmModal').modal('hide');
+                }
+            });
+        }
+    });
+</script> 
+<!-- Modal Detail Product -->
+<div class="modal fade" id="productDetailModal" tabindex="-1" role="dialog" aria-labelledby="productDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productDetailModalLabel">Product Detail</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="productEditForm">
+                    <input type="hidden" id="productId" name="productId">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="productName" class="form-label">Product Name</label>
+                                <input type="text" class="form-control" id="productName" name="productName">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Current Image</label>
+                                <div class="current-image-container" style="margin-bottom: 15px;">
+                                    <img id="currentImage" src="" alt="Product Image"
+                                         style="max-width: 200px; max-height: 200px; object-fit: contain;">
+                                </div>
+                                <!-- Image Upload -->
+                                <label for="newImage">Change Image</label>
+                                <input type="file" class="form-control-file" id="newImage" name="newImage"
+                                       accept="image/*" onchange="previewImage(this);">
+                                <!-- Hidden input for real path -->
+                                <input type="hidden" id="RootImage">
+                                <small class="form-text text-muted">Select a new image to update</small>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" id="price" name="price" step="0.01">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="discount" class="form-label">Discount (%)</label>
+                                <input type="number" class="form-control" id="discount" name="discount" min="0" max="100">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="brandId" class="form-label">Brand</label>
+                                <select class="form-control" id="brandId" name="brandId">
+                                    @foreach (var brand in ViewBag.Brands)
+                                    {
+                                        <option value="@brand.Brand_id">@brand.BrandName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="typeId" class="form-label">Type</label>
+                                <select class="form-control" id="typeId" name="typeId">
+                                    @foreach (var type in ViewBag.typeCoffees)
+                                    {
+                                        <option value="@type.Type_id">@type.TypeName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="rating" class="form-label">Rating</label>
+                                <input type="number" class="form-control" id="rating" name="rating" min="0" max="100">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="reviewCount" class="form-label">Review Count</label>
+                                <input type="number" class="form-control" id="reviewCount" name="reviewCount" min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Product Sizes</label>
+                        <div id="productSizes">
+                            <!-- Size checkboxes will be populated dynamically -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveProductChanges">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    // Xử lý click nút detail
+    $('.detail-btn').on('click', function(e) {
+        e.preventDefault();
+        const productId = $(this).data('product-id');
+        loadProductDetails(productId);
+    });
+
+    // Load chi tiết sản phẩm
+    function loadProductDetails(productId) {
+        $.ajax({
+            url: '@Url.Action("GetProductDetails", "Product")/' + productId,
+            type: 'GET',
+            success: function(response) {
+                if(response.success) {
+                    const product = response.data;
+
+                    $('#productId').val(product.product_id);
+                    $('#productName').val(product.productName);
+                    $('#price').val(product.price);
+                    $('#discount').val(product.discount);
+                    $('#brandId').val(product.brand_id);
+                    $('#typeId').val(product.type_id);
+                    $('#rating').val(product.rating);
+                    $('#reviewCount').val(product.reviewCount);
+
+                    // Load image sử dụng BrandName và TypeName
+                    if (product.image) {
+                        const imagePath = `/img/${product.brandName}/${product.typeName}/${product.image}`;
+                        console.log("Image path:", imagePath); // Debug
+                        $('#currentImage').attr('src', imagePath);
+                    } else {
+                        $('#currentImage').attr('src', '/img/default-product.jpg');
+                    }
+                    // Populate sizes
+                    populateProductSizes(product.sizes);
+
+                    // Show modal using Bootstrap 5
+                    var myModal = new bootstrap.Modal(document.getElementById('productDetailModal'));
+                    myModal.show();
+                } else {
+                    alert('Failed to load product details');
+                }
+            },
+            error: function() {
+                alert('Error loading product details');
+            }
+        });
+    }
+
+    // Preview image
+    window.previewImage = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#currentImage').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Populate sizes
+    function populateProductSizes(sizes) {
+        const container = $('#productSizes');
+        container.empty();
+
+        sizes.forEach(size => {
+            const sizeHtml = `
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input"
+                           id="size_${size.size_id}"
+                           name="sizes"
+                           value="${size.size_id}"
+                           ${size.isSelected ? 'checked' : ''}>
+                    <label class="form-check-label" for="size_${size.size_id}">
+                        ${size.sizeDetail} - $${size.price}
+                    </label>
+                </div>
+            `;
+            container.append(sizeHtml);
+        });
+    }
+         function handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (file) {
+            // Sử dụng FileReader để đọc file
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Lưu đường dẫn data URL
+                $('#RootImage').val(e.target.result);
+            };
+            reader.readAsDataURL(file); // Đọc file như data URL
+        }
+    }
+
+    // Thêm sự kiện cho input file
+    $('#newImage').on('change', handleFileSelect);
+
+    // Save changes
+    $('#saveProductChanges').click(function() {
+        const formData = {
+            product_id: $('#productId').val(),
+            productName: $('#productName').val(),
+            price: parseFloat($('#price').val()),
+            discount: parseInt($('#discount').val()),
+            brand_id: $('#brandId').val(),
+            type_id: $('#typeId').val(),
+            rating: parseInt($('#rating').val()),
+            reviewCount: parseInt($('#reviewCount').val())
+        };
+
+        // Thêm tên file và đường dẫn thực
+        const imageInput = $('#newImage')[0];
+        if (imageInput.files && imageInput.files[0]) {
+            formData.newImage = imageInput.files[0].name;
+            formData.RootImage = $('#RootImage').val(); // Lấy đường dẫn data URL
+
+            // Log để debug
+            console.log('File Name:', formData.newImage);
+            console.log('Real Path:', formData.RootImage);
+        }
+
+        $.ajax({
+            url: '@Url.Action("UpdateProduct", "Product")',
+            type: 'POST',
+            data: JSON.stringify(formData),
+            contentType: 'application/json',
+            success: function(response) {
+                if(response.success) {
+                    alert('Product updated successfully');
+                    var myModal = bootstrap.Modal.getInstance(document.getElementById('productDetailModal'));
+                    myModal.hide();
+                    window.location.reload();
+                } else {
+                    alert('Failed to update product: ' + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+                alert('Error updating product');
+            }
+        });
+    });
+});
+</script>

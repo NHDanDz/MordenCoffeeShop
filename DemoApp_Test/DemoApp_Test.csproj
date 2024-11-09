@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Remove="wwwroot\Fanpage\img\**" />
+    <Content Remove="wwwroot\Fanpage\img\**" />
+    <EmbeddedResource Remove="wwwroot\Fanpage\img\**" />
+    <None Remove="wwwroot\Fanpage\img\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="wwwroot\img\Gongcha\.DS_Store" />
+    <None Include="wwwroot\img\Gongcha\Ice-blended\.DS_Store" />
+    <None Include="wwwroot\img\Gongcha\Milk Tea\.DS_Store" />
+    <None Include="wwwroot\img\Gongcha\Tea\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\Coffee\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\Coffee\Drip Coffee\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\Coffee\Espresso\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\Coffee\PhinDi\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\Freeze\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\Freeze\Freeze non-Coffee\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\Freeze\Freeze with Coffee\.DS_Store" />
+    <None Include="wwwroot\img\Highlands\Tea\.DS_Store" />
+    <None Include="wwwroot\img\PheLa\.DS_Store" />
+    <None Include="wwwroot\img\PheLa\coffee\.DS_Store" />
+    <None Include="wwwroot\img\PheLa\Cold Brew\.DS_Store" />
+    <None Include="wwwroot\img\PheLa\French Press\.DS_Store" />
+    <None Include="wwwroot\img\PheLa\Moka Pot\.DS_Store" />
+    <None Include="wwwroot\img\PheLa\Syphon\.DS_Store" />
+    <None Include="wwwroot\img\PheLa\Topping\.DS_Store" />
+    <None Include="wwwroot\lib\libs\.DS_Store" />
+    <None Include="wwwroot\lib\libs\bootstrap\dist\.DS_Store" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SqlServer.Server" Version="1.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Serilog" Version="4.1.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Include="X.PagedList" Version="10.5.7" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.7" />
+    <PackageReference Include="X.PagedList.Web.Common" Version="8.0.7" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Areas\AdminN\Data\" />
+    <Folder Include="Areas\AdminN\Models\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Login\Data\" />
+    <Folder Include="Areas\Login\Models\" />
+  </ItemGroup>
+</Project>

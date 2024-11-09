@@ -1,0 +1,255 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Header Section End -->
+<!-- Hero Section Begin -->
+<section class="hero" >
+    <div class="hero__slider owl-carousel">
+        @await Component.InvokeAsync("Banner", new { backgroundImage = "img/hero/hero-1.jpg" })
+        @await Component.InvokeAsync("Banner", new { backgroundImage = "img/hero/hero-2.jpg" })
+        @await Component.InvokeAsync("Banner", new { backgroundImage = "img/hero/hero-3.jpg" })
+        @await Component.InvokeAsync("Banner", new { backgroundImage = "img/hero/hero-4.jpg" })
+    </div>
+</section>
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; color: #F89B28 !important;">About Us</h4>
+            <h1 class="display-4" style=" color: #662C1B !important; font-weight: bold !important;">
+                Serving Since 2003
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3" style=" font-weight: bold !important; "> <a style=" color: #662C1B !important;"> Our </a> <a style =" color: #F89B28 !important;"> Story</a> </h1>
+
+                <div class="vision-text">
+                    <!-- Thêm div mới với class riêng -->
+                    <h5 style="text-align: justify; color: #0d0d0d; font-weight: 700; line-height: 28px; margin-bottom: 10px;">
+                        Welcome to NHDanDz – where the art of brewing and the
+                        authentic taste of coffee are celebrated. We take pride in being one of the most trusted coffee
+                        shop, offering our customers high-quality cups of coffee, rich in flavor, crafted from carefully
+                        selected beans sourced from renowned regions.
+                    </h5>
+                </div>
+                <br />
+                <p class="m-0" style="text-align: justify;">
+                    More than just coffee, we aim to make each experience a journey of discovery. Savor the difference
+                    in every drop – a perfect blend of artistry, passion, and dedication!
+                </p> 
+                <br />
+             </div>
+            <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="~/Fanpage/img/about.png" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3" style=" font-weight: bold !important; "> <a style=" color: #662C1B !important;"> Our </a> <a style=" color: #F89B28 !important;"> Vision</a> </h1>
+                <div class="vision-text">
+                    <!-- Thêm div mới với class riêng -->
+                    <h5 style="text-align: justify; color: #0d0d0d; font-weight: 700; line-height: 28px; margin-bottom: 10px;">
+                        At NHDanDz, our vision is to become a leading coffee shop, known not
+                        only for our exceptional quality but also for our sustainable commitment to the community and the
+                        environment. 
+                    </h5>
+                </div>
+                <br />
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3" style=" color: #F89B28 !important;"></i>Commitment to Product Quality</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3" style=" color: #F89B28 !important;"></i>Commitment to Service Excellence</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3" style=" color: #F89B28 !important;"></i>Commitment to Sustainability</h5>
+             </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Service Start -->
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px; color: #F89B28 !important;">Our Services</h4>
+            <h1 class="display-4" style=" color: #662C1B !important; font-weight: bold !important;">Fresh & Organic Beans</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Fanpage/img/service-1.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4> Fastest Door Delivery</h4>
+                        <p class="m-0" style="text-align: justify;">
+                            We are committed to providing the fastest delivery service. In just a few simple steps, your
+                            favorite cup of coffee will be delivered right to your doorstep, with its flavor perfectly
+                            preserved as if freshly brewed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Fanpage/img/service-2.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4> Fresh Coffee Beans</h4>
+                        <p class="m-0" style="text-align: justify;">
+                            At NHDanDz, we use only the freshest coffee beans. This guarantees that every cup retains
+                            the full, rich flavor and natural essence of the beans, providing an exceptional coffee
+                            experience each time.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Fanpage/img/service-3.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4> Best Quality Coffee</h4>
+                        <p class="m-0" style="text-align: justify;">
+                            We take pride in offering the highest quality coffee, sourced from Vietnam's renowned
+                            coffee-growing regions. Each cup is the perfect blend of professional roasting techniques
+                            and a passion for the art of brewing.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Fanpage/img/service-4.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4> Online Table Booking</h4>
+                        <p class="m-0" style="text-align: justify;">
+                            To enhance convenience for our customers, we offer a quick and easy online table reservation
+                            service. With just a few clicks, you can secure your preferred table in advance and enjoy
+                            coffee.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero Section End -->
+<!-- Banner Section Begin -->
+<section class="banner spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-4">
+                <div class="banner__item">
+                    <div class="banner__item__pic">
+                        <img src="img/PheLa/coffee/PheLa_PheCappu.jpg" style="width: 360px; height: auto;" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2 style=" color: #F89B28 !important;">Best Seller 2024</h2>
+                        <h4 style =" color: #662C1B !important;">From PheLa</h4>
+
+                        <a href="#">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="banner__item banner__item--middle">
+                    <div class="banner__item__pic">
+                        <img src="img/banner/banner_1.jpg" style="width: 360px; height: auto;" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2 style =" color: #F89B28 !important;">
+                            Best Seller 2024</h2>
+                        <h4 style=" color: #662C1B !important;">From HighLands Coffee</h4>
+                        <a href="#">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="banner__item banner__item--last">
+                    <div class="banner__item__pic">
+                        <img src="img/Gongcha/Milk Tea/Gongcha_OKINAWALATTE.png" style="width: 360px; height: auto;" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2 style=" color: #F89B28 !important;">Best Seller 2024</h2>
+                        <h4 style=" color: #662C1B !important;">From Gongcha</h4>
+                        <a href="#">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*">Best Sellers</li>
+                    <li data-filter=".new">New</li>
+                    <li data-filter=".hot-sales">Hot Sales</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row product__filter">
+            @await Component.InvokeAsync("CategoriesSale")
+            @await Component.InvokeAsync("CategoriesNew")
+             
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->
+@await Component.InvokeAsync("BestSeller") 
+<!-- Instagram Section End --> 
+<section class="latest spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Instagram</span>
+                    <h2>Coffe Brands News</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="img/instagram/new1.jpg"></div>
+                    <div class="blog__item__text">
+                        <span><img src="img/icon/calendar.png" alt=""> 5 November 2024</span>
+                        <h5>Bộ Quà Xúng Xính Lụa Là “cập bến” Thành phố Cảng Hải Phòng 🎶🍑
+</h5>
+                        <a href="https://www.instagram.com/p/DB_iNRVKvO4/">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="img/instagram/new2.jpg"></div>
+                    <div class="blog__item__text">
+                        <span><img src="img/icon/calendar.png" alt=""> 4 November 2024</span>
+                        <h5>
+                            KHOE SẮC THĂNG HƯƠNG – TRÀ SEN VÀNG (TOPPING MỚI) CÓ MẶT 🌻
+                        </h5>
+                        <a href="https://www.instagram.com/p/DBu5wOsvT-K/?img_index=1">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg= "img/instagram/new3.jpg"></div>
+                    <div class="blog__item__text">
+                        <span><img src="img/icon/calendar.png" alt=""> 2 November 2024</span>
+                        <h5>
+                            Thêm vị Thu đầy
+                            Combo có ngay!🍁
+                        </h5>
+                        <a href="https://www.instagram.com/p/DByh62PtLmg/?hl=vi">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

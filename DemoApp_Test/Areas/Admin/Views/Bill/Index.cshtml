@@ -1,0 +1,280 @@
+﻿@model X.PagedList.IPagedList<DemoApp_Test.Models.Bill>
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .bill-page-btn {
+        padding: 0.5rem 0.75rem;
+        margin-left: -1px;
+        line-height: 1.25;
+        color: #007bff;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        text-decoration: none;
+    }
+
+        .bill-page-btn:hover {
+            color: #0056b3;
+            text-decoration: none;
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+
+    .page-item.active .bill-page-btn {
+        z-index: 3;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .custom-btn:active {
+        background-color: red;
+        border-color: red;
+        color: white;
+    }
+
+    #lst tbody tr:hover {
+        background-color: coral;
+    }
+
+    .table td, .table th {
+        padding: 0.25rem;
+        width: auto;
+        vertical-align: middle;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .btn-process {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+    }
+
+    .btn-delete {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+    }
+
+    .badge-status {
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: normal;
+    }
+
+    .badge-pending {
+        background-color: #ffc107;
+        color: black;
+    }
+
+    .badge-processed {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .pagination {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .total-info {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
+
+    .info-item {
+        padding: 10px;
+        text-align: center;
+        border-right: 1px solid #dee2e6;
+    }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-info text-center p-1 border border-dark mb-4">QUẢN LÝ HÓA ĐƠN</h1>
+
+            <!-- Thống kê tổng quan -->
+            <div class="row total-info mb-4">
+                <div class="col-md-3 info-item">
+                    <h5>Đơn chờ xử lý</h5>
+                    <h3 class="text-warning">@ViewBag.TotalUnprocessed</h3>
+                </div>
+                <div class="col-md-3 info-item">
+                    <h5>Đơn đã xử lý</h5>
+                    <h3 class="text-success">@ViewBag.TotalProcessed</h3>
+                </div>
+                <div class="col-md-3 info-item">
+                    <h5>Đơn trong tháng</h5>
+                    <h3 class="text-info">@ViewBag.CurrentMonthBills</h3>
+                </div>
+                <div class="col-md-3 info-item">
+                    <h5>Doanh thu tháng</h5>
+                    <h3 class="text-primary">@string.Format("{0:N0}$", ViewBag.CurrentMonthRevenue)</h3>
+                </div>
+            </div>
+
+            <!-- Bảng hóa đơn -->
+            <div class="table-responsive">
+                <table id="lst" class="table table-bordered text-center">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <th>Mã hóa đơn</th>
+                            <th>Mã khách hàng</th>
+                            <th>Tên khách hàng</th>
+                            <th>Địa chỉ</th>
+                            <th>Ngày đặt</th>
+                            <th>PTTT</th>
+                            <th>Trạng thái TT</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th colspan="2">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var bill in Model)
+                        {
+                            <tr>
+                                <td>@bill.Bill_id</td>
+                                <td>@bill.Client_id</td>
+                                <td>@bill.Client?.Name</td>
+                                <td>@bill.Client?.Location</td>
+                                <td>@bill.Date.ToString("dd/MM/yyyy")</td>
+                                <td>@(bill.PaymentMethod ?? "Chưa có")</td>
+                                <td>
+                                    <span class="@(bill.PaymentStatus ? "badge-status badge-processed" : "badge-status badge-pending")">
+                                        @(bill.PaymentStatus ? "Đã thanh toán" : "Chưa thanh toán")
+                                    </span>
+                                </td>
+                                <td>@string.Format("{0:N0}$", bill.Total)</td>
+                                <td>
+                                    <span class="@(!bill.Status ? "badge-status badge-pending" : "badge-status badge-processed")">
+                                        @(bill.Status ? "Đã xử lý" : "Chờ xử lý")
+                                    </span>
+                                </td>
+                                <td>
+                                    <button onclick="processBill('@bill.Bill_id')"
+                                            class="btn btn-sm btn-process">
+                                        Xử lý
+                                    </button>
+                                </td>
+                                <td>
+                                    <button onclick="deleteBill('@bill.Bill_id')"
+                                            class="btn btn-sm btn-delete">
+                                        Xóa
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Phân trang -->
+            <div class="d-flex justify-content-center mt-3">
+                <nav aria-label="Page navigation">
+                    <div class="text-center mb-2">
+                        Trang @(Model.PageNumber) / @Model.PageCount
+                    </div>
+                    <ul class="pagination">
+                        @if (Model.HasPreviousPage)
+                        {
+                            <li class="page-item">
+                                <a class="bill-page-btn" href="/Admin/Bill/Index?page=1">&lt;&lt;</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="bill-page-btn" href="/Admin/Bill/Index?page=@(Model.PageNumber - 1)">&lt;</a>
+                            </li>
+                        }
+
+                        @for (var i = 1; i <= Model.PageCount; i++)
+                        {
+                            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                                <a class="bill-page-btn" href="/Admin/Bill/Index?page=@i">@i</a>
+                            </li>
+                        }
+
+                        @if (Model.HasNextPage)
+                        {
+                            <li class="page-item">
+                                <a class="bill-page-btn" href="/Admin/Bill/Index?page=@(Model.PageNumber + 1)">&gt;</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="bill-page-btn" href="/Admin/Bill/Index?page=@Model.PageCount">&gt;&gt;</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Xử lý phân trang
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('bill-page-btn')) {
+                    e.preventDefault();
+                    const page = e.target.getAttribute('href').split('page=')[1];
+                    window.location.href = `/Admin/Bill/Index?page=${page}`;
+                }
+            });
+
+            // Giữ nguyên các hàm xử lý đơn hàng
+            window.processBill = function(billId) {
+                if (confirm('Bạn có chắc chắn muốn xử lý đơn hàng này?')) {
+                    $.ajax({
+                        url: '@Url.Action("ProcessBill")',
+                        type: 'POST',
+                        data: { id: billId },
+                        success: function(response) {
+                            if (response.success) {
+                                alert(response.message);
+                                location.reload();
+                            } else {
+                                alert(response.message);
+                            }
+                        },
+                        error: function() {
+                            alert('Lỗi khi xử lý đơn hàng');
+                        }
+                    });
+                }
+            };
+
+            window.deleteBill = function(billId) {
+                if (confirm('Bạn có chắc chắn muốn xóa đơn hàng này?\nLƯU Ý: Thao tác này không thể hoàn tác!')) {
+                    $.ajax({
+                        url: '@Url.Action("DeleteBill")',
+                        type: 'POST',
+                        data: { id: billId },
+                        success: function(response) {
+                            if (response.success) {
+                                alert(response.message);
+                                location.reload();
+                            } else {
+                                alert(response.message);
+                            }
+                        },
+                        error: function() {
+                            alert('Lỗi khi xóa đơn hàng');
+                        }
+                    });
+                }
+            };
+        });
+    </script>
+}

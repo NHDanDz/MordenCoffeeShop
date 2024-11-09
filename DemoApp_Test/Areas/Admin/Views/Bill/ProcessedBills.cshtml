@@ -1,0 +1,307 @@
+﻿@model X.PagedList.IPagedList<DemoApp_Test.Models.Bill>
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@{
+    ViewData["Title"] = "Hóa đơn đã xử lý";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .bill-page-btn {
+        padding: 0.5rem 0.75rem;
+        margin-left: -1px;
+        line-height: 1.25;
+        color: #007bff;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        text-decoration: none;
+    }
+
+        .bill-page-btn:hover {
+            color: #0056b3;
+            text-decoration: none;
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+
+    .page-item.active .bill-page-btn {
+        z-index: 3;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .spinner-border {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 0.2em solid currentColor;
+        border-right-color: transparent;
+        border-radius: 50%;
+        animation: spinner-border .75s linear infinite;
+    }
+      
+    .custom-btn:active {
+        background-color: red;
+        border-color: red;
+        color: white;
+    }
+
+    #lst tbody tr:hover {
+        background-color: coral;
+    }
+
+    .table td, .table th {
+        padding: 0.25rem;
+        width: auto;
+        vertical-align: middle;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .status-badge {
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+
+    .status-pending {
+        background-color: #ffc107;
+        color: #000;
+    }
+
+    .status-paid {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .btn-custom {
+        padding: 5px 15px;
+        border: none;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+
+    .btn-detail {
+        background-color: #17a2b8;
+        color: white;
+    }
+
+        .btn-detail:hover {
+            background-color: #138496;
+        }
+
+    .summary-card {
+        background-color: #f8f9fa;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .summary-item {
+        text-align: center;
+        padding: 10px;
+    }
+        .btn-complete {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-complete:hover {
+        background-color: #218838;
+    }
+
+    .btn-complete:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+    }
+</style>
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <a href="@Url.Action("Index", "Bill")" class="btn btn-outline-primary">Đơn chưa xử lý</a>
+            <a href="@Url.Action("ProcessedBills", "Bill")" class="btn btn-primary">Đơn đã xử lý</a>
+        </div>
+    </div>
+
+    <div class="row summary-card">
+        <div class="col-md-4 summary-item">
+            <h5>Tổng đơn đã xử lý</h5>
+            <h3 class="text-success">@ViewBag.TotalProcessed</h3>
+        </div>
+        <div class="col-md-4 summary-item">
+            <h5>Doanh thu tháng này</h5>
+            <h3 class="text-primary">@string.Format("{0:N0}$", ViewBag.CurrentMonthRevenue)</h3>
+        </div>
+        <div class="col-md-4 summary-item">
+            <h5>Đơn xử lý tháng này</h5>
+            <h3 class="text-info">@ViewBag.CurrentMonthProcessed</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-14 offset">
+            <h1 class="text-info text-center p-1 border border-dark">HÓA ĐƠN ĐÃ XỬ LÝ</h1>
+
+            <table id="lst" class="table table-bordered text-center">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>Mã hóa đơn</th>
+                        <th>Mã khách hàng</th>
+                        <th>Tên khách hàng</th>
+                        <th>Địa chỉ</th>
+                        <th>Ngày đặt</th>
+                        <th>PTTT</th>
+                        <th>Trạng thái TT</th>
+                        <th>Tổng tiền</th>
+                        <th>Ngày xử lý</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var bill in Model)
+                    {
+                        <tr>
+                            <td>@bill.Bill_id</td>
+                            <td>@bill.Client_id</td>
+                            <td>@bill.Client?.Name</td>
+                            <td>@bill.Client?.Location</td>
+                            <td>@bill.Date.ToString("dd/MM/yyyy")</td>
+                            <td>@(bill.PaymentMethod ?? "Chưa có")</td>
+                            <td>
+                                <span class="status-badge @(bill.PaymentStatus ? "status-paid" : "status-pending")">
+                                    @(bill.PaymentStatus ? "Đã thanh toán" : "Chưa thanh toán")
+                                </span>
+                            </td>
+                            <td>@string.Format("{0:N0}$", bill.Total)</td>
+                            <td>@(bill.PaymentStatus ? bill.ProcessDate?.ToString("dd/MM/yyyy") : bill.ProcessDate?.ToString("dd/MM/yyyy"))</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="@Url.Action("BillDetails", new { id = bill.Bill_id })"
+                                       class="btn-custom btn-detail">
+                                        Chi tiết
+                                    </a>
+                                    @if (!bill.PaymentStatus)
+                                    {
+                                        <button onclick="completeBill('@bill.Bill_id')"
+                                                class="btn-custom btn-complete ml-2">
+                                            Hoàn thành
+                                        </button>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Xử lý phân trang
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('page-link')) {
+                e.preventDefault();
+                const page = e.target.getAttribute('href').split('page=')[1];
+                window.location.href = `/Admin/Bill/ProcessedBills?page=${page}`;
+            }
+        });
+
+    // Đảm bảo DOM đã load xong
+    document.addEventListener('DOMContentLoaded', function() {
+        // Định nghĩa hàm completeBill trong phạm vi toàn cục
+        window.completeBill = function(billId) {
+            if (confirm('Xác nhận hoàn thành đơn hàng này? Trạng thái thanh toán sẽ được cập nhật.')) {
+                $.ajax({
+                    url: '@Url.Action("CompleteBill")',
+                    type: 'POST',
+                    data: { id: billId },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Lỗi khi hoàn thành đơn hàng');
+                    }
+                });
+            }
+        };
+    });
+</script>
+<div class="d-flex justify-content-center mt-3">
+    <nav aria-label="Page navigation">
+        <div class="text-center mb-2">
+            Trang @(Model.PageNumber) / @Model.PageCount
+        </div>
+        <ul class="pagination">
+            @if (Model.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a class="bill-page-btn" href="/Admin/Bill/ProcessedBills?page=1">&lt;&lt;</a>
+                </li>
+                <li class="page-item">
+                    <a class="bill-page-btn" href="/Admin/Bill/ProcessedBills?page=@(Model.PageNumber - 1)">&lt;</a>
+                </li>
+            }
+
+            @for (var i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="bill-page-btn" href="/Admin/Bill/ProcessedBills?page=@i">@i</a>
+                </li>
+            }
+
+            @if (Model.HasNextPage)
+            {
+                <li class="page-item">
+                    <a class="bill-page-btn" href="/Admin/Bill/ProcessedBills?page=@(Model.PageNumber + 1)">&gt;</a>
+                </li>
+                <li class="page-item">
+                    <a class="bill-page-btn" href="/Admin/Bill/ProcessedBills?page=@Model.PageCount">&gt;&gt;</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Xử lý phân trang
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('bill-page-btn')) {
+                    e.preventDefault();
+                    const page = e.target.getAttribute('href').split('page=')[1];
+                    window.location.href = `/Admin/Bill/ProcessedBills?page=${page}`;
+                }
+            });
+
+            // Xử lý hoàn thành đơn hàng
+            window.completeBill = function(billId) {
+                if (confirm('Xác nhận hoàn thành đơn hàng này? Trạng thái thanh toán sẽ được cập nhật.')) {
+                    $.ajax({
+                        url: '@Url.Action("CompleteBill")',
+                        type: 'POST',
+                        data: { id: billId },
+                        success: function(response) {
+                            if (response.success) {
+                                alert(response.message);
+                                location.reload();
+                            } else {
+                                alert(response.message);
+                            }
+                        },
+                        error: function() {
+                            alert('Lỗi khi hoàn thành đơn hàng');
+                        }
+                    });
+                }
+            };
+        });
+    </script>
+}

@@ -1,0 +1,160 @@
+﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <style>
+        /* Màu chữ trắng cho tất cả text trong navigation */
+        .nav-sidebar .nav-link p,
+        .nav-sidebar .nav-link i,
+        .nav-sidebar .nav-treeview .nav-link p,
+        .nav-sidebar .nav-treeview .nav-link i {
+            color: #ffffff !important;
+        }
+
+        /* Đảm bảo màu chữ trắng cho badge */
+        .nav-sidebar .badge-info {
+            color: #ffffff !important;
+        }
+    </style>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="~/img/logo.png" class="brand-image img-square elevation-3" alt="User Image" style="opacity: .8">
+            </div>
+            <div class="info">
+                <b style="color: aqua">Admin, @ViewBag.Username</b>
+                <br />&ensp; &ensp;&ensp; &ensp;&ensp; &ensp;&ensp;
+                <a href="~/Login/Login/Logout"><i><u style="color: white">Thoát</u></i></a>
+
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-3">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
+                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-thin fa-users"></i>
+                        <p>
+                            NGƯỜI DÙNG
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="~/NguoiDung/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tài Khoản Người Dùng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/NguoiDung/ADDNguoiDung" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đăng Ký Tài Khoản Mới</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-list fa-thin"></i>
+                        <p>
+                            SẢN PHẨM
+                            <i class="fas fa-angle-left right"></i>
+                            <span class="badge badge-info right">@ViewBag.ProductCount</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="~/Admin/Product/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh Sách Sản Phẩm</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/SanPham/ADDSanPham" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm Sản Phẩm Mới</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/SanPham/ThungRac" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thùng Rác</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-light fa-ticket"></i>
+                        <p>
+                            VOUCHER
+                            <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-info right">@ViewBag.VoucherCount</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="~/SanPham/KhoVoucher" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kho Voucher</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/SanPham/SanPham_ApDung_Voucher" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sản phẩm đã áp dụng</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-light fa-tag"></i>
+                        <p>
+                            HÓA ĐƠN
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="~/Admin/Bill/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Hóa đơn chưa xử lý</p>
+                                <span class="badge badge-info right">@ViewBag.PendingCount</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Admin/Bill/ProcessedBills" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Hóa đơn đang giao</p>
+                                <span class="badge badge-info right">@ViewBag.DeliveringCount</span>
+                            </a>
+                        </li>
+                        @* <li class="nav-item"> *@
+                        @*     <a href="~/SanPham/HoaDonDaGiao" class="nav-link"> *@
+                        @*         <i class="far fa-circle nav-icon"></i> *@
+                        @*         <p>Giao hàng thành công</p> *@
+                        @*         <span class="badge badge-info right">@ViewBag.CompletedCount</span> *@
+                        @*     </a> *@
+                        @* </li> *@
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="~/SanPham/ThongBao" class="nav-link">
+                        <i class="nav-icon fas fa-regular fa-bolt"></i>
+                        <p>
+                            THÔNG BÁO
+                            <span class="badge badge-info right">@ViewBag.PendingCount</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

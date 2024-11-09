@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Product>
+  
+@foreach (var item in Model)
+{
+    <!-- Categories Section Begin -->
+    <section class="categories spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="categories__text">
+                        <h2> Sip the Art, Taste the Craft <br /> <span> @item.Brand.BrandName </span> <br /> @item.TypeCoffee.TypeName</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="categories__hot__deal">
+                        <img src="img/@(item.Brand?.BrandName ?? "default")/@(item.TypeCoffee?.TypeName ?? "default")/@(item.Image ?? "default.jpg")" alt="">
+                        <div class="hot__deal__sticker">
+                            <span>Sale Of</span>
+                            <h5>@item.Discount%</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1">
+                    <div class="categories__deal__countdown">
+                        <span>Deal Of The Week</span>
+                        <h2>@item.ProductName</h2>
+                        <div class="categories__deal__countdown__timer" id="countdown"> </div>
+                        <a href="#" class="primary-btn">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+} 
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__pagination">
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <span>...</span>
+                            <a href="#">21</a>
+                        </div>
+                    </div>
+                </div>
+<script>
+    let clickCount = 0;
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function (event) {
+            event.preventDefault(); // Ngăn chặn chuyển hướng mặc định
+            const productId = this.getAttribute('data-product-id');
+
+            clickCount++;
+            console.log("Product ID: ", productId, " - Click count: ", clickCount);
+
+            fetch('/Home/AddToCart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productId) // Truyền productId trực tiếp thay vì một object
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Error adding to cart:', response.statusText);
+                } else {
+                    console.log('Product added to cart successfully');
+                }
+            })
+            .catch(error => console.error('Fetch error:', error));
+        });
+    });
+
+</script>

@@ -1,0 +1,94 @@
+﻿@model Dictionary<string, object>
+
+<div class="container mt-4">
+    <h2>Session Viewer</h2>
+
+    <div class="row mb-3">
+        <div class="col">
+            <form asp-action="ClearSession" method="post" style="display: inline">
+                <button type="submit" class="btn btn-danger"
+                        onclick="return confirm('Are you sure you want to clear all session data?')">
+                    Clear All Session
+                </button>
+            </form>
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">No session data found.</div>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div class="card mb-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">@item.Key</h5>
+                    <form asp-action="ClearSession" method="post" style="display: inline">
+                        <input type="hidden" name="key" value="@item.Key" />
+                        <button type="submit" class="btn btn-sm btn-warning"
+                                onclick="return confirm('Are you sure you want to clear this item?')">
+                            Clear
+                        </button>
+                    </form>
+                </div>
+                <div class="card-body">
+                    @if (item.Key == "cart")
+                    {
+                        var cart = item.Value as dynamic;
+                        <div>
+                            <p><strong>Total Items:</strong> @cart.ItemCount</p>
+                            <p><strong>Total Quantity:</strong> @cart.TotalQuantity</p>
+
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Product ID</th>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var cartItem in cart.Items)
+                                    {
+                                        <tr>
+                                            <td>@cartItem.Product_id</td>
+                                            <td>@cartItem.ProductName</td>
+                                            <td>@cartItem.Quantity</td>
+                                            <td>$@cartItem.Price</td>
+                                            <td>$@cartItem.Subtotal</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            <form asp-action="ClearCart" method="post" style="display: inline">
+                                <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure you want to clear the cart?')">
+                                    Clear Cart
+                                </button>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <pre>@JsonConvert.SerializeObject(item.Value, Formatting.Indented)</pre>
+                    }
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<style>
+    pre {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 4px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+</style>

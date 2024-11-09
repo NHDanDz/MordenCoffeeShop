@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Product>
+
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+        <div class="product__item sale"> 
+
+        <div class="product__item__pic set-bg" data-setbg="img/@(item.Brand?.BrandName ?? "default")/@(item.TypeCoffee?.TypeName ?? "default")/@(item.Image ?? "default.jpg")">
+                <span class="label">Sale</span> 
+                <ul class="product__hover">
+                    <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                    <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                    <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="product__item__text">
+                <h6>@item.ProductName</h6>
+                <a href="#" class="add-cart add-to-cart" data-product-id="@item.Product_id">+ Add To Cart</a>
+                <div class="rating">
+                    @{
+                        int fullStars = (int)(item.Rating / 20);
+                        bool hasHalfStar = (item.Rating % 20 >= 10);
+                    }
+                    @for (int i = 0; i < fullStars; i++)
+                    {
+                        <i class="fa fa-star"></i>
+                    }
+                    @if (hasHalfStar)
+                    {
+                        <i class="fa fa-star-o"></i>
+                    }
+                    <small>(@item.ReviewCount)</small> 
+                </div>
+                <h5>$ @(item.Price - (item.Price * item.Discount / 100))</h5>
+                <h6 class="text-muted ml-2"><del>$ @item.Price</del></h6>
+                <div class="product__color__select">
+                    <label for="pc-1">
+                        <input type="radio" id="pc-1">
+                    </label>
+                    <label class="active black" for="pc-2">
+                        <input type="radio" id="pc-2">
+                    </label>
+                    <label class="grey" for="pc-3">
+                        <input type="radio" id="pc-3">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    let clickCount = 0;
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function (event) {
+            event.preventDefault(); // Ngăn chặn chuyển hướng mặc định
+            const productId = this.getAttribute('data-product-id');
+
+            clickCount++;
+            console.log("Product ID: ", productId, " - Click count: ", clickCount);
+
+            fetch('/Home/AddToCart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productId) // Truyền productId trực tiếp thay vì một object
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Error adding to cart:', response.statusText);
+                } else {
+                    console.log('Product 
+                    to cart successfully');
+                }
+            })
+            .catch(error => console.error('Fetch error:', error));
+        });
+    });
+
+</script>

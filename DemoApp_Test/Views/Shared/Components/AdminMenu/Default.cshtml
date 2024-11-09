@@ -1,0 +1,41 @@
+﻿@model X.PagedList.IPagedList<DemoApp_Test.Models.HienThiSanPham>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix">
+            <div class="product__item" data-product-id="@item.Ten_Sanpham">
+                <div class="product__item__pic set-bg" data-setbg="@Url.Content("~/img/" + (item.Ten_Nhasanxuat ?? "default") + "/" + (item.Ten_loai ?? "default") + "/" + (item.Link1 ?? "default.jpg"))">
+                    <ul class="product__hover">
+                        <li><a href="#"><img src="~/img/icon/delete.png" alt=""> <span>Delete</span> </a></li>
+                        <li class="quick-view"><a href="#"><img src="~/img/icon/search.png" alt=""> <span>Detail</span></a></li>
+                    </ul>
+                </div>
+                <div class="product__item__text">
+                    <h6>@item.Ten_Sanpham</h6>
+                    <div class="rating">
+                        @{
+                            int fullStars = (int)(item.Rating / 20);
+                            bool hasHalfStar = (item.Rating % 20 >= 10);
+                        }
+                        @for (int i = 0; i < fullStars; i++)
+                        {
+                            <i class="fa fa-star" style="color: #FFD700;"></i>
+                        }
+                        @if (hasHalfStar)
+                        {
+                            <i class="fa fa-star-half-o" style="color: #FFD700;"></i>
+                        }
+                        @for (int i = fullStars + (hasHalfStar ? 1 : 0); i < 5; i++)
+                        {
+                            <i class="fa fa-star-o" style="color: #FFD700;"></i>
+                        }
+                        <small>(@item.ReviewCount)</small>
+                    </div>
+                    <h5>$ @(item.Giagoc - (item.Giagoc * item.Discount / 100))</h5>
+                    <h6 class="text-muted ml-2"><del>$ @item.Giagoc</del></h6>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,267 @@
+﻿@model CartItemViewModel
+@using DemoApp_Test.Models.ViewModels
+<style>
+    .product__cart__item__pic {
+        width: 100px; /* Thu nhỏ chiều rộng */
+        height: 100px; /* Thu nhỏ chiều cao */
+        overflow: hidden; /* Ẩn phần thừa của ảnh */
+    }
+
+    .quantity {
+        margin-left: -20px; /* Điều chỉnh số này để dịch nhiều hoặc ít hơn */
+    }
+    .product__cart__item__pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    }
+
+    /* Style cho nút tăng giảm số lượng */
+    .pro-qty-2 {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+    .quantity-btn {
+        padding: 5px 12px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .quantity-input {
+        width: 50px;
+        text-align: center;
+        border: none;
+        padding: 5px;
+    }
+
+    .quantity-input::-webkit-inner-spin-button,
+    .quantity-input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+
+
+<!-- Shopping Cart Section Begin -->
+<section class="shopping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="shopping__cart__table">
+                    @if (Model.CartItems.Any())
+                    {
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.CartItems)
+                                {
+                                    <tr data-product-id="@item.Product_id">
+                                        <td class="product__cart__item">
+                                            <div class="product__cart__item__pic">
+                                                <img src="@Url.Content($"~/img/{item.Brand}/{item.TypeCoffee}/{item.Image}")"
+                                                     alt="@item.ProductName">
+                                            </div> 
+                                            <div class="product__cart__item__text">
+                                                <h6>@item.ProductName</h6>
+                                                <h5>$@item.Price.ToString("N2")</h5>
+                                            </div>
+                                        </td>
+                                        <td class="quantity__item">
+                                            <div class="quantity">
+                                                <div class="pro-qty-2">
+                                                    <button class="quantity-btn minus"
+                                                            data-product-id="@item.Product_id">
+                                                        -
+                                                    </button>
+
+                                                    <input type="number" value="@item.Quantity"
+                                                           min="1" class="quantity-input">
+                                                    </input>
+
+                                                    <button class="quantity-btn plus"
+                                                            data-product-id="@item.Product_id">
+                                                        +
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="cart__price">$@((item.Price * item.Quantity).ToString("N2"))</td>
+                                        <td class="cart__close">
+                                            <i class="fa fa-close remove-item" data-product-id="@item.Product_id"></i>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="continue__btn">
+                                    <a href="@Url.Action("Menu", "Home")">Continue Shopping</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="continue__btn update__btn">
+                                    <a href="#" id="updateCart">
+                                        <i class="fa fa-spinner"></i> Update cart
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <h4>Your cart is empty</h4>
+                            <a href="@Url.Action("Menu", "Home")" class="btn btn-primary mt-3">
+                                Continue Shopping
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart__discount">
+                    <h6>Discount codes</h6>
+                    <form action="#">
+                        <input type="text" placeholder="Coupon code">
+                        <button type="submit">Apply</button>
+                    </form>
+                </div>
+                <div class="cart__total">
+                    <h6>Cart total</h6>
+                    <ul>
+                        <li>Subtotal <span>$@Model.TongTien.ToString("N2")</span></li>
+                        <li>Total <span>$@Model.TongTien.ToString("N2")</span></li>
+                    </ul>
+                    <a href="@Url.Action("Checkout", "Home")" class="primary-btn">
+                        Proceed to checkout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shopping Cart Section End --> 
+
+<script>
+    $(document).ready(function() {
+       // Xử lý tăng giảm số lượng
+       $('.quantity-btn').click(function(e) {
+           e.preventDefault();
+           var $button = $(this);
+           var $row = $button.closest('tr');
+           var input = $button.siblings('.quantity-input');
+           var currentValue = parseInt(input.val());
+           var productId = $button.data('product-id');
+           var price = parseFloat($row.find('.product__cart__item__text h5').text().replace('$', ''));
+
+           if ($button.hasClass('minus') && currentValue > 1) {
+               currentValue -= 1;
+           } else if ($button.hasClass('plus')) {
+               currentValue += 1;
+           }
+
+           input.val(currentValue);
+
+           // Cập nhật giá tiền của sản phẩm
+           var newTotal = (price * currentValue).toFixed(2);
+           $row.find('.cart__price').text('$' + newTotal);
+
+           updateCartItem(productId, currentValue);
+       });
+
+       // Xử lý xóa sản phẩm
+       $('.remove-item').click(function() {
+           var $button = $(this);
+           var $row = $button.closest('tr');
+           var productId = $button.data('product-id');
+            
+               $.ajax({
+                   url: '@Url.Action("RemoveFromCart", "Home")',
+                   type: 'POST',
+                   contentType: 'application/json',
+                   data: JSON.stringify(productId),
+                   success: function(response) {
+                       if (response.success) {
+                           // Xóa dòng sản phẩm
+                           $row.fadeOut(300, function() {
+                               $(this).remove();
+                               // Kiểm tra nếu giỏ hàng trống
+                               if ($('.shopping__cart__table tbody tr').length === 0) {
+                                   // Hiển thị thông báo giỏ hàng trống
+                                   $('.shopping__cart__table').html(`
+                                       <div class="text-center py-5">
+                                           <h4>Your cart is empty</h4>
+                                           <a href="@Url.Action("Menu", "Home")" class="btn btn-primary mt-3">
+                                               Continue Shopping
+                                           </a>
+                                       </div>
+                                   `);
+                               }
+                               updateTotalPrice();
+ 
+                           });
+                       } else {
+                           alert('Failed to remove item');
+                       }
+                   },
+                   error: function(xhr, status, error) {
+                       console.error('Error:', error);
+                       alert('Error removing item');
+                   }
+               });
+           
+       });
+
+       function updateCartItem(productId, quantity) {
+           $.ajax({
+               url: '@Url.Action("UpdateCart", "Home")',
+               type: 'POST',
+               contentType: 'application/json',
+               data: JSON.stringify({ productId: productId, quantity: quantity }),
+               success: function(response) {
+                   if (response.success) {
+                       // Cập nhật tổng tiền
+                       updateTotalPrice();
+ 
+                   } else {
+                       alert('Failed to update cart');
+                   }
+               },
+               error: function(xhr, status, error) {
+                   console.error('Error:', error);
+                   alert('Error updating cart');
+               }
+           });
+       }
+ 
+       function updateTotalPrice() {
+           // Tính tổng tiền mới
+           var total = 0;
+           $('.cart__price').each(function() {
+               var price = parseFloat($(this).text().replace('$', ''));
+               total += price;
+           });
+
+           // Cập nhật hiển thị tổng tiền
+           total = total.toFixed(2);
+           $('.cart__total ul li span').text('$' + total);
+           $('.header__nav__option .price, .offcanvas__nav__option .price').text('$' + total);
+
+       }
+    });
+</script>

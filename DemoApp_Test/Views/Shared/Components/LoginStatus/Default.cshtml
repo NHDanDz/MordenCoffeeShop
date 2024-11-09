@@ -1,0 +1,44 @@
+﻿<style>
+    .custom-align-right {
+        margin-left: auto;
+    }
+</style>
+<div class="custom-align-right">
+    <!-- Nội dung phần điều kiện ở đây -->
+
+    @if (ViewBag.ConfirmLogin)
+    {
+        <!-- Hiển thị khi người dùng đã đăng nhập -->
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <img src="~/Theme/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow img-fluid" alt="User Image" style="max-width: 30px; max-height: 30px;">
+                <span class="d-none d-md-inline">@ViewBag.UserName</span>
+            </a>
+            <div class="dropdown-menu">
+                @Html.ActionLink("Logout", "Login", "Home", null, new { @class = "dropdown-item" })
+            </div>
+        </div>  
+    }
+    else
+    {
+        <!-- Hiển thị nút Login khi người dùng chưa đăng nhập -->
+        @Html.ActionLink("Login", "Login", "Home", null, new { @class = "nav-item nav-link" })
+    }
+</div>
+
+
+<script>
+    document.querySelector('.nav-item.dropdown').addEventListener('mouseover', function () {
+        let dropdownToggle = this.querySelector('.dropdown-toggle');
+        let dropdownMenu = this.querySelector('.dropdown-menu');
+        dropdownToggle.classList.add('show');
+        dropdownMenu.classList.add('show');
+    });
+
+    document.querySelector('.nav-item.dropdown').addEventListener('mouseleave', function () {
+        let dropdownToggle = this.querySelector('.dropdown-toggle');
+        let dropdownMenu = this.querySelector('.dropdown-menu');
+        dropdownToggle.classList.remove('show');
+        dropdownMenu.classList.remove('show');
+    });
+</script>

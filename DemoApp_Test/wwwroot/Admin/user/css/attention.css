@@ -1,0 +1,53 @@
+.attention-component {
+	width: 100%;
+	padding: 20px;
+	max-width: 400px;
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10000
+}
+
+	.attention-component * {
+		margin: 0;
+		padding: 0;
+	}
+
+	.attention-component .inner {
+		overflow: hidden;
+		position: relative;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.16),0 1px 3px rgba(0,0,0,0.13)
+	}
+
+	.attention-component .inner-container {
+		padding: 20px;
+		background-color: #fff
+	}
+
+	.attention-component .head {
+		padding: 10px 40px 10px 20px;
+		background-color: #ff0000;
+	}
+
+	.attention-component .close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		display: inline-block;
+		margin-bottom: 10px;
+		cursor: pointer
+	}
+
+		.attention-component .close path:first-child {
+			fill: #fff
+		}
+
+	.attention-component .title {
+		font-size: 16px;
+		color: #fff
+	}
+
+	.attention-component .content {
+		font-size: 14px
+	}

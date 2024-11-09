@@ -1,0 +1,635 @@
+﻿@model ProductPaginationViewModel
+ 
+<<!-- Trong view của bạn -->
+<style>
+    /* Modal styles */
+    .modal-content {
+        border: none;
+        border-radius: 15px;
+    }
+
+    .modal-body {
+        padding: 30px;
+    }
+
+    .modal .close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 24px;
+        z-index: 1;
+        opacity: 0.7;
+        transition: all 0.3s;
+    }
+
+        .modal .close:hover {
+            opacity: 1;
+        }
+
+    /* Product Image */
+    .product__details__pic {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .product__details__pic img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+    /* Product Details */
+    .product__details__text h4 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #111111;
+    }
+
+    .product__details__price {
+        font-size: 30px;
+        color: #e53637;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    /* Options Styling */
+    .product__details__options {
+        margin-bottom: 30px;
+    }
+
+    .option-title {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        color: #111111;
+        margin-bottom: 10px;
+    }
+
+    .custom-select {
+        width: 100%;
+        height: 45px;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 0 15px;
+        font-size: 15px;
+        color: #444444;
+        transition: all 0.3s;
+    }
+
+        .custom-select:focus {
+            border-color: #e53637;
+            box-shadow: none;
+            outline: none;
+        }
+
+    /* Quantity Input */
+    .pro-qty-2 {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .quantity-btn {
+        width: 45px;
+        height: 45px;
+        border: none;
+        background: none;
+        font-size: 18px;
+        color: #111111;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+        .quantity-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+    .quantity-input {
+        width: 60px;
+        height: 45px;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        color: #111111;
+        background: transparent;
+    }
+
+    /* Add to Cart Button */
+    .primary-btn {
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 14px 32px;
+        color: #ffffff;
+        background: #e53637;
+        border: none;
+        border-radius: 8px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+        .primary-btn:hover {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .primary-btn i {
+            margin-right: 8px;
+        }
+
+    /* Rating */
+    .rating {
+        margin-bottom: 20px;
+    }
+
+        .rating i {
+            color: #e3c01c;
+            margin-right: 3px;
+        }
+
+    /* Responsive Styles */
+    @@media (max-width: 991px) {
+        .modal-dialog {
+            max-width: 95%;
+            margin: 20px auto;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .modal-body {
+            padding: 20px;
+        }
+
+        .product__details__text {
+            padding-top: 20px;
+        }
+    }
+</style>
+<div class="row">
+    @foreach (var item in Model.Products)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix">
+            <div class="product__item" data-product-id="@item.Product_id">
+                <div class="product__item__pic set-bg" data-setbg="@Url.Content("~/img/" + (item.Brand?.BrandName ?? "default") + "/" + (item.TypeCoffee?.TypeName ?? "default") + "/" + (item.Image ?? "default.jpg"))">
+                    <ul class="product__hover">
+                        <li><a href="#"><img src="~/img/icon/heart.png" alt=""></a></li>
+                        <li class="quick-view"><a href="#"><img src="~/img/icon/compare.png" alt=""> <span>Quick View</span></a></li>
+                        <li><a href="#"><img src="~/img/icon/search.png" alt=""></a></li>
+                    </ul>
+                </div>
+                <div class="product__item__text">
+                    <h6>@item.ProductName</h6>
+                    <a href="#" class="add-cart add-to-cart" data-product-id="@item.Product_id">+ Add To Cart</a>
+                    <div class="rating">
+                        @{
+                            int fullStars = (int)(item.Rating / 20);
+                            bool hasHalfStar = (item.Rating % 20 >= 10);
+                        }
+                        @for (int i = 0; i < fullStars; i++)
+                        {
+                            <i class="fa fa-star"></i>
+                        }
+                        @if (hasHalfStar)
+                        {
+                            <i class="fa fa-star-o"></i>
+                        }
+                        <small>(@item.ReviewCount)</small>
+                    </div>
+                    <h5>$ @(item.Price - (item.Price * item.Discount / 100))</h5>
+                    <h6 class="text-muted ml-2"><del>$ @item.Price</del></h6> 
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (Model.TotalPages > 0)
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="product__pagination">
+                @if (Model.CurrentPage > 1)
+                {
+                    <a href="#" class="page-link" data-page="@(Model.CurrentPage - 1)">&laquo;</a>
+                }
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    if (i == Model.CurrentPage)
+                    {
+                        <a class="active page-link" href="#" data-page="@i">@i</a>
+                    }
+                    else
+                    {
+                        <a href="#" class="page-link" data-page="@i">@i</a>
+                    }
+                }
+
+                @if (Model.CurrentPage < Model.TotalPages)
+                {
+                    <a href="#" class="page-link" data-page="@(Model.CurrentPage + 1)">&raquo;</a>
+                }
+            </div>
+        </div>
+    </div>
+}
+<!-- Modal Quick View -->
+<div class="modal fade" id="productQuickView" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="product__details__pic">
+                            <img id="modal-product-image" class="img-fluid" src="" alt="">
+                            <h5 id= "model-price"></h5>
+                            <h6 class="text-muted ml-2"><del id = "model-price-origin" ></del</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="product__details__text">
+                            <h4 id="modal-product-name"></h4>
+                            <div class="rating" id="modal-rating">
+                                <!-- Rating sẽ được thêm bằng JavaScript -->
+                            </div>
+
+                            <!-- Giá sản phẩm -->
+                            <div class="product__details__price" id="modal-product-price"></div>
+
+                            <!-- Tùy chọn sản phẩm -->
+                            <div class="product__details__options">
+                                <!-- Size -->
+                                <div class="product__details__option mb-4">
+                                    <label class="option-title">Size:</label>
+                                    <div class="size-options">
+                                        <select id="size-option" class="custom-select">
+                                            <!-- Options sẽ được thêm bằng JavaScript -->
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Đá -->
+                                <div class="product__details__option mb-4">
+                                    <label class="option-title">Ice Level:</label>
+                                    <div class="ice-options">
+                                        <select id="ice-option" class="custom-select">
+                                            <!-- Options sẽ được thêm bằng JavaScript -->
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Đường -->
+                                <div class="product__details__option mb-4">
+                                    <label class="option-title">Sugar Level:</label>
+                                    <div class="sugar-options">
+                                        <select id="sugar-option" class="custom-select">
+                                            <!-- Options sẽ được thêm bằng JavaScript -->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Số lượng và nút thêm vào giỏ hàng -->
+                            <div class="product__details__cart">
+                                <div class="quantity mb-4">
+                                    <label class="option-title">Quantity:</label>
+                                    <div class="pro-qty-2">
+                                        <button class="quantity-btn minus">-</button>
+                                        <input type="number" value="1" min="1" class="quantity-input">
+                                        <button class="quantity-btn plus">+</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="primary-btn" id="modal-add-to-cart">
+                                    <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="~/js/jquery-3.6.0.min.js"></script>
+
+<script src="~/js/bootstrap.min.js"></script>
+
+
+
+<script>
+
+    $(document).ready(function() {
+        $('.quick-view a').click(function(e) {
+            e.preventDefault();
+            var $productItem = $(this).closest('.product__item');
+            var productId = $productItem.data('product-id');
+
+            console.log('Quick view clicked for product:', productId);
+
+            $.ajax({
+                url: '/Home/GetProductDetails',
+                type: 'GET',
+                data: { id: productId },
+                success: function(response) {
+                    console.log('Product data:', response);
+
+                    // Cập nhật thông tin cơ bản
+                    $('#modal-product-name').text(response.productName);
+                    $('#modal-product-image').attr('src', response.imageUrl);
+                    $('#modal-add-to-cart').data('product-id', productId);
+                    $('#model-price').text('$' + response.price.toFixed(2));
+                    $('#model-price-origin').text('$' + response.originalPrice.toFixed(2));
+
+                    // Cập nhật rating
+                    var ratingHtml = '';
+                    var fullStars = Math.floor(response.rating / 20);
+                    var hasHalfStar = (response.rating % 20) >= 10;
+
+                    for (var i = 0; i < fullStars; i++) {
+                        ratingHtml += '<i class="fa fa-star"></i>';
+                    }
+                    if (hasHalfStar) {
+                        ratingHtml += '<i class="fa fa-star-half-o"></i>';
+                    }
+                    ratingHtml += `<small>(${response.reviewCount})</small>`;
+                    $('#modal-rating').html(ratingHtml);
+
+                    // Cập nhật size options
+                    var sizeSelect = $('#size-option');
+                    sizeSelect.empty();
+                    if (response.sizes) {
+                        response.sizes.forEach(function(size) {
+                            sizeSelect.append($('<option>', {
+                                value: size.sizeId,
+                                text: size.sizeDetail,
+                                'data-price': size.price
+                            }));
+                        });
+                    }
+                    updatePrice(); // Cập nhật giá ban đầu
+
+                    // Cập nhật ice options
+                    var iceSelect = $('#ice-option');
+                    iceSelect.empty();
+                    if (response.iceOptions) {
+                        response.iceOptions.forEach(function(ice) {
+                            iceSelect.append($('<option>', {
+                                value: ice.iceId,
+                                text: ice.iceDetail
+                            }));
+                        });
+                    }
+
+                    // Cập nhật sugar options
+                    var sugarSelect = $('#sugar-option');
+                    sugarSelect.empty();
+                    if (response.sugarOptions) {
+                        response.sugarOptions.forEach(function(sugar) {
+                            sugarSelect.append($('<option>', {
+                                value: sugar.sugarId,
+                                text: sugar.sugarDetail
+                            }));
+                        });
+                    }
+
+                    // Reset số lượng
+                    $('.quantity-input').val(1);
+
+                    // Hiển thị modal
+                    $('#productQuickView').modal('show');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching product details:', error);
+                    alert('Không thể tải thông tin sản phẩm');
+                }
+            });
+        });
+
+    function updatePrice() {
+        var selectedOption = $('#size-option option:selected');
+        var price = selectedOption.data('price');
+        var price = selectedOption.data('price');
+
+        // Kiểm tra giá trị của price trước khi gọi toFixed()
+        if (typeof price !== 'undefined' && price !== null) {
+            $('#modal-product-price').text('$' + price.toFixed(2));
+        } else {
+            // Nếu price không hợp lệ, thì hiển thị thông báo khác
+            $('#modal-product-price').text('N/A');
+        } 
+    }
+        $('#size-option').change(updatePrice);
+
+        // Xử lý nút tăng giảm số lượng
+        $('.quantity-btn').click(function() {
+            var input = $(this).siblings('.quantity-input');
+            var value = parseInt(input.val());
+
+            if ($(this).hasClass('minus') && value > 1) {
+                input.val(value - 1);
+            } else if ($(this).hasClass('plus')) {
+                input.val(value + 1);
+            }
+        });
+
+        // Xử lý thêm vào giỏ hàng
+        $('#modal-add-to-cart').click(function(e) {
+            e.preventDefault();
+            var productId = $(this).data('product-id');
+            var sizeId = $('#size-option').val();
+            var iceId = $('#ice-option').val();
+            var sugarId = $('#sugar-option').val();
+            var quantity = $('.quantity-input').val();
+
+            var data = {
+                productId: productId,
+                sizeId: sizeId,
+                iceId: iceId,
+                sugarId: sugarId,
+                quantity: parseInt(quantity)
+            };
+
+            console.log('Adding to cart:', data);
+
+            $.ajax({
+                url: '/Home/AddToCart',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function(response) {
+                    if (response.success) {
+                        $('#productQuickView').modal('hide');
+                        showToast('Đã thêm vào giỏ hàng!');
+                        // Cập nhật số lượng trong giỏ hàng
+                        updateCartHeader(response.totalQuantity, response.totalPrice);
+                    } else {
+                        showToast('Có lỗi xảy ra', 'error');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error adding to cart:', error);
+                    showToast('Không thể thêm vào giỏ hàng', 'error');
+                }
+            });
+        });
+    });
+
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = `toast ${type} show`;
+        setTimeout(() => {
+            toast.className = 'toast';
+        }, 3000);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const productSection = document.querySelector('#product-section');
+
+        // Function để set background images
+        function initSetBg() {
+            const setBg = document.querySelectorAll('.set-bg');
+            setBg.forEach(function (item) {
+                const bg = item.getAttribute('data-setbg');
+                item.style.backgroundImage = `url(${bg})`;
+            });
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type} show`;
+            setTimeout(() => {
+                toast.className = 'toast';
+            }, 3000);
+        }
+
+        function initAddToCart() {
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                // Kiểm tra xem button đã có event listener chưa
+                if (!button.hasAttribute('data-initialized')) {
+                    button.setAttribute('data-initialized', 'true');
+
+                    button.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        const productId = this.getAttribute('data-product-id');
+                        const button = this;
+
+                        // Thêm loading state
+                        button.classList.add('loading');
+                        button.innerHTML = 'Adding...';
+
+                        fetch('/Home/AddToCart', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(productId)
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Error adding to cart');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            showToast('Product added to cart successfully!');
+
+                            if (document.querySelector('.cart-count')) {
+                                document.querySelector('.cart-count').textContent = data.cartCount;
+                            }
+
+    button.innerHTML = '<span style="color: green;">&#10004;</span> Added Successfully';
+                                      button.style.color = 'green';
+
+                            setTimeout(() => { 
+                                button.innerHTML = '+ Add To Cart';
+                                button.style.color = 'red';
+
+                            }, 1500);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            showToast('Failed to add product to cart', 'error');
+                            button.classList.remove('loading');
+                            button.innerHTML = '+ Add To Cart';
+                        });
+                    });
+                }
+            });
+        }
+
+        // Chạy lần đầu
+        initSetBg();
+        initAddToCart();
+
+        // Xử lý phân trang
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('page-link')) {
+                e.preventDefault();
+                const page = e.target.getAttribute('data-page');
+
+                fetch(`/Home/LoadProducts?page=${page}`)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.text();
+                    })
+                    .then(html => {
+                        productSection.innerHTML = html;
+                        // Quan trọng: Khởi tạo lại cả background và add-to-cart
+                        initSetBg();
+                        initAddToCart();
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        });
+    });
+</script>
+
+<style>
+    .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #333;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 5px;
+        display: none;
+        z-index: 1000;
+    }
+
+        .toast.success {
+            background: #4CAF50;
+        }
+
+        .toast.show {
+            display: block;
+            animation: fadeIn 0.5s, fadeOut 0.5s 2.5s forwards;
+        }
+         
+         
+
+    .add-to-cart {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+
+        .add-to-cart.success {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .add-to-cart.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+</style>

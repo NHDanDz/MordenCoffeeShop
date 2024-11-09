@@ -1,0 +1,171 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MenuViewModel
+
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion">
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" >
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__type">
+                                            <ul>
+
+                                                @foreach (var item in @Model.TypeCoffee)
+                                                {
+                                                    <label for="@item.Type_id">
+                                                        @item.TypeName
+                                                        <input type="radio" id="@item.Type_id" name="type" value="@item.Type_id">
+                                                    </label>
+                                                }
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+                                </div>
+                                <div id="collapseTwo" class="collapse show" >
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__brand">
+                                            <ul>
+                                                @foreach (var item in @Model.Brand)
+                                                { 
+                                                    <label for="@item.Brand_id">
+                                                        @item.BrandName
+                                                        <input type="radio" id="@item.Brand_id" name="brand" value="@item.Brand_id">
+                                                    </label>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                </div>
+                                <div id="collapseThree" class="collapse show"  >
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price"> 
+                                                <label for="price1">
+                                                    $0.00 - $5.00
+                                                    <input type="radio" id="price1" name="price" value="0-5">
+                                                </label>
+                                                <label for="price2">
+                                                    $5.00 - $10.00
+                                                    <input type="radio" id="price2" name="price" value="5-10">
+                                                </label>
+                                                <label for="price3">
+                                                    $10.00 - $15.00
+                                                    <input type="radio" id="price3" name="price" value="10-15">
+                                                </label>
+                                                <label for="price4">
+                                                    $15.00 - $20.00
+                                                    <input type="radio" id="price4" name="price" value="15-20">
+                                                </label>
+                                                <label for="price5">
+                                                    $20.00 - $25.00
+                                                    <input type="radio" id="price5" name="price" value="20-25">
+                                                </label>
+                                                <label for="price6">
+                                                    $25.00+
+                                                    <input type="radio" id="price6" name="price" value="25+">
+                                                </label> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseFour">Size</a>
+                                </div>
+                                <div id="collapseFour" class="collapse show">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__size">
+                                            @foreach (var item in @Model.Size)
+                                            {
+                                                <label for="@item.SizeDetail">
+                                                    @item.SizeDetail
+                                                    <input type="radio" id="@item.SizeDetail" name="size" value="@item.SizeDetail">
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                                <p>Showing 1–12 of @Model.Product.Count() results</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__right">
+                                <p>Sort by Price:</p>
+                                <select>
+                                    <option value="">Low To High</option>
+                                    <option value="">$0 - $55</option>
+                                    <option value="">$55 - $100</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="product-section">
+
+                @await Component.InvokeAsync("CategoriesMenu")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+<script>
+    document.querySelectorAll('.shop__sidebar__price input[type="radio"], .shop__sidebar__size input[type="radio"], .shop__sidebar__type input[type="radio"], .shop__sidebar__brand input[type="radio"]').forEach(radio => {
+        radio.addEventListener('click', function() {
+            // Kiểm tra nếu radio button đã được chọn (tức là đang active)
+            if (this.closest('label').classList.contains('active')) {
+                // Nếu đang active, gỡ class "active"
+                this.closest('label').classList.remove('active');
+                this.checked = false; // bỏ chọn radio button
+            } else {
+                // Nếu không, gỡ bỏ class "active" khỏi tất cả nhãn cùng nhóm
+                document.querySelectorAll(`input[name="${this.name}"]`).forEach(input => {
+                    input.closest('label').classList.remove('active');
+                });
+                // Thêm class "active" vào nhãn của radio button vừa được chọn
+                this.closest('label').classList.add('active');
+            }
+        });
+    });
+
+</script>
