@@ -1,160 +1,215 @@
-﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <style>
-        /* Màu chữ trắng cho tất cả text trong navigation */
-        .nav-sidebar .nav-link p,
-        .nav-sidebar .nav-link i,
-        .nav-sidebar .nav-treeview .nav-link p,
-        .nav-sidebar .nav-treeview .nav-link i {
-            color: #ffffff !important;
-        }
-
-        /* Đảm bảo màu chữ trắng cho badge */
-        .nav-sidebar .badge-info {
-            color: #ffffff !important;
-        }
-    </style>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="~/img/logo.png" class="brand-image img-square elevation-3" alt="User Image" style="opacity: .8">
+﻿<div class="modern-header">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="header-left">
+                <span class="header-text">
+                    <i class="fas fa-shipping-fast me-2"></i>
+                    Miễn phí ship trên toàn quốc
+                </span>
             </div>
-            <div class="info">
-                <b style="color: aqua">Admin, @ViewBag.Username</b>
-                <br />&ensp; &ensp;&ensp; &ensp;&ensp; &ensp;&ensp;
-                <a href="~/Login/Login/Logout"><i><u style="color: white">Thoát</u></i></a>
+            <div class="header-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="user-menu">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                                <div class="user-info">
+                                    <div class="avatar">
+                                        <img src="~/Login/images/img-02.jpg" alt="avatar">
+                                        <span class="status"></span>
+                                    </div>
+                                    <span class="username">@User.Identity.Name</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu">
+                                @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+                                {
+                                    <a class="dropdown-item admin-link" href="/Admin">
+                                        <i class="fas fa-user-shield me-2"></i>Quản trị viên
+                                    </a>
+                                    <div class="dropdown-divider admin-divider"></div>
+                                }
+                                <a class="dropdown-item" href="@Url.Action("Profile", "Account")">
+                                    <i class="fas fa-user me-2"></i>Tài khoản của tôi
+                                </a>
+                                <a class="dropdown-item" href="@Url.Action("OrderHistory", "Account")">
+                                    <i class="fas fa-shopping-bag me-2"></i>Đơn hàng
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/Login/Login/Logout">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a href="@Url.Action("Index", "Login", new { area = "Login", returnUrl = Context.Request.Path })" class="auth-link">
+                        <i class="fas fa-user me-1"></i> Đăng nhập
+                    </a>
 
+                } 
+                <a href="/Home/faq" class="help-link">
+                    <i class="fas fa-question-circle me-1"></i> Hỗ trợ
+                </a>
             </div>
         </div>
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-3">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
-                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link ">
-                        <i class="nav-icon fas fa-thin fa-users"></i>
-                        <p>
-                            NGƯỜI DÙNG
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="~/NguoiDung/Index" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Tài Khoản Người Dùng</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="~/NguoiDung/ADDNguoiDung" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Đăng Ký Tài Khoản Mới</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-list fa-thin"></i>
-                        <p>
-                            SẢN PHẨM
-                            <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">@ViewBag.ProductCount</span>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="~/Admin/Product/Index" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh Sách Sản Phẩm</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="~/SanPham/ADDSanPham" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm Sản Phẩm Mới</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="~/SanPham/ThungRac" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Thùng Rác</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-light fa-ticket"></i>
-                        <p>
-                            VOUCHER
-                            <i class="right fas fa-angle-left"></i>
-                            <span class="badge badge-info right">@ViewBag.VoucherCount</span>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="~/SanPham/KhoVoucher" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kho Voucher</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="~/SanPham/SanPham_ApDung_Voucher" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sản phẩm đã áp dụng</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-light fa-tag"></i>
-                        <p>
-                            HÓA ĐƠN
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="~/Admin/Bill/Index" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Hóa đơn chưa xử lý</p>
-                                <span class="badge badge-info right">@ViewBag.PendingCount</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="~/Admin/Bill/ProcessedBills" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Hóa đơn đang giao</p>
-                                <span class="badge badge-info right">@ViewBag.DeliveringCount</span>
-                            </a>
-                        </li>
-                        @* <li class="nav-item"> *@
-                        @*     <a href="~/SanPham/HoaDonDaGiao" class="nav-link"> *@
-                        @*         <i class="far fa-circle nav-icon"></i> *@
-                        @*         <p>Giao hàng thành công</p> *@
-                        @*         <span class="badge badge-info right">@ViewBag.CompletedCount</span> *@
-                        @*     </a> *@
-                        @* </li> *@
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="~/SanPham/ThongBao" class="nav-link">
-                        <i class="nav-icon fas fa-regular fa-bolt"></i>
-                        <p>
-                            THÔNG BÁO
-                            <span class="badge badge-info right">@ViewBag.PendingCount</span>
-                        </p>
-                    </a>
-                </li>
-            </ul>
-        </nav>
     </div>
-</aside>
+</div>
+
+<style>
+    .dropdown-item.admin-link {
+        color: #e74c3c;
+        font-weight: 500;
+    }
+
+        .dropdown-item.admin-link:hover {
+            background-color: #fef2f2;
+            color: #c0392b;
+        }
+
+        .dropdown-item.admin-link i {
+            color: #e74c3c;
+        }
+
+    /* Divider styling for admin section */
+    .admin-divider {
+        margin: 4px 0;
+        border-top: 2px solid #f1f1f1;
+    }
+    .modern-header {
+        background: #2c3e50;
+        padding: 10px 0;
+        color: #fff;
+    }
+
+    .header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-text {
+        font-size: 14px;
+        color: #ecf0f1;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* User Menu Styling */
+    .user-menu .dropdown-toggle {
+        text-decoration: none;
+        color: #fff;
+    }
+
+        .user-menu .dropdown-toggle::after {
+            display: none;
+        }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 10px;
+        border-radius: 25px;
+        transition: background-color 0.3s;
+    }
+
+        .user-info:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+    .avatar {
+        position: relative;
+        width: 32px;
+        height: 32px;
+    }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+    .status {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 8px;
+        height: 8px;
+        background-color: #2ecc71;
+        border-radius: 50%;
+        border: 2px solid #2c3e50;
+    }
+
+    .username {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /* Dropdown Menu Styling */
+    .dropdown-menu {
+        margin-top: 10px;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        padding: 8px 0;
+    }
+
+    .dropdown-item {
+        padding: 8px 20px;
+        font-size: 14px;
+        color: #2c3e50;
+        transition: background-color 0.2s;
+    }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #16a085;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            color: #95a5a6;
+        }
+
+    /* Currency Selector Styling */
+    .currency-selector .form-select {
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        padding-right: 20px;
+    }
+
+        .currency-selector .form-select:focus {
+            box-shadow: none;
+            border: none;
+        }
+
+        .currency-selector .form-select option {
+            background-color: #fff;
+            color: #2c3e50;
+        }
+
+    /* Auth and Help Links */
+    .auth-link, .help-link {
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s;
+    }
+
+        .auth-link:hover, .help-link:hover {
+            color: #3498db;
+        }
+         
+</style>

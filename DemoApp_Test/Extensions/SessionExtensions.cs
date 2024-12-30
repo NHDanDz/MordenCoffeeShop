@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace DemoApp_Test.Extensions // Đảm bảo namespace này phù hợp với project của bạn
+namespace DemoApp_Test.Extensions  
 {
     public static class SessionExtensions
     {

@@ -15,12 +15,12 @@ namespace DemoApp_Test.Models
 
         [Required(ErrorMessage = "Giá sản phẩm là bắt buộc")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Giá phải lớn hơn 0")]
-        public float Price { get; set; } // Khớp với kiểu FLOAT trong bảng
+        public double Price { get; set; } // Khớp với kiểu double trong bảng
 
         public string? BrandId { get; set; } // Thay đổi thành string vì CHAR(10)
 
         [Range(0, 5, ErrorMessage = "Đánh giá phải từ 0 đến 5")]
-        public float? Rating { get; set; }
+        public double? Rating { get; set; }
 
         public int? ReviewCount { get; set; }
 

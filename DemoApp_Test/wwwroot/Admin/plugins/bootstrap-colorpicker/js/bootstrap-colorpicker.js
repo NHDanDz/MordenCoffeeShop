@@ -1283,7 +1283,8 @@ exports.default = {
   /**
    * If true, the alpha channel bar will be displayed no matter what.
    *
-   * If false, it will be always hidden and alpha channel will be disabled also programmatically, meaning that
+   * If false, it will be always hidden and alpha channel will be disabled also 
+   * matically, meaning that
    * the selected or typed color will be always opaque.
    *
    * If null, the alpha channel will be automatically disabled/enabled depending if the initial color format supports

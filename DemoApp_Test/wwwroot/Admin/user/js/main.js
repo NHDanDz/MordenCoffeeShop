@@ -1,4 +1,16 @@
+console.log("main.js loaded");
 
+
+document.getElementById('myForm').addEventListener('submit', function (event) {
+    const passwordInput = document.getElementById('password');
+    const passwordValue = passwordInput.value;
+
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$/;
+    if (!regex.test(passwordValue)) {
+        event.preventDefault();
+        alert('Password must contain at least one letter, one digit, and be at least 6 characters long.');
+    }
+});
 $(document).ready(function(){
 	"use strict";
 

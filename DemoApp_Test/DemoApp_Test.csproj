@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -6,13 +6,23 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <Compile Remove="NHDanDz\**" />
     <Compile Remove="wwwroot\Fanpage\img\**" />
+    <Content Remove="NHDanDz\**" />
     <Content Remove="wwwroot\Fanpage\img\**" />
+    <EmbeddedResource Remove="NHDanDz\**" />
     <EmbeddedResource Remove="wwwroot\Fanpage\img\**" />
+    <None Remove="NHDanDz\**" />
     <None Remove="wwwroot\Fanpage\img\**" />
   </ItemGroup>
   
   <ItemGroup>
+    <Content Remove="Views\Shared\_EmailVerification.cshtml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="C:\Users\satia\source\repos\NHDanDz\DemoApp_Test\DemoApp_Test\Models\.editorconfig" />
+    <None Include="wwwroot\css\OrderHistory.css" />
     <None Include="wwwroot\img\Gongcha\.DS_Store" />
     <None Include="wwwroot\img\Gongcha\Ice-blended\.DS_Store" />
     <None Include="wwwroot\img\Gongcha\Milk Tea\.DS_Store" />
@@ -38,6 +48,8 @@
   </ItemGroup>
   
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="MailKit" Version="4.9.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
       <PrivateAssets>all</PrivateAssets>
@@ -50,6 +62,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.SqlServer.Server" Version="1.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+    <PackageReference Include="MimeKit" Version="4.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Serilog" Version="4.1.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
@@ -66,6 +79,11 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Login\Data\" />
-    <Folder Include="Areas\Login\Models\" />
+    <Folder Include="Haidang\" />
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\satia\source\repos\NHDanDz\DemoApp_Test\DemoApp_Test\Models\.editorconfig" />
   </ItemGroup>
 </Project>

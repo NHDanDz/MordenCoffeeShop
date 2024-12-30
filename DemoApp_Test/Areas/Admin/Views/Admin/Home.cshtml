@@ -1,0 +1,180 @@
+﻿@using Azure.Core
+@model DemoApp_Test.Models.ProductSearchViewModel
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    input::placeholder {
+        color: #A2A1A1 !important;
+    }
+
+    select.form-control {
+        color: #A2A1A1 !important; /* Màu văn bản của các tùy chọn */
+    }
+
+        select.form-control option {
+            color: #000000; /* Màu của các tùy chọn */
+        }
+</style>
+
+<style>
+    .tooltip-container {
+        position: relative;
+        display: inline-block;
+    }
+
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 125%; /* Vị trí của tooltip */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+</style>
+
+<div class="page-header" style="margin-bottom: 20px">
+    <h2 class="page-title">Product Categories</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Quản lý</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Quản lý Coffee</li>
+        </ol>
+    </nav>
+</div>
+<form class="d-flex flex-column" action="@Url.Action("ShowProduct", "Admin")" method="get">
+    <div class="d-flex align-items-center mb-3" style="width: 100%; gap: 10px;">
+        <!-- Tìm kiếm -->
+        <div class="input-group" style="flex: 1.45; margin-right: 30px">
+            <div class="input-group-prepend bg-transparent">
+                <i class="input-group-text border-0 mdi mdi-magnify" style="color: #000000; background: #ffffff;"></i>
+            </div>
+            <input type="text"
+                   class="form-control bg-transparent border-0"
+                   maxlength="30"
+                   style="color: #000000; background: #ffffff !important; font-size: 15px;"
+                   name="query"
+                   placeholder="Tìm kiếm theo tên sản phẩm"
+                   value="@Model?.Query" />
+        </div>
+
+        <!-- Giá tối thiểu -->
+        <div class="input-group" style="flex: 0.7;  margin-right: 05px" ">
+            <input type="number"
+                   class="form-control bg-transparent border-0"
+                   style="color: #000000; background: #ffffff !important; font-size: 15px;"
+                   name="minPrice"
+                   placeholder="Min Price"
+                   value="@Model?.MinPrice"
+                   min="0" max="1000" step="1" />
+        </div>
+
+        <!-- Giá tối đa -->
+        <div class="input-group" style="flex: 0.7;  margin-right: 30px" ">
+            <input type="number"
+                   class="form-control bg-transparent border-0"
+                   style="color: #000000; background: #ffffff !important; font-size: 15px;"
+                   name="maxPrice"
+                   placeholder="Max Price"
+                   value="@Model?.MaxPrice"
+                   min="0" max="1000" step="1" />
+        </div>
+
+        <!-- Thương hiệu -->
+        <div class="input-group" style="flex: 1; height: 47px !important;  font-size: 15px;">
+            <select asp-for="BrandId" class="form-control" asp-items="ViewBag.Brands" style="flex: 1; height: 47px !important ;  font-size: 15px;">
+                <option value="">All Brands</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center mb-3" style="width: 100%; gap: 10px;">
+
+        <!-- Rating tối thiểu -->
+        <div class="input-group" style="flex: 0.7;  margin-right: 05px" ">
+            <input type="number"
+                   class="form-control bg-transparent border-0"
+                   style="color: #000000; background: #ffffff !important; font-size: 15px;"
+                   name="minRate"
+                   placeholder="Min Rating"
+                   value="@Model?.MinRate"
+                   min="0" max="100" step="1" />
+        </div>
+
+        <!-- Rating tối đa -->
+        <div class="input-group" style="flex: 0.7;  margin-right: 30px" ">
+            <input type="number"
+                   class="form-control bg-transparent border-0"
+                   style="color: #000000; background: #ffffff !important; font-size: 15px;"
+                   name="maxRate"
+                   placeholder="Max Rating"
+                   value="@Model?.MaxRate"
+                   min="0" max="100" step="1" />
+        </div>
+        <!-- Discount tối thiểu -->
+        <div class="input-group" style="flex: 0.7;  margin-right: 05px" ">
+            <input type="number"
+                   class="form-control bg-transparent border-0"
+                   style="color: #000000; background: #ffffff !important; font-size: 15px;"
+                   name="minDiscount"
+                   placeholder="Min Discount"
+                   value="@Model?.MinDiscount"
+                   min="0" max="100" step="1" />
+        </div>
+
+        <!-- Discount tối đa -->
+        <div class="input-group" style="flex: 0.7;  margin-right: 30px" ">
+            <input type="number"
+                   class="form-control bg-transparent border-0"
+                   style="color: #000000; background: #ffffff !important; font-size: 15px;"
+                   name="maxDiscount"
+                   placeholder="Max Discount"
+                   value="@Model?.MaxDiscount"
+                   min="0" max="100" step="1" />
+        </div>
+        <!-- Thương hiệu -->
+        <div class="input-group" style="flex: 1; height: 47px !important ;  font-size: 15px;">
+            <select asp-for="TypeId" class="form-control" asp-items="ViewBag.TypeCoffees" style="flex: 1; height: 47px !important ;  font-size: 15px;">
+                <option value="">All Types</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <button type="submit" class="btn btn-gradient-success btn-fw" style="padding: 10px 0px 10px 0px !important; min-width: 120px !important">
+                <i class="mdi mdi-magnify"></i> Search
+            </button>
+            <button type="button" id="clearButton" class="btn btn-gradient-danger btn-fw" style="padding: 10px 0px 10px 0px !important; min-width: 120px !important; margin-left: 10px;">
+                <i class="mdi mdi-delete"></i> Clear
+            </button>
+        </div>
+        <div class="d-flex justify-content-end">
+            @* <p class="mb-0 me-2">Add new Product</p> *@
+            @* <a href="/Admin/Admin/Create" *@
+            @*    class="btn btn-gradient-info btn-rounded btn-icon d-flex justify-content-center align-items-center p-0" *@
+            @*    title="Add new product"> *@
+            @*     <i class="mdi mdi-plus"></i> *@
+            @* </a> *@
+            <button type="button" class="btn btn-outline-success btn-icon-text" style="padding: 10px 0px 10px 0px !important; min-width: 120px !important; margin-right: 8px">
+                <i class="fa fa-plus"></i> Create
+            </button>
+            <button type="button" id="bulkDeleteBtn" class="btn btn-outline-danger btn-icon-text" style="padding: 10px 0px 10px 0px !important; min-width: 120px !important">
+                <i class="fa fa-trash-o"></i> Delete
+            </button>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,265 @@
+﻿@page
+@model DemoApp_Test.Views.Home.AboutModel
+@{
+}
+
+<style>
+     
+    .breadcrumb-option {
+        padding: 80px 0;
+        position: relative;
+        min-height: 200px;
+    }
+
+    .breadcrumb__text {
+        position: relative;
+        z-index: 1;
+    }
+
+        .breadcrumb__text h4 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+    .breadcrumb__links a,
+    .breadcrumb__links span {
+        color: #ffffff;
+        font-size: 16px;
+    }
+
+        .breadcrumb__links a:hover {
+            color: #e53637;
+        }
+
+    /* Thêm overlay để text dễ đọc hơn trên background */
+    .breadcrumb-option::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+.team__item img {
+    max-width: 100%; /* Đảm bảo hình ảnh hiển thị đúng kích thước */
+    margin: 0 auto; /* Đảm bảo hình ảnh được căn giữa */
+}
+
+.team__item h4,
+.team__item span {
+    display: block;
+    margin-top: 10px; /* Thêm khoảng cách giữa các thành phần */
+}
+
+    .team__item img {
+        width: 100%; /* Chiều rộng tối đa bằng kích thước container */
+        max-width: 150px; /* Đặt chiều rộng tối đa cho ảnh */
+        height: auto; /* Đảm bảo tỉ lệ ảnh không bị biến dạng */
+        display: block; /* Loại bỏ khoảng cách thừa dưới ảnh */
+        margin: 0 auto; /* Căn giữa ảnh */
+    }
+
+</style>
+
+
+
+<!-- Breadcrumb Section Begin --> 
+<section class="breadcrumb-option" data-setbg="/img/hero/hero-11.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Giới Thiệu</h4>
+                    <div class="breadcrumb__links">
+                        <a asp-controller="Home" asp-action="Index">Trang Chủ</a>
+                        <span>Giới Thiệu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- About Section Begin -->
+<section class="about spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="about__pic">
+                    <img src="~/Menu/img/abou1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>Chúng tôi là ai ?</h4>
+                    <p style=" justify-content: left">
+                        Chúng tôi là một trong những doanh nghiệp tiên phong đưa đến tay người tiêu dùng những sản phẩm chất lượng từ các thương hiệu hàng đầu.
+                        <br>Không chỉ bán thức uống – chúng tôi chia sẻ niềm đam mê !
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>Sứ mệnh của chúng tôi là gì ?</h4>
+                    <p style=" justify-content: left">
+                        Sứ mệnh của chúng tôi là khơi dậy cảm hứng trong từng giây phút của bạn.
+                        Dù là ngày bận rộn hay buổi tối thư giãn, chúng tôi cam kết mang đến hương vị tươi mới và sự hài lòng trong từng ngụm.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>Vì sao là NHDandz ? </h4>
+                    <p style=" justify-content: left">
+                        Bởi vì bạn xứng đáng với những điều tốt nhất.
+                        <br>Không phải ra ngoài, không phải xếp hàng – chỉ cần một vài cú nhấp chuột, và niềm vui sẽ đến ngay trước cửa nhà bạn.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section End -->
+<!-- Testimonial Section Begin -->
+<section class="testimonial">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="testimonial__text">
+                    <span class="icon_quotations"></span>
+                    <p>
+                        Dịch vụ ở đây thật tuyệt! Tôi vừa đặt trà sữa mà chưa kịp hết tập phim đã nhận được. Đồ uống ngon, đóng gói cẩn thận. Chắc chắn sẽ quay lại!
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__author__pic">
+                            <img src="/Menu/img/user.jpg" alt="">
+                        </div>
+                        <div class="testimonial__author__text">
+                            <h5>Khôi Nguyên</h5>
+                            <p>Khách hàng thân thiết</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="testimonial__pic set-bg" data-setbg="~/Menu/img/about.jpg"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonial Section End -->
+<!-- Counter Section Begin -->
+<section class="counter spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">12.032</h2>
+                    </div>
+                    <span>Khách<br />Hàng</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">15</h2>
+                    </div>
+                    <span>Nhãn <br />Hàng</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">20</h2>
+                    </div>
+                    <span>Đất<br />Nước</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">98</h2>
+                        <strong>%</strong>
+                    </div>
+                    <span>Sự<br />Hài Lòng</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Counter Section End -->
+<!-- Team Section Begin -->
+<section class="team spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Đội ngũ của NHDandz</span>
+                    <h2>Gặp gỡ những người đứng sau thành công của NHDandz</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" style=" justify-content: center; align-items: center; text-align: center; ">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team__item">
+                    <img src="~/AdminN/assets/images/faces/download2.jpg" alt="">
+                    <h4>Hải Đăng</h4>
+                    <span>Giám đốc điều hành</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team__item">
+                    <img src="~/AdminN/assets/images/faces/download.jpg" alt="">
+                    <h4>Khôi Nguyên</h4>
+                    <span> Quản lý dịch vụ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team Section End -->
+<!-- Client Section Begin -->
+<section class="clients spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Đối tác</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="#" class="client__item"><img src="~/img/clients/client-1.png" alt=""></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="#" class="client__item"><img src="~/img/clients/client-2.png" alt=""></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="#" class="client__item"><img src="~/img/clients/client-3.png" alt=""></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="#" class="client__item"><img src="~/img/clients/client-4.png" alt=""></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="#" class="client__item"><img src="~/img/clients/client-5.png" alt=""></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="#" class="client__item"><img src="~/img/clients/client-6.png" alt=""></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="#" class="client__item"><img src="~/img/clients/client-7.png" alt=""></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="#" class="client__item"><img src="~/img/clients/client-8.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Client Section End -->

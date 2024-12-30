@@ -1,6 +1,6 @@
 ﻿@model ProductPaginationViewModel
  
-<<!-- Trong view của bạn -->
+<!-- Trong view của bạn -->
 <style>
     /* Modal styles */
     .modal-content {
@@ -460,7 +460,7 @@
             console.log('Adding to cart:', data);
 
             $.ajax({
-                url: '/Home/AddToCart',
+                url: '/cart/AddToCart',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(data),
@@ -526,7 +526,7 @@
                         button.classList.add('loading');
                         button.innerHTML = 'Adding...';
 
-                        fetch('/Home/AddToCart', {
+                        fetch('/cart/AddToCart', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'

@@ -1,0 +1,454 @@
+﻿@model IEnumerable<Bill>
+<link rel="stylesheet" href="~/css/OrderHistory.css" type="text/css">
+
+
+<style>
+    .breadcrumb-option {
+    padding: 80px 0;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    }
+
+    /* Thêm overlay để text dễ đọc hơn trên background */
+    .breadcrumb-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    }
+
+    .breadcrumb__text {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    }
+
+    .breadcrumb__text h2 {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    }
+
+    /* Class for background image handling */
+    .set-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    }
+</style>
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option set-bg" data-setbg="/img/hero/hero-12.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h2>Lịch Sử Đơn Hàng</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Order History Section Begin -->
+<section class="blog spad">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <div class="col-lg-3">
+                <div class="blog__sidebar">
+                    <div class="blog__sidebar__item">
+                        <h4>Tài Khoản</h4>
+                        <ul>
+                            <li><a href="@Url.Action("Profile", "Account")"><i class="fa fa-user"></i> Thông tin cá nhân</a></li>
+                            <li class="active"><a href="@Url.Action("OrderHistory", "Account")"><i class="fa fa-shopping-bag"></i> Đơn hàng của tôi</a></li>
+                            <li><a href="@Url.Action("ShowVouchers", "Account")"><i class="fas fa-ticket-alt"></i> Voucher khả dụng</a></li>
+
+                            <li><a href="@Url.Action("ChangePassword", "Account")"><i class="fa fa-key"></i> Đổi mật khẩu</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order History Content -->
+            <div class="col-lg-9">
+                <div class="order__history__table">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    @if (!Model.Any())
+                    {
+                        <div class="text-center p-5">
+                            <i class="fas fa-shopping-bag fa-3x mb-3"></i>
+                            <h4>Bạn chưa có đơn hàng nào</h4>
+                            <p class="mb-4">Hãy khám phá các sản phẩm của chúng tôi</p>
+                            <a href="@Url.Action("Menu", "Home")" class="primary-btn">KHÁM PHÁ NGAY</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 15%">Mã Đơn</th>
+                                        <th style="width: 15%">Ngày đặt</th>
+                                        <th style="width: 15%">Tổng tiền</th>
+                                        <th style="width: 15%">Xác nhận</th>
+                                        <th style="width: 15%">Trạng thái</th>
+                                        <th style="width: 25%">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var order in Model)
+                                    {
+                                        <tr>
+                                            <td class="order-id">
+                                                <span>@order.Bill_id</span>
+                                            </td>
+                                            <td class="order-date">
+                                                @order.Date.ToString("dd/MM/yyyy HH:mm")
+                                            </td>
+                                            <td class="order-total" style="padding-left: 30px!important; text-align: left;">
+                                                @order.Total.ToString("#,##0")₫
+                                            </td>
+                                            <td class="order-status">
+                                                @if (order.Status)
+                                                {
+                                                    <span class="badge rounded-pill bg-success">Đã xử lý</span>
+                                                }
+                                                else if (order.DeleteStatus)
+                                                {
+                                                    <span class="badge rounded-pill bg-danger">Đã hủy</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge rounded-pill bg-warning text-dark">Chờ xử lý</span>
+                                                }
+                                            </td>
+                                            <td class="payment-status">
+                                                @if (order.DeleteStatus)
+                                                {
+                                                    <span class="badge rounded-pill bg-danger">Đã hủy</span>
+                                                }
+                                                else if (order.PaymentStatus)
+                                                {
+                                                    <span class="badge rounded-pill bg-success">Hoàn thành</span>
+                                                }
+                                                else if (!order.Status )
+                                                {
+                                                    <span class="badge rounded-pill bg-warning text-dark">Chờ xử lý</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge rounded-pill bg-warning text-dark">Đang giao hàng</span>
+                                                }
+                                            </td>
+                                            <td class="order-actions">
+                                                <div class="d-flex gap-2 justify-content-center">
+                                                    <a href="@Url.Action("OrderDetail", "Account", new { id = order.Bill_id })"
+                                                       class="btn btn-sm btn-outline-primary">
+                                                        <i class="fa fa-eye"></i> Chi tiết
+                                                    </a>
+                                                    @if (!order.Status && !order.DeleteStatus)
+                                                    {
+                                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                                                onclick="confirmCancel('@order.Bill_id')">
+                                                            <i class="fa fa-times"></i> Hủy
+                                                        </button>
+                                                    }
+                                                    @if (order.Status && !order.PaymentStatus && !order.DeleteStatus)  // Hiển thị nút hoàn thành khi đang giao hàng
+                                                    {
+                                                        <button type="button" class="btn btn-sm btn-outline-success"
+                                                                onclick="confirmComplete('@order.Bill_id')">
+                                                            <i class="fa fa-check"></i> Hoàn thành
+                                                        </button>
+                                                    }
+                                                    <form id="cancelForm_@order.Bill_id"
+                                                          asp-action="CancelOrder"
+                                                          asp-route-id="@order.Bill_id"
+                                                          method="post"
+                                                          style="display: none;">
+                                                    </form>
+                                                    <form id="completeForm_@order.Bill_id"
+                                                          asp-action="CompleteOrder"
+                                                          asp-route-id="@order.Bill_id"
+                                                          method="post"
+                                                          style="display: none;">
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Order History Section End -->
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(".alert").fadeOut('slow');
+            }, 5000);
+        });
+
+        function confirmCancel(orderId) {
+            Swal.fire({
+                title: 'Xác nhận hủy đơn',
+                text: 'Bạn có chắc chắn muốn hủy đơn hàng này?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy bỏ'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('cancelForm_' + orderId).submit();
+                }
+            });
+        }
+
+        function confirmComplete(orderId) {
+            Swal.fire({
+                title: 'Xác nhận hoàn thành',
+                text: 'Bạn xác nhận đã nhận được hàng và muốn hoàn thành đơn hàng này?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy bỏ'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('completeForm_' + orderId).submit();
+                }
+            });
+        }
+    </script>
+}
+
+<style>
+    .badge.rounded-pill {
+        padding: 8px 16px;
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        border-radius: 20px;
+        display: inline-block;
+        text-align: center;
+        min-width: 100px;
+    }
+
+    /* Processed Status */
+    .badge.bg-success {
+        background-color: #28a745 !important;
+        color: white;
+        box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+    }
+
+    /* Cancelled Status */
+    .badge.bg-danger {
+        background-color: #dc3545 !important;
+        color: white;
+        box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+    }
+
+    /* Pending Status */
+    .badge.bg-warning {
+        background-color: #ffc107 !important;
+        color: white !important; /* Override text-dark class */
+        box-shadow: 0 2px 4px rgba(255, 193, 7, 0.2);
+    }
+    .badge.rounded-pill {
+        padding: 8px 16px;
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        border-radius: 20px;
+        display: inline-block;
+        text-align: center;
+        min-width: 100px;
+    }
+
+    /* Processed Status */
+    .badge.bg-success {
+        background-color: #28a745 !important;
+        color: white;
+        box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+    }
+
+    /* Cancelled Status */
+    .badge.bg-danger {
+        background-color: #dc3545 !important;
+        color: white;
+        box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+    }
+
+    /* Pending Status */
+    .badge.bg-warning {
+        background-color: #e3ac07 !important;
+        color: white !important; /* Override text-dark class */
+        box-shadow: 0 2px 4px rgba(255, 193, 7, 0.2);
+    }
+    .blog__sidebar__item ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .blog__sidebar__item ul li {
+        margin-bottom: 10px;
+    }
+
+    .blog__sidebar__item ul li a {
+        color: #666666;
+        font-size: 15px;
+        padding: 10px 15px;
+        display: block;
+        transition: all 0.3s;
+    }
+
+    .blog__sidebar__item ul li.active a,
+    .blog__sidebar__item ul li a:hover {
+        color: #e53637;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+    }
+
+    .blog__sidebar__item ul li a i {
+        margin-right: 10px;
+        width: 20px;
+    }
+
+    .order__history__table {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+
+    .table {
+        margin-bottom: 0;
+    }
+
+    .table > :not(caption) > * > * {
+        padding: 1rem;
+        vertical-align: middle;
+    }
+
+    .table thead th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #333;
+        border-top: none;
+        text-align: center;
+    }
+
+    .table tbody td {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+    }
+
+    .order-id span {
+        font-weight: 600;
+        color: #111;
+    }
+
+    .order-total {
+        font-weight: 600;
+        color: #e53637;
+    }
+
+    .badge {
+        padding: 8px 12px;
+        font-weight: 500;
+        border-radius: 30px;
+    }
+
+    .btn-sm {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+
+    .btn-outline-primary {
+        color: #e53637;
+        border-color: #e53637;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #e53637;
+        border-color: #e53637;
+        color: #fff;
+    }
+
+    .btn-outline-danger {
+        color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: #fff;
+    }
+
+    .gap-2 {
+        gap: 0.5rem;
+    }
+
+    .btn-outline-success {
+        color: #28a745;
+        border-color: #28a745;
+        transition: all 0.3s;
+    }
+
+        .btn-outline-success:hover {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+        }
+
+    .order-actions .d-flex {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .order-actions .btn {
+        white-space: nowrap;
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+
+    .table td.order-actions {
+        min-width: 250px;
+    }
+</style>

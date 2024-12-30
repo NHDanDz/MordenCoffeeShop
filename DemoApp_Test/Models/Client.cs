@@ -15,5 +15,6 @@ namespace DemoApp_Test.Models
         public string Contact { get; set; }
         [Required]
         public string Location { get; set; }
+
     }
 }

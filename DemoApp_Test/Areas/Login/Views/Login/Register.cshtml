@@ -1,0 +1,99 @@
+﻿@model DemoApp_Test.Areas.Login.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Areas/Login/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login100-pic js-tilt" data-tilt>
+    <img src="~/Login/images/img-02.jpg" alt="IMG">
+</div>
+
+<form id="registerForm" class="login100-form validate-form" method="post"
+      asp-action="Register" asp-controller="Login" asp-area="Login">
+    @Html.AntiForgeryToken()
+
+    @if (!ViewContext.ModelState.IsValid)
+    {
+        <div class="alert alert-danger" style=" color: white !important">
+            <div asp-validation-summary="All" class="text-danger" style=" color: white !important"></div>
+        </div>
+    }
+
+    <span class="login100-form-title" style="padding-bottom: 10px !important">
+        <h1 class="mb-3" style="font-weight: bold !important; color: #f7b86a !important;"> NHDanDz </h1>
+         <p class="text-muted" style="font-size: 16px;">Create your account</p>
+    </span>
+
+    <div class="wrap-input100 validate-input" data-validate="Username is required">
+        <input asp-for="Username" class="input100" type="text" placeholder="Username">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Password is required">
+        <input asp-for="Password" class="input100" type="password" placeholder="Password">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Confirm password is required">
+        <input asp-for="ConfirmPassword" class="input100" type="password" placeholder="Confirm Password">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <input asp-for="Name" class="input100" type="text" placeholder="Full Name">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Email is required">
+        <input asp-for="Gmail" class="input100" type="email" placeholder="Email">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Contact is required">
+        <input asp-for="Contact" class="input100" type="tel" placeholder="Phone Number">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Location is required">
+        <input asp-for="Location" class="input100" type="text" placeholder="Address">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div class="container-login100-form-btn">
+        <button type="submit" class="login100-form-btn">
+            Register
+        </button>
+    </div>
+
+    <div class="text-center p-t-12">
+        <span class="txt1">
+            Already have an account?
+        </span>
+        <a class="txt2" href="@Url.Action("Index", "Login", new { area = "Login" })">
+            Login here
+            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+        </a>
+    </div>
+</form>
+ 

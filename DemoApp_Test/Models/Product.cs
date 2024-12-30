@@ -13,15 +13,16 @@ namespace DemoApp_Test.Models
         [Required]
         public double Price { get; set; }
         [Required]
-        public double Rating { get; set; }
+        public double? Rating { get; set; }
         [Required]
-        public int ReviewCount { get; set; }
+        public int? ReviewCount { get; set; }
         [Required]
         public string Image { get; set; }
         [Required]
         public DateTime Date { get; set; }
+        
+        public bool Status { get; set; }
         [Required]
-
         public int Discount { get; set; }
         [ForeignKey("Brand")]
         [Required]
@@ -32,8 +33,13 @@ namespace DemoApp_Test.Models
         public string Type_id { get; set; }
         public virtual TypeCoffee TypeCoffee { get; set; }
         public ICollection<Product_Size> Product_Size { get; set; }
+        public ICollection<Product_Bill> Product_Bill { get; set; }
+
         public ICollection<Product_Ice> Product_Ice { get; set; }
         public ICollection<Product_Sugar> Product_Sugar { get; set; }
+        public ICollection<Feedback> Feedback { get; set; }
+
+        public string? Description { get; set; }
 
     }
 }

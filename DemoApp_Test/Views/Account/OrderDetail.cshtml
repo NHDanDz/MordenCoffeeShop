@@ -1,0 +1,215 @@
+﻿@model Bill
+
+<section class="breadcrumb-option set-bg" data-setbg="/img/hero/hero-12.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h2>Chi Tiết Đơn Hàng #@Model.Bill_id</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="checkout spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="order__detail__content">
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>
+                            <h4 class="mb-3">Chi tiết đơn hàng</h4>
+                            <p class="text-muted">Ngày đặt: @Model.Date.ToString("dd/MM/yyyy HH:mm")</p>
+                        </div>
+                        <div class="text-end">
+                            @if (Model.Status)
+                            {
+                                    <span class="badge bg-success">Đã xử lý</span>
+                            }
+                            else if (Model.DeleteStatus)
+                            {
+                                    <span class="badge bg-danger">Đã hủy</span>
+                            }
+                            else
+                            {
+                                    <span class="badge bg-warning text-dark">Chờ xử lý</span>
+                            }
+                            <br />
+                            @if (Model.PaymentStatus)
+                            {
+                                    <span class="badge bg-success mt-2">Hoàn thành</span>
+                            }
+                            else if (!Model.DeleteStatus)
+                            {
+                                    <span class="badge bg-warning text-dark mt-2">Đang giao hàng</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Chi tiết</th>
+                                    <th>Số lượng</th>
+                                    <th>Giá</th>
+                                    <th>Tổng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Product_Bill)
+                                {
+                                    var finalPrice = item.Amount / item.Quantity;
+                                        <tr>
+                                            <td>
+                                                <div class="product__cart__item__text">
+                                                    <h6>@item.Product.ProductName</h6>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p>Đá: @(item.Ice?.IceDetail ?? "50%")</p>
+                                                <p>Đường: @(item.Sugar?.SugarDetail ?? "100%")</p>
+                                                <p>Size: @(item.Size?.SizeDetail ?? "S")</p>
+                                            </td>
+                                            <td>@item.Quantity</td>
+                                            <td>@finalPrice.ToString("#,##0")₫</td>
+                                            <td>@item.Amount.ToString("#,##0")₫</td>
+                                        </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="order__detail__summary">
+                    <h5 class="mb-4">Thông tin thanh toán</h5>
+                    <ul class="list-unstyled">
+                        <li class="d-flex justify-content-between mb-3">
+                            <span>Tạm tính:</span>
+                            <span>@Model.Product_Bill.Sum(pb => pb.Amount).ToString("#,##0")₫</span>
+                        </li>
+                        @if (Model.Bill_Voucher != null && Model.Bill_Voucher.Any())
+                        {
+                            var voucher = Model.Bill_Voucher.First();
+                                <li class="d-flex justify-content-between mb-3">
+                                    <span>Mã giảm giá (@voucher.Voucher.Code):</span>
+                                    <span>-@voucher.DiscountAmount.ToString("#,##0")₫</span>
+                                </li>
+                        }
+                        <li class="d-flex justify-content-between mb-3 fw-bold">
+                            <span>Tổng cộng:</span>
+                            <span>@Model.Total.ToString("#,##0")₫</span>
+                        </li>
+                    </ul>
+
+                    <div class="customer-info mt-4">
+                        <h5 class="mb-3">Thông tin giao hàng</h5>
+                        <div class="info-item mb-2">
+                            <p><strong>Họ tên:</strong> @Model.Client.Name</p>
+                            <p><strong>Số điện thoại:</strong> @Model.Client.Contact</p>
+                            <p><strong>Địa chỉ:</strong> @Model.Client.Location</p>
+                            <p><strong>Phương thức thanh toán:</strong> @(Model.PaymentMethod switch
+                                {
+                                    "Cash" => "Tiền mặt",
+                                    "Credit Card" => "Thẻ tín dụng",
+                                    "Bank Transfer" => "Chuyển khoản ngân hàng",
+                                    _ => Model.PaymentMethod
+                                })</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        @if (!Model.Status && !Model.DeleteStatus)
+                        {
+                                <button type="button" class="btn btn-danger w-100" onclick="confirmCancel('@Model.Bill_id')">
+                                    Hủy đơn hàng
+                                </button>
+                                <form id="cancelForm_@Model.Bill_id" asp-action="CancelOrder" asp-route-id="@Model.Bill_id" 
+                                      method="post" style="display: none;"></form>
+                        }
+                        @if (Model.Status && !Model.PaymentStatus && !Model.DeleteStatus)
+                        {
+                                <button type="button" class="btn btn-success w-100" onclick="confirmComplete('@Model.Bill_id')">
+                                    Xác nhận hoàn thành
+                                </button>
+                                <form id="completeForm_@Model.Bill_id" asp-action="CompleteOrder" asp-route-id="@Model.Bill_id"
+                                      method="post" style="display: none;"></form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .order__detail__content {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .order__detail__summary {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .badge {
+        padding: 8px 12px;
+        font-weight: 500;
+    }
+
+    .table > :not(caption) > * > * {
+        padding: 1rem;
+    }
+
+    .product__cart__item__text h6 {
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+</style>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            function confirmCancel(orderId) {
+                Swal.fire({
+                    title: 'Xác nhận hủy đơn',
+                    text: 'Bạn có chắc chắn muốn hủy đơn hàng này?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Đồng ý',
+                    cancelButtonText: 'Hủy bỏ',
+                    confirmButtonColor: '#dc3545'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cancelForm_' + orderId).submit();
+                    }
+                });
+            }
+
+            function confirmComplete(orderId) {
+                Swal.fire({
+                    title: 'Xác nhận hoàn thành',
+                    text: 'Bạn xác nhận đã nhận được hàng và muốn hoàn thành đơn hàng này?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Đồng ý',
+                    cancelButtonText: 'Hủy bỏ',
+                    confirmButtonColor: '#28a745'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('completeForm_' + orderId).submit();
+                    }
+                });
+            }
+        </script>
+}

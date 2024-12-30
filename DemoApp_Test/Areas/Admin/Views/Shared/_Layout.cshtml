@@ -1,0 +1,662 @@
+﻿@{
+
+    ViewData["Title"] = "AdminN Dashboard";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- plugins:css -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/AdminN/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/AdminN/assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/AdminN/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/AdminN/assets/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.7/tinymce.min.js" referrerpolicy="origin"></script>
+        <!-- Thêm SweetAlert2 CSS (tuỳ chọn, nếu bạn muốn tùy chỉnh giao diện) -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- Thêm SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="~/AdminN/assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/AdminN/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+      
+    <link rel="stylesheet" href="~/AdminN/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="~/AdminN/assets/images/favicon.png" />
+</head>
+<script type="module">
+    import ProductModal from '/components/ProductModal.jsx';
+    ReactDOM.render(<ProductModal />, document.getElementById('root'));
+</script>
+<style>
+    .sidebar {
+        /* Basic sidebar styles */
+        width: 260px;
+        min-height: 100vh;
+        background: #fff;
+        transition: width 0.25s ease, background 0.25s ease;
+        -webkit-transition: width 0.25s ease, background 0.25s ease;
+        -moz-transition: width 0.25s ease, background 0.25s ease;
+        -ms-transition: width 0.25s ease, background 0.25s ease;
+    }
+
+        /* Main navigation items */
+        .sidebar .nav {
+            overflow: hidden;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+
+            .sidebar .nav .nav-item {
+                padding: 0px 0px 0px 0px !important;
+                margin-bottom: 12px;
+                border-radius: 8px;
+                position: relative;
+            }
+
+                /* Navigation links */
+                .sidebar .nav .nav-item .nav-link {
+                    display: flex;
+                    align-items: center; 
+                    white-space: nowrap;
+                    color: #3e4b5b;
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    cursor: pointer;
+                }
+
+                    /* Menu title */
+                    .sidebar .nav .nav-item .nav-link .menu-title {
+                        margin-left: 15px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        flex-grow: 1;
+                    }
+
+                    /* Menu icons */
+                    .sidebar .nav .nav-item .nav-link i.menu-icon {
+                        font-size: 18px;
+                        line-height: 1;
+                        margin-right: 5px;
+                        color: #6C7383;
+                    }
+
+    /* Parent menu items with dropdown */
+    .nav-item-parent > .nav-link {
+        position: relative;
+    }
+
+        .nav-item-parent > .nav-link:after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item-parent > .nav-link[aria-expanded="true"]:after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+    /* Submenu/Collapse styling */
+    .sidebar .nav .collapse {
+        padding-left: 10px;
+    }
+
+        .sidebar .nav .collapse .nav-item {
+            margin-bottom: 8px;
+        }
+
+        .sidebar .nav .collapse .nav-link {
+            padding: 10px 15px;
+            font-size: 13px;
+            color: #6C7383;
+            border-radius: 6px;
+        }
+
+    /* Hover states */
+    .sidebar .nav .nav-item .nav-link:hover {
+        background: rgba(75, 73, 172, 0.05);
+        color: #4B49AC;
+    }
+
+        .sidebar .nav .nav-item .nav-link:hover i.menu-icon {
+            color: #4B49AC;
+        }
+
+    /* Active states */
+    .sidebar .nav .nav-item .nav-link.active {
+        background: #4B49AC;
+        color: #ffffff;
+    }
+
+        .sidebar .nav .nav-item .nav-link.active i.menu-icon {
+            color: #ffffff;
+        }
+
+    /* Transition effects */
+    .collapse {
+        transition: height 0.35s ease;
+    }
+
+        .collapse.show {
+            height: auto;
+        }
+
+    /* Custom scrollbar */
+    .sidebar::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background: #4B49AC;
+        border-radius: 10px;
+    }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #3f3e8e;
+        }
+
+    /* Animation for submenu items */
+    .sidebar .nav .collapse .nav-item {
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .sidebar .nav .collapse.show .nav-item {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .sidebar .nav .nav-item > .nav-link.active {
+        background: #4B49AC;
+        color: #ffffff;
+    }
+
+        .sidebar .nav .nav-item > .nav-link.active i.menu-icon {
+            color: #ffffff;
+        }
+
+    .sidebar .nav .collapse .nav-item .nav-link {
+        color: #6C7383;
+    }
+
+        /* Reset default active state for submenu items */
+        .sidebar .nav .collapse .nav-item .nav-link.active {
+            background: transparent;
+            color: #6C7383;
+        }
+
+        /* Hover effect for submenu */
+        .sidebar .nav .collapse .nav-item .nav-link:hover {
+            background: rgba(75, 73, 172, 0.05);
+            color: #4B49AC;
+        }
+
+</style>
+<body class="config">
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+            <a class="navbar-brand brand-logo" asp-action="Index" asp-controller="Home" asp-area="" ><img src="~/AdminN/assets/images/logo.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html">
+                <img src="~/AdminN/assets/images/logo-mini.svg"
+                     alt="logo" />
+            </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
+            </button>
+            <div class="search-field d-none d-md-block">
+                <form class="d-flex align-items-center h-100" action="#">
+                    <div class="input-group" hidden>
+                        <div class="input-group-prepend bg-transparent" >
+                            <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                        </div>
+                        <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects" hidden>
+                    </div>
+                </form>
+            </div>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item nav-profile dropdown">
+                    <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        <div class="nav-profile-img">
+                            <img src="~/Login/images/img-02.jpg" alt="image">
+                            <span class="availability-status online"></span>
+                        </div>
+                        <div class="nav-profile-text">
+                            <p class="mb-1 text-black">NHDanDz</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown"> 
+                        <a class="dropdown-item" asp-action="LoggingView" asp-controller="Admin" asp-area="Admin">
+                            <i class="mdi mdi-cached me-2 text-success"></i> Activity Log
+                        </a>
+                        <div class="dropdown-divider"></div> 
+                        <a class="dropdown-item" asp-action="Logout" asp-controller="Login" asp-area="Login">
+                            <i class="mdi mdi-logout me-2 text-primary"></i> Signout
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item d-none d-lg-block full-screen-link">
+                    <a class="nav-link">
+                        <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                    </a>
+                </li> 
+                <li class="nav-item nav-logout d-none d-lg-block">
+                    <a class="nav-link" href="/Login/Login/Logout">
+                        <i class="mdi mdi-power"></i>
+                    </a>
+                </li>
+                <li class="nav-item nav-settings d-none d-lg-block">
+                    <a class="nav-link" href="/Home">
+                        <i class="mdi mdi-backburger"></i>
+                    </a>
+                </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <!-- Profile Section -->
+                <li class="nav-item nav-profile">
+                    <a href="#" class="nav-link">
+                        <div class="nav-profile-image">
+                            <img src="~/AdminN/assets/images/faces/face.jpg" alt="profile" />
+                            <span class="login-status online"></span>
+                        </div>
+                        <div class="nav-profile-text d-flex flex-column">
+                            <span class="font-weight-bold mb-2">NHDanDz</span>
+                            <span class="text-secondary text-small">Quản Lý Dự Án</span>
+                        </div>
+                        <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                    </a>
+                </li>
+
+                <!-- Dashboard -->
+                <li class="nav-item"  >
+                    <a class="nav-link" asp-action="Index" asp-controller="Admin" asp-area="Admin">
+                        <span class="menu-title">Trang Chủ</span>
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+
+                <!-- Product Management -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#product-management"
+                       aria-expanded="false" aria-controls="product-management">
+                        <span class="menu-title">Quản Lý Sản Phẩm</span>
+                        <i class="mdi mdi-cart menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="product-management">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="ShowProduct" asp-controller="Admin" asp-area="Admin">
+                                    Danh Mục Sản Phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="ProductStorageView" asp-controller="Admin" asp-area="Admin">
+                                    Sản Phẩm Lưu Trữ
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="FeedbackView" asp-controller="Admin" asp-area="Admin">
+                                    Phản Hồi Khách Hàng
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Account Management -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#account-management"
+                       aria-expanded="false" aria-controls="account-management">
+                        <span class="menu-title">Quản Lý Tài Khoản</span>
+                        <i class="mdi mdi-account-multiple menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="account-management">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="AccountView" asp-controller="Admin" asp-area="Admin">
+                                    Danh Mục Tài Khoản
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="LoggingView" asp-controller="Admin" asp-area="Admin">
+                                    Nhật Ký Hoạt Động
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Order Management -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#order-management"
+                       aria-expanded="false" aria-controls="order-management">
+                        <span class="menu-title">Quản Lý Đơn Hàng</span>
+                        <i class="mdi mdi-clipboard-text menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="order-management">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="OrderView" asp-controller="Admin" asp-area="Admin">
+                                    Danh Mục Đơn Hàng
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="OrderCanceledView" asp-controller="Admin" asp-area="Admin">
+                                    Đơn Hàng Đã Hủy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Marketing Channel -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#marketing-channel"
+                       aria-expanded="false" aria-controls="marketing-channel">
+                        <span class="menu-title">Kênh Marketing</span>
+                        <i class="mdi mdi-tag-multiple menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="marketing-channel">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="VoucherView" asp-controller="Admin" asp-area="Admin">
+                                    Mã Giảm Giá
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-panel" >
+            <div class="content-wrapper" style="background: #f1f5f9 !important; padding-top: 20px">
+                @RenderBody()
+                <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+                <!-- partial -->
+            </div>
+            <footer class="footer" style= "padding: 15px 16px 15px 16px">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">
+                        Copyright © 2003 <a href="https://www.bootstrapdash.com/" target="_blank">NHDanDZ Coffee</a>. All rights reserved.
+                    </span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                        Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i>
+                    </span>
+                </div>
+            </footer>
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="~/AdminN/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="~/AdminN/assets/vendors/chart.js/chart.umd.js"></script>
+    <script src="~/AdminN/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/AdminN/assets/js/off-canvas.js"></script>
+    <script src="~/AdminN/assets/js/misc.js"></script>
+    <script src="~/AdminN/assets/js/settings.js"></script>
+    <script src="~/AdminN/assets/js/todolist.js"></script>
+    <script src="~/AdminN/assets/js/jquery.cookie.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="~/AdminN/assets/js/dashboard.js"></script>
+    <script src="~/AdminN/assets/js/file-upload.js"></script>
+    <script src="~/AdminN/assets/js/typeahead.js"></script>
+    <script src="~/AdminN/assets/js/select2.js"></script>
+    <!-- jQuery -->
+    <script src="~/AdminN/assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="~/AdminN/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- End custom js for this page -->
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        async function generateOrderPDF(orderId) {
+              try {
+                  const response = await fetch(`/Admin/Admin/GetOrderDetails/${orderId}`);
+
+                  const result = await response.json();
+
+                  if (!result.success) {
+                      throw new Error(result.message || 'Error fetching order details');
+                  }
+
+                  const order = result.data;
+                  console.log(order);
+
+                  function formatCurrency(amount) {
+                      return '₫' + new Intl.NumberFormat('vi-VN', {
+                          minimumFractionDigits: 0,
+                          maximumFractionDigits: 0
+                      }).format(amount);
+                  }
+
+                  // Create container with fixed width
+                  const container = document.createElement('div');
+                  container.style.cssText = `
+                      padding: 15px;
+                      background-color: white;
+                      width: 500px;
+                      font-size: 12px;
+                      font-family: Arial, sans-serif;
+                  `;
+
+                  container.innerHTML = `
+                      <div style="border: 1px solid #dee2e6;">
+                          <div style="background-color: #007bff; color: white; padding: 8px;">
+                              <h5 style="margin: 0; font-size: 16px;">Hóa đơn #${order.orderId}</h5>
+                          </div>
+
+                          <div style="padding: 15px;">
+                              <!-- Two-column layout -->
+                              <div style="display: flex; gap: 40px; margin-bottom: 20px;">
+                                  <!-- Order Information -->
+                                  <div style="flex: 1;">
+                                      <h6 style="color: #007bff; font-size: 14px; margin: 0 0 10px 0;">Thông tin đơn hàng</h6>
+                                      <div style="margin-bottom: 5px;"><strong>Ngày đặt:</strong> ${order.orderDate}</div>
+                                      <div style="margin-bottom: 5px;"><strong>Trạng thái đơn hàng:</strong> ${order.status ? 'Đã xác nhận' : 'Chờ xác nhận'}</div>
+           <div style="margin-bottom: 5px;"><strong>Phương thức thanh toán:</strong> ${
+            order.paymentMethod === 'Cash' ? 'Tiền mặt' :
+            order.paymentMethod === 'Bank Transfer' ? 'Chuyển khoản' :
+            order.paymentMethod === 'Credit Card' ? 'Thẻ tín dụng' : 'N/A'
+        }</div>                                      <div style="margin-bottom: 5px;"><strong>Trạng thái:</strong> ${order.paymentStatus ? 'Hoàn thành' : 'Đang vận chuyển'}</div>
+                                  </div>
+
+                                  <!-- Customer Information -->
+                                  <div style="flex: 1;">
+                                      <h6 style="color: #007bff; font-size: 14px; margin: 0 0 10px 0;">Thông tin khách hàng</h6>
+                                      <div style="margin-bottom: 5px;"><strong>Tên khách hàng:</strong> ${order.customerName}</div>
+                                      <div style="margin-bottom: 5px;"><strong>Liên hệ:</strong> ${order.customerContact}</div>
+                                      <div style="margin-bottom: 5px;"><strong>Địa chỉ:</strong> ${order.customerAddress}</div>
+                                  </div>
+                              </div>
+
+                              <!-- Order Items -->
+                              <h6 style="color: #007bff; font-size: 14px; margin: 0 0 10px 0;">Các mục đơn hàng</h6>
+                              <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                                  <thead>
+                                      <tr style="background-color: #f8f9fa;">
+                                          <th style="padding: 8px; border: 1px solid #dee2e6; text-align: left;">Sản phẩm</th>
+                                          <th style="padding: 8px; border: 1px solid #dee2e6; text-align: center;">Số lượng</th>
+                                          <th style="padding: 8px; border: 1px solid #dee2e6; text-align: right;">Giá</th>
+                                          <th style="padding: 8px; border: 1px solid #dee2e6; text-align: center;">Mức đá</th>
+                                          <th style="padding: 8px; border: 1px solid #dee2e6; text-align: center;">Mức đường</th>
+                                          <th style="padding: 8px; border: 1px solid #dee2e6; text-align: right;">Tổng tiền</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      ${order.items.map(item => `
+                                          <tr>
+                                              <td style="padding: 8px; border: 1px solid #dee2e6;">${item.productName}</td>
+                                              <td style="padding: 8px; border: 1px solid #dee2e6; text-align: center;">${item.quantity}</td>
+                                              <td style="padding: 8px; border: 1px solid #dee2e6; text-align: right;">${formatCurrency(item.priceAfterDiscount)}</td>
+                                              <td style="padding: 8px; border: 1px solid #dee2e6; text-align: center;">${item.ice}</td>
+                                              <td style="padding: 8px; border: 1px solid #dee2e6; text-align: center;">${item.sugar}</td>
+                                              <td style="padding: 8px; border: 1px solid #dee2e6; text-align: right;">${formatCurrency(item.total)}</td>
+                                          </tr>
+                                      `).join('')}
+                                  </tbody>
+                                  <tfoot>
+                                      <tr>
+                                          <td colspan="5" style="padding: 8px; border: 1px solid #dee2e6; text-align: right;"><strong>Tạm tính:</strong></td>
+                                          <td style="padding: 8px; border: 1px solid #dee2e6; text-align: right;"><strong>${formatCurrency(order.subtotal)}</strong></td>
+                                      </tr>
+                                      <tr>
+                                          <td colspan="5" style="padding: 8px; border: 1px solid #dee2e6; text-align: right;"><strong>Áp dụng Mã giảm giá:</strong></td>
+                                          <td style="padding: 8px; border: 1px solid #dee2e6; text-align: right;"><strong>${formatCurrency(order.discountAmount)}</strong></td>
+                                      </tr>
+                                      <tr>
+                                          <td colspan="5" style="padding: 8px; border: 1px solid #dee2e6; text-align: right;"><strong>Tổng tiền đơn hàng:</strong></td>
+                                          <td style="padding: 8px; border: 1px solid #dee2e6; text-align: right;"><strong>${formatCurrency(order.total)}</strong></td>
+                                      </tr>
+                                  </tfoot>
+                              </table>
+                          </div>
+                      </div>
+                  `;
+
+                // Add to document temporarily
+                document.body.appendChild(container);
+
+                // Create PDF with specific dimensions
+                const canvas = await html2canvas(container, {
+                    scale: 2,
+                    backgroundColor: '#ffffff',
+                    width: 500, // Match container width
+                    windowWidth: 500
+                });
+
+                // Remove temporary container
+                document.body.removeChild(container);
+
+                // Create PDF with custom dimensions
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'pt',
+                    format: [600, 800] // Reduced height to match content
+                });
+
+                // Add image to PDF with adjusted dimensions
+                pdf.addImage(
+                    canvas.toDataURL('image/jpeg', 0.95),
+                    'JPEG',
+                    50, // Left margin
+                    50, // Top margin
+                    500, // Width
+                    650  // Height - adjusted to match content
+                );
+
+                // Save PDF
+                pdf.save(`Order_${order.orderId}.pdf`);
+
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Failed to generate PDF'
+                });
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function clearAllActiveStates() {
+                document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+            }
+
+            // Handle clicks on main menu items
+            document.querySelectorAll('.sidebar .nav-item > .nav-link[data-bs-toggle="collapse"]').forEach(menuLink => {
+                menuLink.addEventListener('click', function() {
+                    clearAllActiveStates();
+                    this.classList.add('active');
+                });
+            });
+
+            // Handle clicks on submenu items
+            document.querySelectorAll('.sidebar .collapse .nav-item .nav-link').forEach(submenuLink => {
+                submenuLink.addEventListener('click', function() {
+                    clearAllActiveStates();
+
+                    // Find and activate the parent menu
+                    const parentCollapse = this.closest('.collapse');
+                    const parentMenu = document.querySelector(`[href="#${parentCollapse.id}"]`);
+                    if (parentMenu) {
+                        parentMenu.classList.add('active');
+                    }
+                });
+            });
+
+            // Set initial active state based on current URL
+            const currentPath = window.location.pathname;
+
+            // Check for exact match in submenu items first
+            const currentSubmenuLink = document.querySelector(`.sidebar .collapse .nav-item .nav-link[href="${currentPath}"]`);
+            if (currentSubmenuLink) {
+                const parentCollapse = currentSubmenuLink.closest('.collapse');
+                const parentMenu = document.querySelector(`[href="#${parentCollapse.id}"]`);
+                if (parentMenu) {
+                    parentMenu.classList.add('active');
+                    parentCollapse.classList.add('show');
+                    parentMenu.setAttribute('aria-expanded', 'true');
+                }
+            }
+            // Then check main menu items
+            else {
+                const currentMainLink = document.querySelector(`.sidebar .nav-item > .nav-link[href="${currentPath}"]`);
+                if (currentMainLink) {
+                    currentMainLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>

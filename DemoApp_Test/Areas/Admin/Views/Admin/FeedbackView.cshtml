@@ -1,0 +1,612 @@
+﻿@model DemoApp_Test.Models.FeedbackSearchViewModel
+@{
+    ViewData["Title"] = "Quản lý bình luận";
+}
+<!-- Trong phần head của layout hoặc view -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+<div class="container-fluid">
+    @Html.AntiForgeryToken() 
+    <div class="page-header" style="margin-bottom: 20px">
+        <h2 class="page-title" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">
+            Quản Lý Phản Hồi
+        </h2>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Quản lý</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Quản Lý Phản Hồi</li>
+            </ol>
+        </nav>
+    </div>
+    <style>
+        /* Thêm vào phần style hiện có */
+        .comment-section {
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+
+        .comment-text {
+            position: relative;
+            max-height: 60px;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+            .comment-text.expanded {
+                max-height: none;
+            }
+
+        .show-more-btn {
+            color: #2196F3;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+            .show-more-btn:hover {
+                text-decoration: underline;
+            }
+
+        .admin-response {
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+
+        .feedback-detail-modal .modal-body {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .feedback-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .rating-stars {
+            color: #ffc107;
+            margin: 8px 0;
+        }
+        .feedback-stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+            .stat-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+        .stat-info {
+            flex-grow: 1;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+        }
+
+            .stat-icon i {
+                font-size: 1.75rem;
+                color: white;
+            }
+
+        .total-reviews .stat-icon {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+        }
+
+        .pending-responses .stat-icon {
+            background: linear-gradient(45deg, #ff9800, #f57c00);
+        }
+
+        .average-rating .stat-icon {
+            background: linear-gradient(45deg, #2196F3, #1976D2);
+        }
+
+        .response-rate .stat-icon {
+            background: linear-gradient(45deg, #9c27b0, #7b1fa2);
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important;
+            font-weight: bold;
+        }
+
+        .stat-value {
+            color: #333;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+            font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important;
+        }
+
+        .stat-subtitle {
+            color: #888;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .trend-up {
+            color: #4caf50;
+        }
+
+        .trend-down {
+            color: #f44336;
+        }
+         
+    </style>
+
+    <div class="feedback-stats-container">
+        <!-- Tổng số đánh giá -->
+        <div class="stat-card total-reviews">
+            <div class="stat-info">
+                <div class="stat-label">TỔNG ĐÁNH GIÁ</div>
+                <div class="stat-value">@(ViewBag.TotalFeedbacks?.ToString("N0") ?? "0")</div>
+                <div class="stat-subtitle">
+                    <i class="mdi mdi-comment-multiple-outline"></i>
+                    Tất cả phản hồi
+                </div>
+            </div>
+            <div class="stat-icon">
+                <i class="mdi mdi-message-text"></i>
+            </div>
+        </div>
+
+        <!-- Đang chờ phản hồi -->
+        <div class="stat-card pending-responses">
+            <div class="stat-info">
+                <div class="stat-label">ĐANG CHỜ PHẢN HỒI</div>
+                <div class="stat-value">@(ViewBag.AwaitingResponse?.ToString("N0") ?? "0")</div>
+                <div class="stat-subtitle">
+                    <i class="mdi mdi-clock-outline"></i>
+                    Cần xử lý
+                </div>
+            </div>
+            <div class="stat-icon">
+                <i class="mdi mdi-clock-alert"></i>
+            </div>
+        </div>
+
+        <!-- Đánh giá trung bình -->
+        <div class="stat-card average-rating">
+            <div class="stat-info">
+                <div class="stat-label">ĐÁNH GIÁ TRUNG BÌNH</div>
+                <div class="stat-value">@((ViewBag.AverageRating ?? 0).ToString("N1"))/100</div>
+                <div class="stat-subtitle">
+                    <i class="mdi mdi-star"></i>
+                    Điểm đánh giá
+                </div>
+            </div>
+            <div class="stat-icon">
+                <i class="mdi mdi-star-circle"></i>
+            </div>
+        </div>
+
+        <!-- Tỷ lệ phản hồi -->
+        <div class="stat-card response-rate">
+            <div class="stat-info">
+                <div class="stat-label">TỶ LỆ PHẢN HỒI</div>
+                <div class="stat-value">@((ViewBag.ResponseRate ?? 0).ToString("N1"))%</div>
+                <div class="stat-subtitle">
+                    <i class="mdi mdi-check-circle"></i>
+                    Đã trả lời
+                </div>
+            </div>
+            <div class="stat-icon">
+                <i class="mdi mdi-percent"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Search filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form class="d-flex flex-column" id="searchForm" method="get" class="row g-3">
+                <div class="d-flex align-items-center mb-3" style="width: 100%; gap: 10px;">
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control bg-transparent border border-primary rounded"
+                               name="query"
+                               style="color: #000000; background: #ffffff !important; font-size: 15px;"
+                               placeholder="Tìm kiếm..."
+                               value="@Model.Query">
+                    </div>
+                    <div class="col-md-2 " style="flex: 1; height: 47px !important; font-size: 15px;">
+                        <select class="form-select  bg-transparent  border border-primary rounded" name="status" style="flex: 1; height: 47px !important; font-size: 15px;">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="pending" selected="@(Model.Status == "pending")">Chưa trả lời</option>
+                        <option value="responded" selected="@(Model.Status == "responded")">Đã trả lời</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                        <input type="date" style="flex: 1; height: 47px !important;" class="form-control" name="fromDate" value="@(Model.FromDate?.ToString("yyyy-MM-dd"))">
+                </div>
+                <div class="col-md-2">
+                        <input type="date" style="flex: 1; height: 47px !important;"  class="form-control" name="toDate" value="@(Model.ToDate?.ToString("yyyy-MM-dd"))">
+                </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <button type="submit" class="btn btn-gradient-success btn-fw" style="padding: 10px 0px 10px 0px !important; min-width: 150px !important; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">
+                            <i class="mdi mdi-magnify"></i> Tìm kiếm
+                        </button>
+                        <button type="button" id="clearButton" class="btn btn-gradient-danger btn-fw" style="padding: 10px 0px 10px 0px !important; min-width: 150px !important; margin-left: 10px; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">
+                            <i class="mdi mdi-delete"></i> Đặt lại
+                        </button>
+                    </div> 
+                </div>
+            </form> 
+
+        </div>
+    </div>
+
+    <!-- Feedback list -->
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr >
+                            <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Sản phẩm</th>
+                            <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Khách hàng</th>
+                            <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Đánh giá</th>
+                            <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Bình luận</th>
+                            <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Ngày tạo</th>
+                            <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;"> Trạng thái</th>
+                            <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var feedback in Model.Feedbacks)
+                        {
+                            <tr>
+                                <td>@feedback.Product.ProductName</td>
+                                <td>@feedback.Client.Name</td>
+                                <td>
+                                    @for (int i = 0; i < feedback.Rating / 20; i++)
+                                    {
+                                        <i class="fas fa-star text-warning"></i>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="comment-section">
+                                        <p class="comment-text" id="comment-@feedback.Feedback_id">
+                                            @feedback.Comment
+                                        </p>
+                                        @if (feedback.Comment.Length > 50)
+                                        {
+                                            <span class="show-more-btn" onclick="showFeedbackDetail('@feedback.Feedback_id', '@feedback.Product.ProductName', '@feedback.Client.Name', '@feedback.Rating', '@feedback.CreatedDate.ToString("dd/MM/yyyy HH:mm")')">
+                                                Xem thêm...
+                                            </span>
+                                        }
+                                        @if (!string.IsNullOrEmpty(feedback.AdminResponse))
+                                        {
+                                            <div class="admin-response">
+                                                <small class="text-muted">Phản hồi:</small>
+                                                <p class="mb-0">@(feedback.AdminResponse.Length > 50 ? feedback.AdminResponse.Substring(0, 50) + "..." : feedback.AdminResponse)</p>
+                                            </div>
+                                        }
+                                    </div>
+                                </td>
+                                <td>@feedback.CreatedDate.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>
+                                    @if (string.IsNullOrEmpty(feedback.AdminResponse))
+                                    {
+                                        <span class="badge bg-warning">Chưa trả lời</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-success">Đã trả lời</span>
+                                    }
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" onclick="showResponseModal('@feedback.Feedback_id')">
+                                        <i class="fas fa-reply"></i> Trả lời
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFeedback('@feedback.Feedback_id')">
+                                        <i class="fas fa-trash"></i> Xóa
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feedback Detail Modal -->
+<div class="modal fade" id="feedbackDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Chi tiết phản hồi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="feedback-meta">
+                    <div class="mb-2">
+                        <strong>Sản phẩm:</strong> <span id="detail-product"></span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Khách hàng:</strong> <span id="detail-customer"></span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Thời gian:</strong> <span id="detail-date"></span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Đánh giá:</strong>
+                        <div class="rating-stars" id="detail-rating"></div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Nội dung bình luận</h6>
+                        <p class="card-text" id="detail-comment"></p>
+                    </div>
+                </div>
+                <div class="card" id="response-card" style="display: none;">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Phản hồi của admin</h6>
+                        <p class="card-text" id="detail-response"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Response Modal -->
+<div class="modal fade" id="responseModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Trả lời bình luận</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="feedbackId">
+                <textarea class="form-control" id="responseText" rows="4" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important;">Đóng</button>
+                <button type="button" class="btn btn-primary" onclick="submitResponse()" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important;">Gửi phản hồi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function showResponseModal(feedbackId) {
+            document.getElementById('feedbackId').value = feedbackId;
+            var modal = new bootstrap.Modal(document.getElementById('responseModal'));
+            modal.show();
+        }
+
+        function submitResponse() {
+            const feedbackId = document.getElementById('feedbackId').value;
+            const response = document.getElementById('responseText').value;
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            if (!response.trim()) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Vui lòng nhập nội dung phản hồi',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                return;
+            }
+
+            fetch('/Admin/Admin/RespondToFeedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': token
+                },
+                body: JSON.stringify({
+                    feedbackId: feedbackId,
+                    response: response
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thành công',
+                        text: 'Đã gửi phản hồi thành công',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi',
+                        text: data.message || 'Có lỗi xảy ra',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Có lỗi xảy ra khi gửi phản hồi',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+        }
+
+        function deleteFeedback(feedbackId) {
+            Swal.fire({
+                title: 'Xác nhận xóa',
+                text: "Bạn có chắc chắn muốn xóa bình luận này?",
+                icon: 'warning',
+                showCancelButton: true, 
+                confirmButtonText: 'Xác nhận',
+                cancelButtonText: 'Hủy'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                    fetch('/Admin/Admin/DeleteFeedback', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'RequestVerificationToken': token
+                        },
+                        body: JSON.stringify(feedbackId)
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thành công',
+                                text: 'Đã xóa bình luận thành công',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                location.reload();
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Lỗi',
+                                text: data.message || 'Có lỗi xảy ra khi xóa bình luận',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi',
+                            text: 'Có lỗi xảy ra khi xóa bình luận',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    });
+                }
+            });
+        }
+
+        function resetFilters() {
+            document.querySelector('input[name="query"]').value = '';
+            document.querySelector('select[name="status"]').value = '';
+            document.querySelector('input[name="fromDate"]').value = '';
+            document.querySelector('input[name="toDate"]').value = '';
+            document.getElementById('searchForm').submit();
+        }
+                function showFeedbackDetail(feedbackId, productName, customerName, rating, createdDate) {
+            const feedback = document.getElementById(`comment-${feedbackId}`).innerText;
+            const adminResponse = document.querySelector(`#comment-${feedbackId}`).nextElementSibling?.querySelector('.admin-response p')?.innerText;
+
+            document.getElementById('detail-product').textContent = productName;
+            document.getElementById('detail-customer').textContent = customerName;
+            document.getElementById('detail-date').textContent = createdDate;
+            document.getElementById('detail-comment').textContent = feedback;
+
+            // Hiển thị sao đánh giá
+            const ratingStars = document.getElementById('detail-rating');
+            ratingStars.innerHTML = '';
+            const starCount = Math.floor(rating / 20);
+            for (let i = 0; i < 5; i++) {
+                const star = document.createElement('i');
+                star.className = `fas fa-star ${i < starCount ? 'text-warning' : 'text-muted'}`;
+                star.style.marginRight = '4px';
+                ratingStars.appendChild(star);
+            }
+
+            // Hiện/ẩn phần phản hồi admin
+            const responseCard = document.getElementById('response-card');
+            if (adminResponse) {
+                document.getElementById('detail-response').textContent = adminResponse;
+                responseCard.style.display = 'block';
+            } else {
+                responseCard.style.display = 'none';
+            }
+
+            const modal = new bootstrap.Modal(document.getElementById('feedbackDetailModal'));
+            modal.show();
+        }
+
+        // Thêm vào cuối đoạn script hiện có
+        document.addEventListener('DOMContentLoaded', function() {
+            // Truncate long comments
+            const comments = document.querySelectorAll('.comment-text');
+            comments.forEach(comment => {
+                if (comment.textContent.length > 100) {
+                    comment.innerHTML = comment.textContent.substring(0, 100) + '...';
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    .comment-section {
+        max-width: 300px;
+        word-wrap: break-word;
+    }
+
+    .admin-response {
+        background-color: #f8f9fa;
+        padding: 8px;
+        border-radius: 4px;
+        margin-top: 8px;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+</style>

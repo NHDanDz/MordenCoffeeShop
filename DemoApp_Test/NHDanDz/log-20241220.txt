@@ -1,0 +1,176 @@
+[2024-12-20 07:51:06.564] [WRN] Failed to determine the https port for redirect.
+[2024-12-20 07:51:08.290] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-20 07:51:17.783] [INF] Access Login Page
+[2024-12-20 07:51:19.742] [INF] Login successful
+[2024-12-20 07:51:20.286] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 07:51:20.370] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 09:52:07.310] [INF] Access Login Page
+[2024-12-20 09:52:11.218] [INF] Login successful
+[2024-12-20 10:15:39.876] [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-20 11:14:11.741] [WRN] Failed to determine the https port for redirect.
+[2024-12-20 11:14:12.449] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-20 11:14:20.754] [INF] Access Login Page
+[2024-12-20 11:14:22.413] [INF] Login successful
+[2024-12-20 11:14:22.524] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:14:22.558] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:14:26.819] [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext() in C:\Users\satia\source\repos\NHDanDz\DemoApp_Test\DemoApp_Test\Program.cs:line 89
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-20 11:16:49.216] [WRN] Failed to determine the https port for redirect.
+[2024-12-20 11:16:49.800] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-20 11:16:54.225] [INF] Access Login Page
+[2024-12-20 11:16:56.740] [INF] Login successful
+[2024-12-20 11:16:57.195] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:16:57.275] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:17:03.176] [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext() in C:\Users\satia\source\repos\NHDanDz\DemoApp_Test\DemoApp_Test\Program.cs:line 89
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-20 11:17:08.297] [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext() in C:\Users\satia\source\repos\NHDanDz\DemoApp_Test\DemoApp_Test\Program.cs:line 89
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-20 11:17:50.865] [WRN] Failed to determine the https port for redirect.
+[2024-12-20 11:17:51.622] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-20 11:17:55.455] [INF] Access Login Page
+[2024-12-20 11:17:57.858] [INF] Login successful
+[2024-12-20 11:17:58.297] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:17:58.372] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:18:05.231] [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext() in C:\Users\satia\source\repos\NHDanDz\DemoApp_Test\DemoApp_Test\Program.cs:line 89
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-20 11:19:41.176] [WRN] Failed to determine the https port for redirect.
+[2024-12-20 11:19:41.983] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-20 11:19:47.545] [INF] Access Login Page
+[2024-12-20 11:19:49.607] [INF] Login successful
+[2024-12-20 11:19:50.067] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:19:50.172] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:19:55.479] [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext() in C:\Users\satia\source\repos\NHDanDz\DemoApp_Test\DemoApp_Test\Program.cs:line 89
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-20 11:22:30.677] [WRN] Failed to determine the https port for redirect.
+[2024-12-20 11:22:31.436] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-20 11:22:37.324] [INF] Access Login Page
+[2024-12-20 11:22:38.975] [INF] Login successful
+[2024-12-20 11:22:39.363] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:22:39.479] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:22:45.075] [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext() in C:\Users\satia\source\repos\NHDanDz\DemoApp_Test\DemoApp_Test\Program.cs:line 89
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-20 11:25:17.375] [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+DemoApp_Test.Area.Admin.Controllers.AdminController.UpdateVoucherStatus (DemoApp_Test)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-20 11:25:44.008] [WRN] Failed to determine the https port for redirect.
+[2024-12-20 11:25:44.699] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-20 11:25:56.230] [INF] Access Login Page
+[2024-12-20 11:25:57.794] [INF] Login successful
+[2024-12-20 11:25:58.307] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-20 11:25:58.410] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.

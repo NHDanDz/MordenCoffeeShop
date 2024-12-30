@@ -1,0 +1,26 @@
+[2024-12-13 23:20:38.263] [INF] Access Login Page
+[2024-12-13 23:20:39.665] [INF] Login successful
+[2024-12-13 23:20:44.041] [INF] Access Login Page
+[2024-12-13 23:20:50.154] [INF] Access Login Page
+[2024-12-13 23:20:51.563] [INF] Login successful
+[2024-12-13 23:23:07.326] [INF] Access Login Page
+[2024-12-13 23:30:20.605] [INF] Login successful
+[2024-12-13 23:30:22.720] [INF] Access Login Page
+[2024-12-13 23:30:29.053] [INF] Access Login Page
+[2024-12-13 23:30:29.693] [INF] Access Login Page
+[2024-12-13 23:31:00.477] [WRN] Failed to determine the https port for redirect.
+[2024-12-13 23:31:01.001] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-13 23:31:50.571] [INF] Access Login Page
+[2024-12-13 23:31:54.592] [INF] Access Login Page
+[2024-12-13 23:32:11.709] [INF] Access Login Page
+[2024-12-13 23:32:13.340] [INF] Access Login Page
+[2024-12-13 23:32:14.219] [INF] Access Login Page
+[2024-12-13 23:32:23.236] [INF] Access Login Page
+[2024-12-13 23:32:37.324] [INF] Access Login Page
+[2024-12-13 23:33:23.019] [INF] Access Login Page
+[2024-12-13 23:36:46.643] [INF] Access Login Page
+[2024-12-13 23:38:09.740] [INF] Access Login Page
+[2024-12-13 23:56:13.590] [WRN] Failed to determine the https port for redirect.
+[2024-12-13 23:56:14.165] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-13 23:56:18.947] [INF] Access Login Page
+[2024-12-13 23:57:04.820] [INF] Access Login Page

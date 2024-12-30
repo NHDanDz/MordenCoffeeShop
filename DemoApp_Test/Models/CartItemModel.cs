@@ -16,6 +16,8 @@ public class CartItemModel
     public string IceDetail { get; set; }
     public string SugarId { get; set; }
     public string SugarDetail { get; set; }
+    public int Discount { get; set; }
+
 
     // Constructor trống
     public CartItemModel() { }
@@ -30,8 +32,8 @@ public class CartItemModel
         Brand = product.Brand?.BrandName ?? "default";
         TypeCoffee = product.TypeCoffee?.TypeName ?? "default";
         Image = product.Image ?? "default.jpg";
-
-        // Giá trị mặc định cho Size, Ice, Sugar
+        Discount = product.Discount;  // Lấy Discount từ product thay vì gán 0
+                                      // Giá trị mặc định cho Size, Ice, Sugar
         SizeId = "Size01";
         SizeDetail = "S";
         IceId = "Ice01";
@@ -39,7 +41,6 @@ public class CartItemModel
         SugarId = "Sugar01";
         SugarDetail = "100%";
     }
-
     // Constructor đầy đủ với các tùy chọn
     public CartItemModel(Product product, string sizeId, string sizeDetail,
                         string iceId, string iceDetail,
@@ -52,7 +53,7 @@ public class CartItemModel
         Brand = product.Brand?.BrandName ?? "default";
         TypeCoffee = product.TypeCoffee?.TypeName ?? "default";
         Image = product.Image ?? "default.jpg";
-
+        Discount = product.Discount;
         SizeId = sizeId;
         SizeDetail = sizeDetail;
         IceId = iceId;

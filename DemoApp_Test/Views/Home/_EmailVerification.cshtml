@@ -1,0 +1,53 @@
+﻿@model DemoApp_Test.Models.EmailVerificationViewModel
+
+<div class="modal fade" id="emailVerificationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận đơn hàng</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="verification-form">
+                    <div class="form-group">
+                        <label>Email xác nhận</label>
+                        <p class="text-muted" id="confirmationEmail"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Mã xác nhận</label>
+                        <input type="text" class="form-control" id="verificationCode" maxlength="6">
+                        <small class="form-text text-muted">Mã xác nhận gồm 6 chữ số sẽ hết hạn sau <span id="timeLeft">60</span> giây</small>
+                    </div>
+                    <div class="alert alert-danger" id="verificationError" style="display: none;"></div>
+                    <div class="alert alert-success" id="verificationSuccess" style="display: none;">
+                        Xác nhận đơn hàng thành công! Đơn hàng của bạn đang được xử lý.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="resendCode" disabled>
+                    Gửi lại mã (<span id="resendTimeLeft">60</span>s)
+                </button>
+                <button type="button" class="btn btn-primary" id="verifyCode">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .verification-form {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    #verificationCode {
+        letter-spacing: 3px;
+        font-size: 1.2em;
+        text-align: center;
+    }
+</style> 

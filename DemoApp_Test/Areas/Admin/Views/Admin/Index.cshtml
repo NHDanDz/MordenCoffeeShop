@@ -1,320 +1,454 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "../Shared/_Layout.cshtml";
 }
+<style>
+    .visitor-stats {
+        display: flex;
+        gap: 20px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    .stat-card {
+        flex: 1;
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e7eb;
+        transition: transform 0.2s;
+    }
 
-    
-}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        .stat-card:hover {
+            transform: translateY(-2px);
+        }
 
-<link rel="stylesheet" href="~/Admin/plugins/fontawesome-free/css/all.min.css">
+    .stat-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    .stat-icon {
+        padding: 12px; 
+        border-radius: 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-<link rel="stylesheet" href="~/Admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    .total-visitors .stat-icon {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: #3b82f6;
+    }
 
-<link rel="stylesheet" href="~/Admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    .online-users .stat-icon {
+        background-color: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+    }
 
-<link rel="stylesheet" href="~/Admin/plugins/jqvmap/jqvmap.min.css">
+    .stat-info h4 {
+        color: #6b7280;
+        font-size: 0.875rem;
+        margin: 0 0 5px 0;
+        font-weight: 500;
+    }
 
-<link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css?v=3.2.0">
+    .stat-info p {
+        color: #111827;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+    }
 
-<link rel="stylesheet" href="~/Admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    .stat-card i {
+        font-size: 1.5rem;
+    }
+</style>
 
-<link rel="stylesheet" href="~/Admin/plugins/daterangepicker/daterangepicker.css">
-
-<link rel="stylesheet" href="~/Admin/plugins/summernote/summernote-bs4.min.css">
-
-
-
-
-
-
-<div class="row">
-    <div class="col-lg-3 col-6">
-        <div class="small-box bg-info">
-            <div class="inner">
-                <h3>@ViewBag.CXL</h3>
-                <p>Đơn hàng chờ xử lý</p>
+<div class="visitor-stats">
+    <div class="stat-card total-visitors">
+        <div class="stat-content">
+            <div class="stat-icon">
+                <i class="mdi mdi-account-multiple"></i>
             </div>
-            <div class="icon">
-                <i class="ion ion-bag"></i>
+            <div class="stat-info">
+                <h4>Tổng Số Truy Cập</h4>
+                <p>@ViewBag.TotalVisitors.ToString("N0")</p>
             </div>
-            <a href="~/SanPham/HoaDon_ChuaXuLy" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-6">
-
-        <div class="small-box bg-info">
-            <div class="inner">
-                <h3>@ViewBag.TB</h3>
-                <p>Yêu cầu đơn hàng</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-bag"></i>
-            </div>
-            <a href="~/SanPham/ThongBao" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-6">
-
-        <div class="small-box bg-success">
-            <div class="inner">
-                <h3>@ViewBag.S</h3>
-                <p>Voucher</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="~/SanPham/KhoVoucher" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-6">
-
-        <div class="small-box bg-danger">
-            <div class="inner">
-                <h3>@ViewBag.SoKH</h3>
-                <p>Thành viên</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-person-add"></i>
-            </div>
-            <a href="~/NguoiDung/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
+    <div class="stat-card online-users">
+        <div class="stat-content">
+            <div class="stat-icon">
+                <i class="mdi mdi-account-check"></i>
+            </div>
+            <div class="stat-info">
+                <h4>Số Người Hoạt Động</h4>
+                <p>@ViewBag.OnlineUsers.ToString("N0")</p>
+            </div>
+        </div>
+    </div>
 </div>
-
+ 
+<!-- Key Metrics Section -->
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">BÁO CÁO THỐNG KÊ</h5>
-              
-            </div>
-
+    <!-- Revenue Card -->
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-success card-img-holder text-white">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-8">
-                        <p class="text-center">
-                            <strong>Doanh thu 12 tháng</strong>
-                        </p>
-                        <div class="chart">
-                            
-                            <canvas id="revenueChart" width="600" height="400"></canvas>
-
-                        </div>
-
-                    </div>
-
-                    @{
-                        int completed = ViewBag.DXL; // Số công việc đã hoàn thành
-                        int total = ViewBag.DXL + ViewBag.CXL; // Tổng số công việc
-                        double percentage = (double)completed / total * 100; // Tính toán tỷ lệ phần trăm hoàn thành
-                    }
-
-
-                    <div class="col-md-4">
-                        <p class="text-center">
-                            <strong>Tiến trình</strong>
-                        </p>
-                        <div class="progress-group">
-                            Xử lý đơn hàng
-                            <span class="float-right">
-                                <b>@ViewBag.DXL / @(ViewBag.DXL+ViewBag.CXL)
-                            </b></span>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar bg-warning" style="width: @percentage%">@Math.Round(percentage,1) %</div>
-                            </div>
-                        </div>
-
-
-                        @{
-                            int completed_dg = ViewBag.DG; // Số công việc đã hoàn thành
-                            int total1 = ViewBag.DXL + ViewBag.CXL + ViewBag.DG; // Tổng số công việc
-                            double percentage1 = (double)completed_dg / total1 * 100; // Tính toán tỷ lệ phần trăm hoàn thành
-                        }
-                        <div class="progress-group">
-                            Đơn hàng giao thành công
-                            <span class="float-right"><b>@ViewBag.DG/ @(ViewBag.DXL + ViewBag.CXL + ViewBag.DG)</b></span>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar bg-success" style="width: @percentage1%">@Math.Round(percentage1,1) %</div>
-                            </div>
-                        </div>
-
-
-                        @{
-                            int donct = ViewBag.MT; // Số công việc đã hoàn thành
-                            double per1 = (double)donct / 50 * 100; // Tính toán tỷ lệ phần trăm hoàn thành
-                        }
-                        <div class="progress-group">
-                            <span class="progress-text">Chỉ tiêu đặt ra</span>
-                            <span class="float-right"><b>@ViewBag.MT / 50 đơn</b></span>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar bg-danger" style="width: @per1%">@Math.Round(per1,1) %</div>
-                            </div>
-                        </div>
-
-
-                        @{
-                            int c = ViewBag.SP; // Số công việc đã hoàn thành
-                            int t = ViewBag.SP_ALL; // Tổng số công việc
-                            double p1 = (double)c / t * 100; // Tính toán tỷ lệ phần trăm hoàn thành
-                        }
-                        
-                        <div class="progress-group">
-                            Sản phẩm đã áp dụng voucher
-                            <span class="float-right"><b>@ViewBag.SP / @ViewBag.SP_ALL</b></span>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar bg-success" style="width: @p1%">@Math.Round(p1,1) %</div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
+                <img src="~/Admin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Tổng doanh thu <i class="mdi mdi-cash-multiple mdi-24px float-end"></i>
+                </h4>
+                <h2 class="mb-5">₫@ViewBag.TotalRevenue.ToString("#,0").Replace(",", ".")</h2>
+                <h6 class="card-text">Doanh thu tháng: ₫@ViewBag.MonthlyRevenue.ToString("#,0").Replace(",", ".")</h6>
             </div>
-
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-sm-3 col-6">
-                        <div class="description-block border-right">
-                            <span class="description-text">TỔNG DOANH THU</span>
-                            @*<span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>*@
-                            <h5 class="description-header">@string.Format("{0:N0}", ViewBag.TongDoanhThu) VND</h5>
-                            
-                        </div>
-
-                    </div>
-
-                    <div class="col-sm-3 col-6">
-                        <div class="description-block border-right">
-                            <span class="description-text">DOANH THU TRUNG BÌNH / THÁNG</span>
-                            @*<span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>*@
-                            <h5 class="description-header">@string.Format("{0:N0}", ViewBag.DoanhThuTB) VND</h5>
-                            
-                        </div>
-
-                    </div>
-
-
-                    @{
-                        double ht = ViewBag.HienTai; // Số công việc đã hoàn thành
-                        double tt = ViewBag.ThangTruoc; // Tổng số công việc
-                        double tong = ViewBag.TongDoanhThuhs;
-                        double hsht = (double)(ht) / tong * 100; // Tính toán tỷ lệ phần trăm hoàn thành
-                        double hstt = (double)(tt) / tong * 100;
-                    }
-                    <div class="col-sm-4 col-10">
-                        <div class="description-block border-right">
-                            <span class="description-text">HIỆU SUẤT DOANH THU SO VỚI THÁNG TRƯỚC</span>
-                            <br>
-                            @if(ht<tt){
-                                <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> @Math.Round((Math.Round(hstt,1) - Math.Round(hsht,1)),1) %</span>
-                            }
-                            else
-                            {
-                                <span class="description-percentage text-success"><i class="fas fa-caret-up"></i>  @Math.Round((Math.Round(hsht, 1) - Math.Round(hstt, 1)),1) %</span>
-                            }
-                            <h5 class="description-header"></h5>
-                            
-                        </div>
-
-                    </div>
-
-                    <div class="col-sm-2 col-6">
-                        <div class="description-block">
-                            <span class="description-text">SỐ ĐƠN THÁNG NÀY </span>
-                            <h5 class="description-header">@ViewBag.DaBan đơn</h5>
-                            
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
         </div>
-
     </div>
-
+    <!-- Orders Card -->
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-info card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/Admin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Tổng số đơn hàng <i class="mdi mdi-shopping mdi-24px float-end"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.TotalOrders.ToString("N0")</h2>
+                <h6 class="card-text">Chưa duyệt: @ViewBag.PendingOrders</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Products Card -->
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-primary card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/Admin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Sản phẩm đang bán <i class="mdi mdi-package-variant mdi-24px float-end"></i>
+                </h4>
+                <h2 class="mb-5">@ViewBag.ActiveProducts</h2>
+                <h6 class="card-text">Tổng sản phẩm: @ViewBag.TotalProducts</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Average Order Value Card -->
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-warning card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/Admin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Giá trị đơn hàng trung bình <i class="mdi mdi-chart-line mdi-24px float-end"></i>
+                </h4>
+                <h2 class="mb-5">₫@ViewBag.AverageOrderValue.ToString("#,0").Replace(",", ".")</h2>
+                <h6 class="card-text">Cao nhất: ₫@ViewBag.HighestOrderValue.ToString("#,0").Replace(",", ".")</h6>
+            </div>
+        </div>
+    </div>
 </div>
 
+<!-- Orders Analysis Section -->
+<div class="row">
+    <!-- Revenue Trend Chart -->
+    <div class="col-lg-7 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Xu hướng doanh thu và đơn hàng</h4>
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="text-muted mb-1" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Xu hướng doanh thu trong 7 tháng qua</p>
+                    <p class="text-muted mb-1">
+                        <span class="text-success me-1"><i class="mdi mdi-arrow-up"></i>@ViewBag.RevenueGrowth%</span>
+                    </p>
+                </div>
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- Payment Methods Chart -->
+    <div class="col-lg-5 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">
+                    Phương thức thanh toán
+                </h4>
+                <canvas id="paymentMethodsChart"></canvas>
+                <div class="mt-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="text-muted">Đơn hàng đã hoàn thành</p>
+                        <p>@ViewBag.PaidOrdersCount (@ViewBag.PaidOrdersPercentage%)</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="text-muted">Đang chờ vận chuyển</p>
+                        <p>@ViewBag.UnpaidOrdersCount (@ViewBag.UnpaidOrdersPercentage%)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Recent Orders Table -->
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="card-title" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Đơn hàng gần đây</h4>
+                    <a href="@Url.Action("OrderView", "Admin")" class="btn btn-primary btn-sm" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Xem tất cả đơn hàng</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr style = "text-align: center !important">
+                                <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">ID Đơn hàng</th>
+                                <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Khách hàng</th>
+                                <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Ngày đặt</th>
+                                <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Tổng giá trị</th>
+                                <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Phương thức thanh toán</th>
+                                <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Trạng thái</th>
+                                <th style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Tình trạng thanh toán</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in ViewBag.RecentOrders)
+                            {
+                                <tr>
+                                    <td style="text-align: center !important"><a href="#" class="text-primary">@order.Bill_id</a></td>
+                                    <td style="text-align: center !important">@order.Client?.Name</td>
+                                    <td style="text-align: center !important">@order.Date.ToString("MMM dd, yyyy HH:mm")</td>
+                                    <td class="text-right" style="padding-left: 50px !important">₫@order.Total.ToString("#,0").Replace(",", ".")</td>
+                                    <td style="text-align: center !important">@order.PaymentMethod</td>
+                                    <td style="text-align: center !important">
+                                        @if (order.Status)
+                                        {
+                                            <label class="badge badge-gradient-success"> Đã xác nhận </label>
+                                        }
+                                        else
+                                        {
+                                            <label class="badge badge-gradient-warning">Chờ xác nhận</label>
+                                        }
+                                    </td>
+                                    <td style="text-align: center !important">
+                                        @if (order.PaymentStatus)
+                                        {
+                                            <label class="badge badge-gradient-success">Hoàn thành</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="badge badge-gradient-danger">Đang vận chuyển</label>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script src="~/Admin/plugins/chart.js/Chart.min.js"></script>
-
-<script src="~/Admin/plugins/sparklines/sparkline.js"></script>
-
-<script src="~/Admin/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="~/Admin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-
-<script src="~/Admin/plugins/jquery-knob/jquery.knob.min.js"></script>
-
-<script src="~/Admin/plugins/moment/moment.min.js"></script>
-<script src="~/Admin/plugins/daterangepicker/daterangepicker.js"></script>
-
-<script src="~/Admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-
-<script src="~/Admin/plugins/summernote/summernote-bs4.min.js"></script>
-
-<script src="~/Admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-
-<script src="~/Admin/dist/js/adminlte.js?v=3.2.0"></script>
-
-<script src="~/Admin/dist/js/demo.js"></script>
-
-<script src="~/Admin/dist/js/pages/dashboard.js"></script>
-
-
-<script>
-    // Giả sử bạn có mảng chứa doanh thu của 12 tháng
-    var monthlyRevenue = [@ViewBag.January, @ViewBag.February, @ViewBag.March, @ViewBag.April, @ViewBag.May, @ViewBag.June, @ViewBag.July, @ViewBag.August, @ViewBag.September, @ViewBag.October, @ViewBag.November, @ViewBag.December];
-
-    var months = [
-        'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
-        'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'
-    ];
-
-    var ctx = document.getElementById('revenueChart').getContext('2d');
-    var revenueChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: months,
-            datasets: [{
-                label: 'Doanh thu theo tháng (VND)',
-                data: monthlyRevenue,
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Doanh thu (VND)'
-                    }
+<!-- Product Analytics Section -->
+<div class="row">
+    <!-- Products by Brand -->
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">Sản phẩm theo nhãn hàng</h4>
+                <canvas id="brandDistributionChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- Product Categories -->
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Product Categories</h4>
+                <canvas id="categoryDistributionChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize charts when document is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Brand Distribution Chart
+            new Chart(document.getElementById('brandDistributionChart'), {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(ViewBag.BrandLabels)),
+                    datasets: [{
+                        label: 'Số lượng sản phẩm',
+                        data: @Html.Raw(Json.Serialize(ViewBag.BrandData)),
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
                 },
-                x: {
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Type Distribution Chart
+            new Chart(document.getElementById('typeDistributionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(ViewBag.TypeLabels)),
+                    datasets: [{
+                        data: @Html.Raw(Json.Serialize(ViewBag.TypeData)),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                }
+            });
+
+            // Status Chart
+            new Chart(document.getElementById('statusChart'), {
+                type: 'pie',
+                data: {
+                    labels: ['Active', 'Archived'],
+                    datasets: [{
+                        data: [@ViewBag.ActiveProducts, @ViewBag.ArchivedProducts],
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(255, 99, 132, 0.5)'
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                }
+            });
+        });
+           const revenueChartCtx = document.getElementById('revenueChart');
+        if (revenueChartCtx) {
+            new Chart(revenueChartCtx, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(ViewBag.RevenueDates)),
+                    datasets: [{
+                        label: 'Doanh thu (₫)',
+                        data: @Html.Raw(Json.Serialize(ViewBag.RevenueData)),
+                        borderColor: '#4CAF50',
+                        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        yAxisID: 'y'
+                    }, {
+                        label: 'Đơn hàng',
+                        data: @Html.Raw(Json.Serialize(ViewBag.OrdersData)),
+                        borderColor: '#2196F3',
+                        backgroundColor: 'rgba(33, 150, 243, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Doanh thu (₫)'
+                            },
+                            beginAtZero: true
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Tổng đơn hàng'
+                            },
+                            beginAtZero: true,
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    }
+                }
+            });
+        }
+        new Chart(document.getElementById('paymentMethodsChart'), {
+            type: 'pie',  // Changed to pie chart from doughnut
+            data: {
+                labels: @Html.Raw(Json.Serialize(ViewBag.PaymentMethods)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(ViewBag.PaymentMethodCounts)),
+                    backgroundColor: [
+                        'rgb(54, 162, 235)',  // Blue
+                        'rgb(75, 192, 192)',  // Green
+                        'rgb(255, 205, 86)'   // Yellow
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
                     title: {
                         display: true,
-                        text: 'Tháng'
+                                text: 'Phân bố phương thức thanh toán'
                     }
                 }
             }
-        }
-    });
-</script>
+        });
+    </script>
+}

@@ -1,35 +1,528 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@model MenuViewModel
+﻿@model X.PagedList.IPagedList<DemoApp_Test.Models.HienThiSanPham>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@using System.Globalization
 
-<!-- Shop Section Begin -->
+@{
+    ViewData["Title"] = "Index"; 
+}
+@{
+    int startIndex = (Model.PageNumber - 1) * Model.PageSize + 1;
+    int endIndex = startIndex + Model.Count - 1;
+
+}
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet">
+<!-- Css Styles -->
+<link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="~/css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/style.css" type="text/css">
+
+ 
+<style>
+    .breadcrumb-option {
+        padding: 80px 0;
+        position: relative;
+        min-height: 200px;
+    }
+
+    .breadcrumb__text {
+        position: relative;
+        z-index: 1;
+    }
+
+        .breadcrumb__text h4 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+    .breadcrumb__links a,
+    .breadcrumb__links span {
+        color: #ffffff;
+        font-size: 16px;
+    }
+
+        .breadcrumb__links a:hover {
+            color: #e53637;
+        }
+
+    /* Thêm overlay để text dễ đọc hơn trên background */
+    .breadcrumb-option::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .product__item__pic {
+        padding: 0 !important; /* Loại bỏ padding */
+        margin: 0; /* Loại bỏ margin */
+        display: inline-block; /* Đảm bảo div co giãn theo nội dung */
+        width: fit-content; /* Kích thước div khớp với nội dung (img) */
+        height: auto; /* Tự điều chỉnh chiều cao theo img */
+    }
+
+    .product__item__img {
+        display: block; /* Xóa khoảng cách mặc định dưới img */
+        max-width: 100%; /* Đảm bảo img không vượt quá kích thước của div */
+        height: auto; /* Duy trì tỉ lệ img */
+    }
+
+
+.shop__sidebar__price-range .price-range-inputs { 
+}
+
+.shop__sidebar__price-range input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+.shop__sidebar__rating label {
+    display: block;
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}   
+
+.shop__sidebar__rating label:hover {
+    background-color: #f8d7da;
+}
+
+.shop__sidebar__rating label.active {
+    background-color: #e53637;
+    color: white;
+}
+
+.shop__sidebar__rating input[type="radio"] {
+    display: none;
+}
+
+.shop__sidebar__rating .fa {
+    color: #FFD700;
+    margin-right: 2px;
+}
+
+.shop__sidebar__rating label.active .fa {
+    color: white;
+}
+</style>
+
+
+
+<style>
+    /* CSS cho toast notification */
+    .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #333;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 5px;
+        display: none;
+        z-index: 1000;
+    }
+
+        .toast.success {
+            background: #4CAF50;
+        }
+
+        .toast.error {
+            background: #f44336;
+        }
+
+        .toast.show {
+            display: block;
+            animation: fadeIn 0.5s, fadeOut 0.5s 2.5s forwards;
+        }
+
+    
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+      
+
+    .product__hover li .add-to-cart span {
+        position: static;
+        display: inline;
+        opacity: 1;
+        visibility: visible;
+        background: transparent;
+        color: inherit;
+        padding: 0;
+        margin-left: 5px;
+    }
+    /* Styles chung cho tất cả các filter */
+    .shop__sidebar__brand label,
+    .shop__sidebar__type label,
+    .shop__sidebar__size label,
+    .shop__sidebar__price label {
+        position: relative;
+        padding: 8px 15px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        display: block;
+        width: 100%;
+        font-size: 14px;
+        color: #111111;
+        text-transform: capitalize;
+    }
+
+        /* Active state cho tất cả các filter */
+        .shop__sidebar__brand label.active,
+        .shop__sidebar__type label.active,
+        .shop__sidebar__size label.active,
+        .shop__sidebar__price label.active {
+            background-color: #e53637;
+            color: white;
+        }
+
+    /* Ẩn radio button mặc định */
+    .shop__sidebar__brand input[type="radio"],
+    .shop__sidebar__type input[type="radio"],
+    .shop__sidebar__size input[type="radio"],
+    .shop__sidebar__price input[type="radio"] {
+        display: none;
+    }
+
+    /* Hover effect cho tất cả các filter */
+    .shop__sidebar__brand label:hover,
+    .shop__sidebar__type label:hover,
+    .shop__sidebar__size label:hover,
+    .shop__sidebar__price label:hover {
+        background-color: #f8d7da;
+    }
+
+    /* Hover effect cho trạng thái active */
+    .shop__sidebar__brand label.active:hover,
+    .shop__sidebar__type label.active:hover,
+    .shop__sidebar__size label.active:hover,
+    .shop__sidebar__price label.active:hover {
+        background-color: #c82333;
+    }
+
+    /* Specific styles cho price filter */
+    .shop__sidebar__price {
+        padding: 0;
+    }
+
+        .shop__sidebar__price label {
+            margin-bottom: 8px;
+            text-align: left;
+            border: 1px solid transparent;
+        }
+
+            .shop__sidebar__price label:last-child {
+                margin-bottom: 0;
+            }
+
+    /* Card styles */
+    .shop__sidebar__accordion .card {
+        border: none;
+        margin-bottom: 25px;
+    }
+
+    .shop__sidebar__accordion .card-heading {
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+        .shop__sidebar__accordion .card-heading a {
+            color: #111111;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            padding: 10px 0;
+        }
+
+    .shop__sidebar__accordion .card-body {
+        padding: 0;
+    }
+    /* Modal styles */
+    .modal-content {
+        border: none;
+        border-radius: 15px;
+    }
+
+    .modal-body {
+        padding: 30px;
+    }
+
+    .modal .close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 24px;
+        z-index: 1;
+        opacity: 0.7;
+        transition: all 0.3s;
+    }
+
+        .modal .close:hover {
+            opacity: 1;
+        }
+
+    /* Product Image */
+    .product__details__pic {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .product__details__pic img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+    /* Product Details */
+    .product__details__text h4 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #111111;
+    }
+
+    .product__details__price {
+        font-size: 30px;
+        color: #e53637;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    /* Options Styling */
+    .product__details__options {
+        margin-bottom: 30px;
+    }
+
+    .option-title {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        color: #111111;
+        margin-bottom: 10px;
+    }
+
+    .custom-select {
+        width: 100%;
+        height: 45px;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 0 15px;
+        font-size: 15px;
+        color: #444444;
+        transition: all 0.3s;
+    }
+
+        .custom-select:focus {
+            border-color: #e53637;
+            box-shadow: none;
+            outline: none;
+        }
+
+    /* Quantity Input */
+    .pro-qty-2 {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .quantity-btn {
+        width: 45px;
+        height: 45px;
+        border: none;
+        background: none;
+        font-size: 18px;
+        color: #111111;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+        .quantity-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+    .quantity-input {
+        width: 60px;
+        height: 45px;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        color: #111111;
+        background: transparent;
+    }
+
+    /* Add to Cart Button */
+    .primary-btn {
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 14px 32px;
+        color: #ffffff;
+        background: #e53637;
+        border: none;
+        border-radius: 8px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+        .primary-btn:hover {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .primary-btn i {
+            margin-right: 8px;
+        }
+
+    /* Rating */
+    .rating {
+        margin-bottom: 20px;
+    }
+
+        .rating i {
+            color: #e3c01c;
+            margin-right: 3px;
+        }
+
+    /* Responsive Styles */
+    @@media (max-width: 991px) {
+        .modal-dialog {
+            max-width: 95%;
+            margin: 20px auto;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .modal-body {
+            padding: 20px;
+        }
+
+        .product__details__text {
+            padding-top: 20px;
+        }
+    }
+    /* Vô hiệu hóa click trên tiêu đề */
+    .card-heading a {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    /* Luôn hiển thị nội dung */
+    #collapseOne,
+    #collapseTwo,
+    #collapseThree,
+    #collapseFour {
+        display: block !important;
+    }
+
+    /* Loại bỏ icon mũi tên (nếu có) */
+    .card-heading a::after,
+    .card-heading a::before {
+        display: none !important;
+    }
+
+    /* Đảm bảo card-body luôn hiển thị */
+    .card-body {
+        display: block !important;
+    }
+
+    .shop__sidebar__accordion .card {
+        border: none !important;
+        border-radius: 0 !important;
+        margin-bottom: 25px !important;
+    }
+
+        .shop__sidebar__accordion .card:last-child {
+            margin-bottom: 0 !important;
+        }
+
+            .shop__sidebar__accordion .card:last-child .card-body {
+                padding-bottom: 0 !important;
+                border-bottom: none !important;
+            }
+
+    .shop__sidebar__accordion .card-body {
+        padding: 0 !important;
+        padding-top: 10px !important;
+        padding-bottom: 20px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+    }
+
+    .shop__sidebar__accordion .card-heading {
+        cursor: pointer !important;
+    }
+
+        .shop__sidebar__accordion .card-heading a {
+            color: #111111 !important;
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            display: block !important;
+        }
+</style>
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option" data-setbg="/img/hero/hero-8.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Thực đơn</h4>
+                    <div class="breadcrumb__links">
+                        <a asp-controller="Home" asp-action="Index">Trang Chủ</a> 
+                        <span>Thực đơn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="shop spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
                 <div class="shop__sidebar">
                     <div class="shop__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="Search...">
+                        <form id="searchForm" method="get" action="/Home/Menu">
+                            <input type="text" name="searchTerm" placeholder="Tìm kiếm theo tên sản phẩm" value="@ViewBag.CurrentSearch">
                             <button type="submit"><span class="icon_search"></span></button>
                         </form>
                     </div>
+        
                     <div class="shop__sidebar__accordion">
                         <div class="accordion">
                             <div class="card">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+                                <div class="card-heading" style="text-align: center !important; ">
+                                    <a data-toggle="collapse" data-target="#collapseOne">Loại đồ uống</a>
                                 </div>
-                                <div id="collapseOne" class="collapse show" >
+                                <div id="collapseOne" class="show">
                                     <div class="card-body">
                                         <div class="shop__sidebar__type">
                                             <ul>
 
-                                                @foreach (var item in @Model.TypeCoffee)
+                                                @foreach (var item in ViewBag.typeCoffees)
                                                 {
-                                                    <label for="@item.Type_id">
+                                                    <label for="@item.Type_id" style="text-align: center !important; ">
                                                         @item.TypeName
                                                         <input type="radio" id="@item.Type_id" name="type" value="@item.Type_id">
                                                     </label>
@@ -41,16 +534,16 @@
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+                                <div class="card-heading" style="text-align: center !important; ">
+                                    <a data-toggle="collapse" data-target="#collapseTwo">Hãng đồ uống</a>
                                 </div>
-                                <div id="collapseTwo" class="collapse show" >
+                                <div id="collapseTwo" class="show">
                                     <div class="card-body">
                                         <div class="shop__sidebar__brand">
                                             <ul>
-                                                @foreach (var item in @Model.Brand)
-                                                { 
-                                                    <label for="@item.Brand_id">
+                                                @foreach (var item in ViewBag.Brands)
+                                                {
+                                                    <label for="@item.Brand_id" style="text-align: center !important; ">
                                                         @item.BrandName
                                                         <input type="radio" id="@item.Brand_id" name="brand" value="@item.Brand_id">
                                                     </label>
@@ -61,61 +554,99 @@
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                <div class="card-heading" style="text-align: center !important; ">
+                                    <a data-toggle="collapse" data-target="#collapseThree">Lọc theo giá</a>
                                 </div>
-                                <div id="collapseThree" class="collapse show"  >
+                                <div id="collapseThree" class="show">
                                     <div class="card-body">
-                                        <div class="shop__sidebar__price"> 
-                                                <label for="price1">
-                                                    $0.00 - $5.00
-                                                    <input type="radio" id="price1" name="price" value="0-5">
-                                                </label>
-                                                <label for="price2">
-                                                    $5.00 - $10.00
-                                                    <input type="radio" id="price2" name="price" value="5-10">
-                                                </label>
-                                                <label for="price3">
-                                                    $10.00 - $15.00
-                                                    <input type="radio" id="price3" name="price" value="10-15">
-                                                </label>
-                                                <label for="price4">
-                                                    $15.00 - $20.00
-                                                    <input type="radio" id="price4" name="price" value="15-20">
-                                                </label>
-                                                <label for="price5">
-                                                    $20.00 - $25.00
-                                                    <input type="radio" id="price5" name="price" value="20-25">
-                                                </label>
-                                                <label for="price6">
-                                                    $25.00+
-                                                    <input type="radio" id="price6" name="price" value="25+">
-                                                </label> 
+                                        <div class="shop__sidebar__price">
+                                            <label for="price1" style="text-align: center !important; ">
+                                                $0 - ₫20.000
+                                                <input type="radio" id="price1" name="price" value="0-5">
+                                            </label>
+                                            <label for="price2" style="text-align: center !important; ">
+                                                ₫20.000 - ₫40.000
+                                                <input type="radio" id="price2" name="price" value="5-10">
+                                            </label>
+                                            <label for="price3" style="text-align: center !important; ">
+                                                ₫40.000 - ₫60.000
+                                                <input type="radio" id="price3" name="price" value="10-15">
+                                            </label>
+                                            <label for="price4" style="text-align: center !important; ">
+                                                ₫60.000 - ₫80.000
+                                                <input type="radio" id="price4" name="price" value="15-20">
+                                            </label>
+                                            <label for="price5" style="text-align: center !important; ">
+                                                ₫80.000 - ₫100.000
+                                                <input type="radio" id="price5" name="price" value="20-25">
+                                            </label>
+                                            <label for="price6" style="text-align: center !important; ">
+                                                ₫100.000+
+                                                <input type="radio" id="price6" name="price" value="25+">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="card">
+                                <div class="card-heading" style="text-align: center !important;">
+                                    <a data-toggle="collapse" data-target="#collapsePriceRange">Khoảng Giá</a>
+                                </div>
+                                <div id="collapsePriceRange" class="show">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price-range">
+                                            <div class="price-range-inputs">
+                                                <input type="number" id="minPrice" class="form-control mb-2" placeholder="Giá tối thiểu(₫)" min="0" max="1000000" step="1">
+                                                <input type="number" id="maxPrice" class="form-control mb-2" placeholder="Giá tối đa (₫)" min="0" max="1000000" step="1" >
+                                                <button class="btn btn-danger w-100" onclick="applyPriceRange()" >
+                                                    Áp dụng
+                                                </button> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="card">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseFour">Size</a>
+                                <div class="card-heading" style="text-align: center !important;">
+                                    <a data-toggle="collapse" data-target="#collapseRating">Đánh giá</a>
                                 </div>
-                                <div id="collapseFour" class="collapse show">
+                                <div id="collapseRating" class="show">
                                     <div class="card-body">
-                                        <div class="shop__sidebar__size">
-                                            @foreach (var item in @Model.Size)
-                                            {
-                                                <label for="@item.SizeDetail">
-                                                    @item.SizeDetail
-                                                    <input type="radio" id="@item.SizeDetail" name="size" value="@item.SizeDetail">
+                                        <div class="shop__sidebar__rating">
+                                            <ul>
+                                                <label for="rating5">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                    <input type="radio" id="rating5" name="rating" value="5"> 
                                                 </label>
-                                            }
+                                                <label for="rating4">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+                                                    <input type="radio" id="rating4" name="rating" value="4"> trở lên
+                                                </label>
+                                                <label for="rating3">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+                                                    <input type="radio" id="rating3" name="rating" value="3"> trở lên
+                                                </label>
+                                                <label for="rating2">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+                                                    <input type="radio" id="rating2" name="rating" value="2"> trở lên
+                                                </label>
+                                                <label for="rating1">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+                                                    <input type="radio" id="rating1" name="rating" value="1"> trở lên
+                                                </label>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                             
-                            
+                            <div class="shop__sidebar__clear-filter" style="margin: 15px 0;">
+                                <button onclick="clearAllFilters()" class="btn btn-danger w-100">
+                                    <i class="fa fa-refresh"></i> Xóa bộ lọc
+                                </button>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -124,39 +655,320 @@
                 <div class="shop__product__option">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="shop__product__option__left">
-                                <p>Showing 1–12 of @Model.Product.Count() results</p>
+                            <div class="shop__product__option__left" hidden>
+                                <p> Có tổng cộng @Model.Count() sản phẩm</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
-                                <p>Sort by Price:</p>
-                                <select>
-                                    <option value="">Low To High</option>
-                                    <option value="">$0 - $55</option>
-                                    <option value="">$55 - $100</option>
+                                <p>Sắp xếp theo:</p>
+                                <select id="priceSort" name="sortOrder">
+                                    <option value="">Mặc định</option>
+                                    @if (ViewBag.CurrentSort == "newest")
+                                    {
+                                        <option value="newest" selected>Mới nhất</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="newest">Mới nhất</option>
+                                    }
+                                    @if (ViewBag.CurrentSort == "oldest")
+                                    {
+                                        <option value="oldest" selected>Cũ nhất</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="oldest">Cũ nhất</option>
+                                    }
+                                    @if (ViewBag.CurrentSort == "price_asc")
+                                    {
+                                        <option value="price_asc" selected>Giá: Thấp đến Cao</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="price_asc">Giá: Thấp đến Cao</option>
+                                    }
+                                    @if (ViewBag.CurrentSort == "price_desc")
+                                    {
+                                        <option value="price_desc" selected>Giá: Cao đến Thấp</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="price_desc">Giá: Cao đến Thấp</option>
+                                    }
+                                    @if (ViewBag.CurrentSort == "bestseller")
+                                    {
+                                        <option value="bestseller" selected>Bán chạy nhất</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="bestseller">Bán chạy nhất</option>
+                                    }
                                 </select>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <div id="product-section">
 
-                @await Component.InvokeAsync("CategoriesMenu")
+
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix">
+                                <div class="product__item" data-product-id="@item.Ten_Sanpham">
+                                    <div class="product__item__pic" style="padding-bottom: 0px !important">
+                                        <a href="/Home/ProductDetailView?id=@item.Ma_Sanpham" >
+                                            <img src="@Url.Content($"~/img/{item.Ten_Nhasanxuat ?? "default"}/{item.Ten_loai ?? "default"}/{item.Link1 ?? "default.jpg"}")"
+                                                 alt="@item.Ten_Sanpham ?? Sản phẩm"
+                                                 class="product__item__img" />
+                                        </a> 
+                                    </div>
+                                    <div class="product__item__text" style="padding: 35px !important">
+                                        <a href="@Url.Action("Details", "Product", new { id = item.Ma_Sanpham })">
+                                            <h6>@item.Ten_Sanpham</h6>
+                                        </a>
+                                        <h6>@item.Ten_Sanpham</h6>
+
+                                        <a href="#" class="add-cart add-to-cart" data-product-id="@item.Ma_Sanpham">+ Thêm vào giỏ hàng</a>
+
+                                        <div class="rating">
+                                            @{
+                                                int fullStars = (int)(item.Rating / 20);
+                                                bool hasHalfStar = (item.Rating % 20 >= 10);
+                                            }
+                                            @for (int i = 0; i < fullStars; i++)
+                                            {
+                                                <i class="fa fa-star" style="color: #FFD700;"></i>
+                                            }
+                                            @if (hasHalfStar)
+                                            {
+                                                <i class="fa fa-star-half-o" style="color: #FFD700;"></i>
+                                            }
+                                            @for (int i = fullStars + (hasHalfStar ? 1 : 0); i < 5; i++)
+                                            {
+                                                <i class="fa fa-star-o" style="color: #FFD700;"></i>
+                                            }
+                                            <small>(@item.ReviewCount)</small>
+                                        </div>
+                                        <h5>₫ @string.Format(new CultureInfo("vi-VN"), "{0:#,0}", item.Giagoc - (item.Giagoc * item.Discount / 100))</h5>
+                                        @if (item.Discount > 0)
+                                        {
+                                            <h6 class="text-muted ml-2"><del>₫ @string.Format(new CultureInfo("vi-VN"), "{0:#,0}", item.Giagoc)</del></h6>
+                                        }
+                                        @if (item.SoldQuantity > 0)
+                                        {
+                                            <h6>Đã bán: @item.SoldQuantity</h6>
+                                        }
+                                     </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    @if (ViewBag.TotalPages > 0)
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="product__pagination">
+                                    @if (ViewBag.CurrentPage > 1)
+                                    {
+                                        <a href="#" class="page-link1" data-page="@(ViewBag.CurrentPage - 1)">&laquo;</a>
+                                    }
+
+                                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                    {
+                                        if (i == ViewBag.CurrentPage)
+                                        {
+                                            <a class="active page-link1" href="#" data-page="@i">@i</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#" class="page-link1" data-page="@i">@i</a>
+                                        }
+                                    }
+
+                                    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                                    {
+                                        <a href="#" class="page-link1" data-page="@(ViewBag.CurrentPage + 1)">&raquo;</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
+
             </div>
+
         </div>
-    </div>
+
 </section>
-<!-- Shop Section End -->
+<style>
+    .product-image {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .custom-btn:active {
+        background-color: red; /* Màu nền khi nút được nhấn */
+        border-color: red; /* Màu viền khi nút được nhấn */
+        color: white; /* Màu chữ khi nút được nhấn */
+    }
+
+    #lst tbody tr:hover {
+        background-color: coral;
+    }
+
+    .table td, .table th {
+        padding: 0.25rem;
+        width: auto;
+        vertical-align: middle;
+        border-top: 1px solid #dee2e6;
+    }
+</style>
+
+
+<script src="~/js/jquery-3.6.0.min.js"></script>
+
+<script src="~/js/bootstrap.min.js"></script>
+<script src="js/vendor/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+
 <script>
-    document.querySelectorAll('.shop__sidebar__price input[type="radio"], .shop__sidebar__size input[type="radio"], .shop__sidebar__type input[type="radio"], .shop__sidebar__brand input[type="radio"]').forEach(radio => {
+
+            document.addEventListener('DOMContentLoaded', function () {
+        // Initialize add to cart functionality
+        function initAddToCart() {
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                if (!button.hasAttribute('data-initialized')) {
+                    button.setAttribute('data-initialized', 'true');
+
+                    button.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        const productId = this.getAttribute('data-product-id');
+                        const button = this;
+
+                        // Add loading state
+                        button.classList.add('loading');
+                        button.innerHTML = 'Adding...';
+
+                        fetch('/cart/AddToCart', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(productId)
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Error adding to cart');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            showToast('Đã thêm sản phẩm vào giỏ hàng thành công!');
+
+                            if (document.querySelector('.cart-count')) {
+                                document.querySelector('.cart-count').textContent = data.cartCount;
+                            }
+
+                            button.innerHTML = '<span style="color: green;">✓ Đã thêm thành công</span>';
+                            button.style.color = 'green';
+
+                            setTimeout(() => {
+                                button.innerHTML = '+ Thêm vào giỏ hàng';
+                                button.style.color = '#e53637';
+                            }, 1500);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            showToast('Failed to add product to cart', 'error');
+                            button.classList.remove('loading');
+                            button.innerHTML = '+ Thêm vào giỏ hàng';
+                        });
+                    });
+                }
+            });
+        }
+
+        // Initialize on page load
+        initAddToCart();
+
+        // Re-initialize after any dynamic content  s
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                    initAddToCart();
+                }
+            });
+        });
+
+        observer.observe(document.getElementById('product-section'), {
+            childList: true,
+            subtree: true
+        });
+    });
+</script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Lấy các tham số từ URL hiện tại
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Đánh dấu radio button đã được chọn
+        if (urlParams.has('typeId')) {
+            const typeRadio = document.querySelector(`input[name="type"][value="${urlParams.get('typeId')}"]`);
+            if (typeRadio) {
+                typeRadio.checked = true;
+                typeRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('brandId')) {
+            const brandRadio = document.querySelector(`input[name="brand"][value="${urlParams.get('brandId')}"]`);
+            if (brandRadio) {
+                brandRadio.checked = true;
+                brandRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('priceRange')) {
+            let priceValue;
+            switch(urlParams.get('priceRange')) {
+                case '1': priceValue = '0-5'; break;
+                case '2': priceValue = '5-10'; break;
+                case '3': priceValue = '10-15'; break;
+                case '4': priceValue = '15-20'; break;
+                case '5': priceValue = '20-25'; break;
+                case '6': priceValue = '25+'; break;
+            }
+            const priceRadio = document.querySelector(`input[name="price"][value="${priceValue}"]`);
+            if (priceRadio) {
+                priceRadio.checked = true;
+                priceRadio.closest('label').classList.add('active');
+            }
+        }
+         
+    });
+    document.querySelectorAll('.shop__sidebar__price input[type="radio"], .shop__sidebar__brand input[type="radio"], .shop__sidebar__type input[type="radio"]').forEach(radio => {
         radio.addEventListener('click', function() {
-            // Kiểm tra nếu radio button đã được chọn (tức là đang active)
+            // Kiểm tra nếu radio button đã được chọn
             if (this.closest('label').classList.contains('active')) {
                 // Nếu đang active, gỡ class "active"
                 this.closest('label').classList.remove('active');
                 this.checked = false; // bỏ chọn radio button
+
+                // Gọi handleFilter để cập nhật URL và refresh trang
+                handleFilter();
             } else {
                 // Nếu không, gỡ bỏ class "active" khỏi tất cả nhãn cùng nhóm
                 document.querySelectorAll(`input[name="${this.name}"]`).forEach(input => {
@@ -164,8 +976,423 @@
                 });
                 // Thêm class "active" vào nhãn của radio button vừa được chọn
                 this.closest('label').classList.add('active');
+
+                // Gọi handleFilter để cập nhật URL và refresh trang
+                handleFilter();
             }
         });
     });
 
+</script>
+
+
+<script>
+
+        // Hàm chính để xử lý việc lọc
+       function handleFilter() {
+        const currentUrl = new URL(window.location.href);
+        const urlParams = currentUrl.searchParams;
+
+        // Lấy giá trị tìm kiếm hiện tại
+        const searchTerm = document.querySelector('input[name="searchTerm"]').value;
+        if (searchTerm) {
+            urlParams.set('searchTerm', searchTerm);
+        } else {
+            urlParams.delete('searchTerm');
+        }
+
+        // Các filter khác giữ nguyên
+        const selectedType = document.querySelector('input[name="type"]:checked')?.value;
+        const selectedBrand = document.querySelector('input[name="brand"]:checked')?.value;
+        const selectedPrice = document.querySelector('input[name="price"]:checked')?.value;
+        const rating = document.querySelector('input[name="rating"]:checked')?.value;
+
+        if (selectedType) urlParams.set('typeId', selectedType);
+        else urlParams.delete('typeId');
+
+        if (selectedBrand) urlParams.set('brandId', selectedBrand);
+        else urlParams.delete('brandId');
+
+        if (selectedPrice) {
+            let priceRange;
+            switch(selectedPrice) {
+                case '0-5': priceRange = '1'; break;
+                case '5-10': priceRange = '2'; break;
+                case '10-15': priceRange = '3'; break;
+                case '15-20': priceRange = '4'; break;
+                case '20-25': priceRange = '5'; break;
+                case '25+': priceRange = '6'; break;
+            }
+            if (priceRange) urlParams.set('priceRange', priceRange);
+        } else {
+            urlParams.delete('priceRange');
+        }
+
+        if (rating) urlParams.set('rating', rating);
+        else urlParams.delete('rating');
+
+        urlParams.set('page', '1');
+        window.location.href = currentUrl.toString();
+    }
+    // Thêm event listener cho tất cả các radio button
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterInputs = document.querySelectorAll('input[type="radio"]');
+        filterInputs.forEach(input => {
+            input.addEventListener('change', handleFilter);
+        });
+
+        // Đánh dấu các radio button đã được chọn từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.has('typeId')) {
+            const typeRadio = document.querySelector(`input[name="type"][value="${urlParams.get('typeId')}"]`);
+            if (typeRadio) {
+                typeRadio.checked = true;
+                typeRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('brandId')) {
+            const brandRadio = document.querySelector(`input[name="brand"][value="${urlParams.get('brandId')}"]`);
+            if (brandRadio) {
+                brandRadio.checked = true;
+                brandRadio.closest('label').classList.add('active');
+            }
+        }
+
+        if (urlParams.has('priceRange')) {
+            let priceValue;
+            switch(urlParams.get('priceRange')) {
+                case '1':
+                    priceValue = '0-5';
+                    break;
+                case '2':
+                    priceValue = '5-10';
+                    break;
+                case '3':
+                    priceValue = '10-15';
+                    break;
+                case '4':
+                    priceValue = '15-20';
+                    break;
+                case '5':
+                    priceValue = '20-25';
+                    break;
+                case '6':
+                    priceValue = '25+';
+                    break;
+            }
+            const priceRadio = document.querySelector(`input[name="price"][value="${priceValue}"]`);
+            if (priceRadio) {
+                priceRadio.checked = true;
+                priceRadio.closest('label').classList.add('active');
+            }
+        }
+         
+    });
+        // Xử lý phân trang
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('page-link1')) {
+            e.preventDefault();
+            const page = e.target.getAttribute('data-page');
+
+            // Lấy các giá trị filter hiện tại từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Tạo object chứa các tham số hiện tại
+            let currentParams = {
+                page: page
+            };
+
+            // Giữ lại các filter đang được chọn
+            if (urlParams.has('brandId')) {
+                currentParams.brandId = urlParams.get('brandId');
+            }
+            if (urlParams.has('typeId')) {
+                currentParams.typeId = urlParams.get('typeId');
+            } 
+
+            // Tạo query string mới
+            const queryString = Object.keys(currentParams)
+                .map(key => `${key}=${currentParams[key]}`)
+                .join('&');
+
+            // Chuyển hướng với tất cả các tham số
+            window.location.href = `/Home/Menu/?${queryString}`;
+        }
+    });
+        // Xử lý sắp xếp theo giá
+    $(document).ready(function() {
+        $('#priceSort').change(function() {
+            const sortOrder = $(this).val();
+            const currentUrl = new URL(window.location.href);
+            const urlParams = currentUrl.searchParams;
+
+            // Cập nhật hoặc thêm tham số sort vào URL
+            if (sortOrder) {
+                urlParams.set('sort', sortOrder);
+            } else {
+                urlParams.delete('sort');
+            }
+
+            // Reset về trang 1 khi thay đổi sort
+            urlParams.set('page', '1');
+
+            // Chuyển hướng với các tham số mới
+            window.location.href = currentUrl.toString();
+        });
+    });
+</script>
+  
+<div id="toast" class="toast"></div>
+<script>
+    // Thêm hàm showToast
+     function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = `toast ${type} show`;
+        setTimeout(() => {
+            toast.className = 'toast';
+        }, 3000);
+    }
+      
+</script>
+
+
+
+
+<script>
+    function applyPriceRange() {
+        const minPrice = document.getElementById('minPrice').value;
+        const maxPrice = document.getElementById('maxPrice').value;
+
+        if (!minPrice && !maxPrice) {
+            showToast('Please enter at least one price value', 'error');
+            return;
+        }
+
+        const currentUrl = new URL(window.location.href);
+        const urlParams = currentUrl.searchParams;
+
+        if (minPrice) urlParams.set('minPrice', minPrice);
+        else urlParams.delete('minPrice');
+
+        if (maxPrice) urlParams.set('maxPrice', maxPrice);
+        else urlParams.delete('maxPrice');
+
+        urlParams.set('page', '1');
+        window.location.href = currentUrl.toString();
+    }
+
+    // Add rating filter to the existing handleFilter function
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add rating filter handling
+        document.querySelectorAll('.shop__sidebar__rating input[type="radio"]').forEach(radio => {
+            radio.addEventListener('click', function() {
+                if (this.closest('label').classList.contains('active')) {
+                    this.closest('label').classList.remove('active');
+                    this.checked = false;
+                    handleFilter();
+                } else {
+                    document.querySelectorAll('input[name="rating"]').forEach(input => {
+                        input.closest('label').classList.remove('active');
+                    });
+                    this.closest('label').classList.add('active');
+                    handleFilter();
+                }
+            });
+        });
+
+        
+    });
+        document.addEventListener('DOMContentLoaded', function() {
+        // Initialize rating filter
+        const ratingLabels = document.querySelectorAll('.shop__sidebar__rating label');
+        ratingLabels.forEach(label => {
+            label.addEventListener('click', function(e) {
+                const radio = this.querySelector('input[type="radio"]');
+
+                // If already active, deactivate
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    radio.checked = false;
+                    updateUrlWithRating(null);
+                } else {
+                    // Remove active class from all labels
+                    ratingLabels.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked label
+                    this.classList.add('active');
+                    radio.checked = true;
+                    updateUrlWithRating(radio.value);
+                }
+            });
+        });
+
+        // Function to update URL with rating
+        function updateUrlWithRating(rating) {
+            const url = new URL(window.location.href);
+            if (rating) {
+                url.searchParams.set('rating', rating);
+            } else {
+                url.searchParams.delete('rating');
+            }
+            url.searchParams.set('page', '1'); // Reset to first page
+            window.location.href = url.toString();
+        }
+
+        // Set initial state based on URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentRating = urlParams.get('rating');
+        if (currentRating) {
+            const activeRating = document.querySelector(`input[name="rating"][value="${currentRating}"]`);
+            if (activeRating) {
+                activeRating.checked = true;
+                activeRating.closest('label').classList.add('active');
+            }
+        }
+    });
+</script>
+
+<script>
+        // Add input validation for price range
+    document.addEventListener('DOMContentLoaded', function() {
+        const minPriceInput = document.getElementById('minPrice');
+        const maxPriceInput = document.getElementById('maxPrice');
+
+        // Function to validate and correct input value
+        function validatePriceInput(input) {
+            let value = parseFloat(input.value);
+
+            // If not a number, reset to empty
+            if (isNaN(value)) {
+                input.value = '';
+                return;
+            }
+
+            // Enforce min value
+            if (value < 0) {
+                input.value = 0;
+                showToast('Giá không thể nhỏ hơn 0', 'error');
+                return;
+            }
+
+            // Enforce max value
+            if (value > 1000000) {
+                input.value = 1000000;
+                showToast('Giá không thể lớn hơn 1.000.000', 'error');
+                return;
+            }
+
+            // Round to 2 decimal places
+            input.value = Math.round(value * 100) / 100;
+        }
+
+        // Add validation to both inputs
+        minPriceInput.addEventListener('input', function() {
+            validatePriceInput(this);
+
+            // Check if min price is greater than max price
+            const maxPrice = parseFloat(maxPriceInput.value);
+            if (!isNaN(maxPrice) && parseFloat(this.value) > maxPrice) {
+                this.value = maxPrice;
+                showToast('Giá tối thiểu không thể lớn hơn giá tối đa', 'error');
+            }
+        });
+
+        maxPriceInput.addEventListener('input', function() {
+            validatePriceInput(this);
+
+            // Check if max price is less than min price
+            const minPrice = parseFloat(minPriceInput.value);
+            if (!isNaN(minPrice) && parseFloat(this.value) < minPrice) {
+                this.value = minPrice;
+                showToast('Giá tối đa không thể nhỏ hơn giá tối thiểu', 'error');
+            }
+        });
+
+        // Update the applyPriceRange function
+        window.applyPriceRange = function() {
+            const minPrice = parseFloat(minPriceInput.value);
+            const maxPrice = parseFloat(maxPriceInput.value);
+
+            if (!minPrice && !maxPrice) {
+                showToast('Vui lòng nhập ít nhất một mức giá', 'error');
+                return;
+            }
+
+            if (minPrice > maxPrice) {
+                showToast('Giá tối thiểu không thể lớn hơn giá tối đa', 'error');
+                return;
+            }
+
+            const currentUrl = new URL(window.location.href);
+            const urlParams = currentUrl.searchParams;
+
+            if (!isNaN(minPrice)) urlParams.set('minPrice', minPrice);
+            else urlParams.delete('minPrice');
+
+            if (!isNaN(maxPrice)) urlParams.set('maxPrice', maxPrice);
+            else urlParams.delete('maxPrice');
+
+            urlParams.set('page', '1');
+            window.location.href = currentUrl.toString();
+        };
+
+        // Set initial values from URL if they exist
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('minPrice')) {
+            minPriceInput.value = urlParams.get('minPrice');
+        }
+        if (urlParams.has('maxPrice')) {
+            maxPriceInput.value = urlParams.get('maxPrice');
+        }
+    });
+
+        function clearAllFilters() {
+        // Bỏ chọn tất cả radio buttons
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.checked = false;
+            radio.closest('label')?.classList.remove('active');
+        });
+
+        // Xóa giá trị trong ô tìm kiếm
+        document.querySelector('input[name="searchTerm"]').value = '';
+
+        // Reset price range inputs
+        document.getElementById('minPrice').value = '';
+        document.getElementById('maxPrice').value = '';
+
+        // Reset price sort dropdown
+        document.getElementById('priceSort').value = '';
+
+        // Chuyển hướng về trang mặc định
+        window.location.href = '/Home/Menu';
+    }
+
+    // Cập nhật hàm handleFilter để bao gồm searchTerm
+         // Thêm đoạn này vào phần script của Menu.cshtml
+    $(document).ready(function() {
+        $('.detail-btn').click(function(e) {
+            e.preventDefault();
+            var productId = $(this).data('product-id');
+            window.location.href = `/Home/ProductDetailView?id=${productId}`;
+        });
+    });
+</script>
+
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tìm tất cả các element có thuộc tính data-setbg
+        const elements = document.querySelectorAll('[data-setbg]');
+        
+        elements.forEach(element => {
+            const bgUrl = element.getAttribute('data-setbg');
+            // Set background-image bằng CSS
+            element.style.backgroundImage = `url(${bgUrl})`;
+            // Thêm các style cần thiết
+            element.style.backgroundSize = 'cover';
+            element.style.backgroundPosition = 'center';
+            element.style.backgroundRepeat = 'no-repeat';
+        });
+    });
 </script>

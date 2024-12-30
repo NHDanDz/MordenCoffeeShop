@@ -1,0 +1,194 @@
+[2024-12-02 11:31:16.036] [WRN] Failed to determine the https port for redirect.
+[2024-12-02 11:31:16.955] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-02 11:31:23.096] [INF] Access Login Page
+[2024-12-02 11:31:25.866] [INF] Login successful
+[2024-12-02 11:35:58.628] [INF] Current user role: Admin
+[2024-12-02 11:35:58.839] [INF] Current user role: Admin
+[2024-12-02 11:36:28.946] [INF] Current user role: Admin
+[2024-12-02 11:36:29.057] [INF] Current user role: Admin
+[2024-12-02 11:55:00.130] [WRN] Failed to determine the https port for redirect.
+[2024-12-02 11:55:00.684] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-02 11:55:58.424] [INF] Access Login Page
+[2024-12-02 11:56:01.094] [INF] Login successful
+[2024-12-02 12:16:28.519] [WRN] Failed to determine the https port for redirect.
+[2024-12-02 12:16:29.074] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-02 12:22:54.310] [INF] Access Login Page
+[2024-12-02 12:22:57.317] [INF] Login successful
+[2024-12-02 12:23:23.233] [INF] Received edit request for username: Adm4
+[2024-12-02 12:23:23.247] [INF] Updated existing client with ID: KH017     
+[2024-12-02 12:23:23.304] [INF] Successfully updated account for Adm4
+[2024-12-02 12:37:00.397] [WRN] Failed to determine the https port for redirect.
+[2024-12-02 12:37:00.883] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-02 12:37:26.909] [INF] Access Login Page
+[2024-12-02 12:37:28.614] [INF] Login successful
+[2024-12-02 12:39:49.463] [INF] Current user role: Admin
+[2024-12-02 12:39:49.916] [INF] Current user role: Admin
+[2024-12-02 12:40:03.700] [INF] Current user role: Admin
+[2024-12-02 12:40:03.875] [INF] Current user role: Admin
+[2024-12-02 12:41:10.532] [INF] Current user role: Admin
+[2024-12-02 12:41:10.946] [INF] Current user role: Admin
+[2024-12-02 12:43:42.518] [INF] Current user role: Admin
+[2024-12-02 12:43:42.813] [INF] Current user role: Admin
+[2024-12-02 12:44:00.406] [INF] Access Login Page
+[2024-12-02 12:44:02.884] [WRN] Login failed for username: nhdandz@gmail.com
+[2024-12-02 12:44:06.692] [INF] Login successful
+[2024-12-02 12:44:08.934] [INF] Access Login Page
+[2024-12-02 12:44:22.700] [INF] Access Login Page
+[2024-12-02 12:44:25.474] [INF] Login successful
+[2024-12-02 12:44:55.980] [INF] Received edit request for username: khng@gmaiil.com
+[2024-12-02 12:44:55.989] [INF] Updated existing client with ID: KH003     
+[2024-12-02 12:44:56.063] [INF] Successfully updated account for khng@gmaiil.com
+[2024-12-02 12:44:58.603] [INF] Access Login Page
+[2024-12-02 12:45:01.046] [INF] Login successful
+[2024-12-02 12:45:09.789] [INF] Current user role: Staff
+[2024-12-02 12:45:10.248] [INF] Current user role: Staff
+[2024-12-02 12:45:15.450] [INF] Current user role: Staff
+[2024-12-02 12:45:15.871] [INF] Current user role: Staff
+[2024-12-02 12:46:36.196] [INF] Current user role: Staff
+[2024-12-02 12:46:37.411] [INF] Current user role: Staff
+[2024-12-02 12:46:40.502] [INF] Current user role: Staff
+[2024-12-02 12:46:41.667] [INF] Current user role: Staff
+[2024-12-02 12:46:43.556] [INF] Current user role: Staff
+[2024-12-02 12:46:44.843] [INF] Current user role: Staff
+[2024-12-02 12:46:45.705] [INF] Current user role: Staff
+[2024-12-02 12:46:46.760] [INF] Current user role: Staff
+[2024-12-02 12:46:54.456] [INF] Current user role: Staff
+[2024-12-02 12:46:55.674] [INF] Current user role: Staff
+[2024-12-02 12:47:00.897] [INF] Current user role: Staff
+[2024-12-02 12:47:02.247] [INF] Current user role: Staff
+[2024-12-02 12:47:04.011] [INF] Current user role: Staff
+[2024-12-02 12:47:04.756] [INF] Current user role: Staff
+[2024-12-02 12:47:26.688] [INF] Current user role: Staff
+[2024-12-02 12:47:28.012] [INF] Current user role: Staff
+[2024-12-02 12:47:41.034] [INF] Access Login Page
+[2024-12-02 12:47:43.532] [INF] Login successful
+[2024-12-02 12:47:44.887] [INF] Current user role: Admin
+[2024-12-02 12:47:45.197] [INF] Current user role: Admin
+[2024-12-02 12:47:48.859] [INF] Current user role: Admin
+[2024-12-02 12:47:49.057] [INF] Current user role: Admin
+[2024-12-02 12:49:18.355] [INF] Current user role: Admin
+[2024-12-02 12:49:19.536] [INF] Current user role: Admin
+[2024-12-02 12:49:26.125] [INF] Access Login Page
+[2024-12-02 12:54:48.589] [INF] Access Login Page
+[2024-12-02 12:55:14.686] [INF] Access Login Page
+[2024-12-02 12:55:30.855] [INF] Access Login Page
+[2024-12-02 12:57:04.270] [INF] Access Login Page
+[2024-12-02 12:57:17.989] [INF] Access Login Page
+[2024-12-02 12:57:28.819] [INF] Access Login Page
+[2024-12-02 12:57:30.751] [INF] Login successful
+[2024-12-02 12:57:52.385] [INF] Current user role: Admin
+[2024-12-02 12:57:52.793] [INF] Current user role: Admin
+[2024-12-02 12:58:09.151] [INF] Current user role: Admin
+[2024-12-02 12:58:09.367] [INF] Current user role: Admin
+[2024-12-02 13:58:07.247] [INF] Access Login Page
+[2024-12-02 13:58:08.799] [INF] Login successful
+[2024-12-02 13:59:00.901] [INF] Current user role: Admin
+[2024-12-02 13:59:01.302] [INF] Current user role: Admin
+[2024-12-02 13:59:50.685] [INF] Current user role: Admin
+[2024-12-02 13:59:50.995] [INF] Current user role: Admin
+[2024-12-02 14:00:26.236] [INF] Current user role: Admin
+[2024-12-02 14:00:26.719] [INF] Current user role: Admin
+[2024-12-02 14:00:43.959] [INF] Current user role: Admin
+[2024-12-02 14:00:44.289] [INF] Current user role: Admin
+[2024-12-02 14:01:24.840] [INF] Current user role: Admin
+[2024-12-02 14:01:25.245] [INF] Current user role: Admin
+[2024-12-02 14:01:52.289] [INF] Access Login Page
+[2024-12-02 14:01:54.715] [INF] Login successful
+[2024-12-02 14:01:56.291] [INF] Current user role: Staff
+[2024-12-02 14:01:56.660] [INF] Current user role: Staff
+[2024-12-02 14:01:59.742] [INF] Current user role: Staff
+[2024-12-02 14:02:00.008] [INF] Current user role: Staff
+[2024-12-02 14:02:06.876] [INF] Current user role: Staff
+[2024-12-02 14:02:07.094] [INF] Current user role: Staff
+[2024-12-02 14:02:16.401] [INF] Current user role: Staff
+[2024-12-02 14:02:16.585] [INF] Current user role: Staff
+[2024-12-02 14:02:31.093] [INF] Access Login Page
+[2024-12-02 14:02:36.845] [INF] Access Login Page
+[2024-12-02 14:02:40.892] [INF] Login successful
+[2024-12-02 14:02:43.623] [INF] Access Login Page
+[2024-12-02 14:02:45.199] [INF] Access Login Page
+[2024-12-02 14:02:46.788] [INF] Login successful
+[2024-12-02 14:07:41.261] [INF] Current user role: Admin
+[2024-12-02 14:07:41.644] [INF] Current user role: Admin
+[2024-12-02 14:08:04.609] [INF] Current user role: Admin
+[2024-12-02 14:08:04.995] [INF] Current user role: Admin
+[2024-12-02 14:09:08.896] [INF] Access Login Page
+[2024-12-02 14:09:11.512] [INF] Login successful
+[2024-12-02 14:09:12.907] [INF] Current user role: Staff
+[2024-12-02 14:09:13.191] [INF] Current user role: Staff
+[2024-12-02 14:09:30.470] [INF] Current user role: Staff
+[2024-12-02 14:09:31.829] [INF] Current user role: Staff
+[2024-12-02 14:09:32.109] [INF] Current user role: Staff
+[2024-12-02 14:09:41.222] [INF] Access Login Page
+[2024-12-02 14:09:43.579] [INF] Login successful
+[2024-12-02 14:11:16.763] [INF] Current user role: Admin
+[2024-12-02 14:11:17.167] [INF] Current user role: Admin
+[2024-12-02 14:11:58.652] [INF] Current user role: Admin
+[2024-12-02 14:11:59.068] [INF] Current user role: Admin
+[2024-12-02 14:12:03.485] [INF] Current user role: Admin
+[2024-12-02 14:12:03.738] [INF] Current user role: Admin
+[2024-12-02 14:12:15.056] [INF] Current user role: Admin
+[2024-12-02 14:12:15.336] [INF] Current user role: Admin
+[2024-12-02 14:15:15.489] [INF] Current user role: Admin
+[2024-12-02 14:15:15.937] [INF] Current user role: Admin
+[2024-12-02 14:19:42.506] [INF] Current user role: Admin
+[2024-12-02 14:19:42.934] [INF] Current user role: Admin
+[2024-12-02 14:20:59.776] [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+[2024-12-02 14:20:59.874] [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+[2024-12-02 14:20:59.880] [INF] Access Login Page
+[2024-12-02 14:21:06.598] [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+[2024-12-02 14:21:06.621] [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+[2024-12-02 14:21:06.630] [INF] Access Login Page
+[2024-12-02 14:21:10.446] [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+[2024-12-02 14:21:10.479] [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+[2024-12-02 14:21:10.485] [INF] Access Login Page
+[2024-12-02 14:21:17.538] [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+[2024-12-02 14:21:17.552] [INF] Login successful
+[2024-12-02 14:21:20.468] [INF] Access Login Page
+[2024-12-02 14:21:39.399] [INF] Access Login Page
+[2024-12-02 14:22:42.189] [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+[2024-12-02 14:22:42.206] [INF] Login successful
+[2024-12-02 16:01:18.206] [INF] Access Login Page
+[2024-12-02 16:01:20.160] [INF] Login successful
+[2024-12-02 16:01:21.785] [INF] Current user role: Admin
+[2024-12-02 16:01:22.047] [INF] Current user role: Admin

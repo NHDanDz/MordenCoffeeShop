@@ -172,6 +172,8 @@
     var proQty = $('.pro-qty-2');
     proQty.prepend('<span class="fa fa-angle-left dec qtybtn"></span>');
     proQty.append('<span class="fa fa-angle-right inc qtybtn"></span>');
+    $('.qtybtn').hide();
+
     proQty.on('click', '.qtybtn', function () {
         var $button = $(this);
         var oldValue = $button.parent().find('input').val();
@@ -192,16 +194,21 @@
         Achieve Counter
     --------------------*/
     $('.cn_num').each(function () {
-        $(this).prop('Counter', 0).animate({
-            Counter: $(this).text()
+        const $this = $(this);
+        let number = $this.text().trim().replace(/\./g, ''); // Loại bỏ dấu chấm trong số
+
+        $this.prop('Counter', 0).animate({
+            Counter: parseInt(number) // Chuyển đổi chuỗi thành số
         }, {
-            duration: 4000,
+            duration: 4000, // Thời gian chạy animation
             easing: 'swing',
             step: function (now) {
-                $(this).text(Math.ceil(now));
+                // Định dạng lại số theo chuẩn Việt Nam
+                $this.text(Math.ceil(now).toLocaleString('vi-VN'));
             }
         });
     });
+
 
     /*------------
     Categories
@@ -242,6 +249,20 @@
     });
  
 
-
+     
+        document.addEventListener('DOMContentLoaded', function() {
+        // Tìm tất cả các element có thuộc tính data-setbg
+        const elements = document.querySelectorAll('[data-setbg]');
+        
+        elements.forEach(element => {
+            const bgUrl = element.getAttribute('data-setbg');
+        // Set background-image bằng CSS
+        element.style.backgroundImage = `url(${bgUrl})`;
+        // Thêm các style cần thiết
+        element.style.backgroundSize = 'cover';
+        element.style.backgroundPosition = 'center';
+        element.style.backgroundRepeat = 'no-repeat';
+        });
+    }); 
 })(jQuery);
 

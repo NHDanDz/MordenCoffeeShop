@@ -1,0 +1,1024 @@
+﻿@model CartItemViewModel 
+
+@{
+    ViewData["Title"] = "Check Out";
+    var cartItems = Model?.CartItems ?? new List<CartItemModel>();
+    var total = Model?.TongTien ?? 0;
+}
+<style>
+    /* Payment Modal Styles */
+    .modal-content {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .modal-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: all 0.2s;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+    /* Bank Transfer Specific Styles */
+    .bank-info {
+        background: #f8f9fa;
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+
+    .qr-code {
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .bank-details {
+        margin-top: 1rem;
+    }
+
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+    .label {
+        color: #6c757d;
+        font-weight: 500;
+    }
+
+    .value-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .value {
+        font-weight: 500;
+        margin-right: 0.5rem;
+    }
+
+    .bank-logo {
+        border-radius: 4px;
+        margin-right: 0.5rem;
+    }
+
+    .copy-btn {
+        background: none;
+        border: none;
+        color: #007bff;
+        padding: 0.25rem;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+        .copy-btn:hover {
+            color: #0056b3;
+        }
+
+    /* Credit Card Specific Styles */
+    .card-wrapper {
+        margin-top: -40px;
+    }
+
+    /* Alert Styles */
+    .alert {
+        border-radius: 0.5rem;
+        border: 1px solid transparent;
+    }
+
+    .alert-info {
+        color: #0c5460;
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+    }
+
+    /* Animation */
+    .modal.fade .modal-dialog {
+        transform: translate(0, -50px);
+        transition: transform 0.3s ease-out;
+    }
+
+    .modal.show .modal-dialog {
+        transform: none;
+    }
+</style>
+
+<!-- Add these scripts before closing body tag -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/card/2.5.4/card.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+@using DemoApp_Test.Models.ViewModels 
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option" data-setbg="/img/hero/hero-7.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Xác Nhận Đơn Hàng</h4>
+                    <div class="breadcrumb__links">
+                        <a asp-controller="Home" asp-action="Index">Trang Chủ</a>
+                        <a asp-controller="Home" asp-action="ShoppingCarts">Giỏ Hàng</a>
+                        <span>Xác Nhận Đơn Hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <form id="checkoutForm">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6"> 
+
+                        <h6 class="checkout__title">Chi Tiết Hóa Đơn</h6>
+                        <div class="checkout__input">
+                            <p>Họ tên<span>*</span></p>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Email<span>*</span></p>
+                            <input type="email" id="gmail" required
+                            @(ViewBag.IsAuthenticated ? "readonly" : "")
+                                   class="@(ViewBag.IsAuthenticated ? "bg-light" : "")">
+                        </div>
+
+                        <div class="checkout__input">
+                            <p>Số Điện Thoại<span>*</span></p>
+                            <input type="tel" id="contact" required>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Địa chỉ giao hàng<span>*</span></p>
+                            <input type="text" id="location" placeholder="Địa chỉ số nhà" class="checkout__input__add" required>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Ghi Chú Đơn Hàng</p>
+                            <input type="text" id="orderNotes"
+                                   placeholder="Ghi chú về đơn hàng của bạn, lưu ý cho vận chuyển.">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Mã Giảm Giá</p>
+                            <div class="d-flex align-items-center">
+                                <input type="text" id="voucherCode" placeholder="Nhập mã giảm giá" style="width: 50%!important; margin-bottom: 0px">
+                                <button type="button" id="applyVoucher" class="site-btn" style="margin-left: 10px; width: 25%!important;">Áp dụng</button>
+                                <button type="button" class="site-btn" data-toggle="modal" data-target="#voucherModal" style="margin-left: 10px;width: 25%!important;">
+                                    Xem khuyến mãi
+                                </button>
+                            </div>
+                            <div id="voucherMessage" class="mt-2" style="display: none;"></div>
+                            <div id="appliedVoucher" class="mt-3" style="display: none;">
+                                <div class="bg-light p-3 rounded">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong id="voucherName"></strong>
+                                            <p class="text-muted mb-0" id="voucherDisplayCode"></p>
+                                        </div>
+                                        <button type="button" id="removeVoucher" class="btn btn-link text-danger">Xóa</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4 class="order__title">Đơn Hàng Của Bạn</h4>
+                            <div class="checkout__order__products">Sản phẩm <span>Tổng Tiền</span></div>
+                            <ul class="checkout__total__products">
+                                @foreach (var item in cartItems)
+                                {
+                                    var itemTotal = item.Price * item.Quantity * (1 - (item.Discount / 100.0));
+                                    <li>
+                                         @item.ProductName
+                                        (@item.Quantity x @itemTotal.ToString("#,0").Replace(",", "."))
+                                        @if (item.Discount > 0)
+                                        {
+                                            <small class="text-danger">(-@item.Discount%)</small>
+                                        }
+                                        <span>₫@itemTotal.ToString("#,0").Replace(",", ".")</span>
+                                    </li>
+                                }
+                            </ul>
+                            <ul class="checkout__total__all">
+                                <li>Tạm tính <span>₫@total.ToString("#,0").Replace(",", ".")</span></li>
+                                <li>Giảm giá <span id="discountAmount">₫0</span></li>
+
+                                <li>Tổng tiền <span id="finalTotal">₫@total.ToString("#,0").Replace(",", ".")</span></li>
+                            </ul>
+
+                            <div class="checkout__input__checkbox">
+                                <label for="payment">
+                                    Thanh toán bằng tiền mặt 
+                                    <input type="radio" id="payment" name="paymentMethod" value="Cash" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="paypal">
+                                    Thẻ tín dụng
+                                    <input type="radio" id="paypal" name="paymentMethod" value="Credit Card">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="paypal1">
+                                    Chuyển khoản ngân hàng
+                                    <input type="radio" id="paypal1" name="paymentMethod" value="Bank Transfer">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <button type="submit" class="site-btn">Đặt hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    @await Html.PartialAsync("_EmailVerification", new EmailVerificationViewModel())
+
+</section>
+<!-- Checkout Section End -->
+<!-- Modal Credit Card Payment -->
+<div class="modal fade" id="creditCardModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title font-weight-bold">Thanh toán bằng thẻ tín dụng</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-4">
+                <div class="card-wrapper mb-4" style="padding-top: 40px"></div>
+                <form id="creditCardForm">
+                    <div class="form-group">
+                        <label class="text-muted">Số thẻ</label>
+                        <input type="text" class="form-control form-control-lg" name="number" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-muted">Tên chủ thẻ</label>
+                        <input type="text" class="form-control form-control-lg" name="name" maxlength="50" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="text-muted">Ngày hết hạn</label>
+                                <input type="text" class="form-control form-control-lg" name="expiry" required
+                                       placeholder="MM/YY">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="text-muted">CVV</label>
+                                <input type="text" class="form-control form-control-lg" name="cvc" maxlength="3" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4 mb-0">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <button type="button" class="btn btn-outline-secondary px-4" data-dismiss="modal">Hủy</button>
+                            <button type="submit" class="btn btn-primary px-4">
+                                Thanh toán <span id="creditCardAmount"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Bank Transfer -->
+<div class="modal fade" id="bankTransferModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title font-weight-bold">Thông tin chuyển khoản</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-4">
+                <div class="bank-info">
+                    <div class="qr-section text-center mb-4">
+                        <img src="~/img/QR1.jpg" alt="QR Code" class="qr-code">
+                        <div class="mt-2">
+                            <small class="text-muted">Quét mã QR để chuyển khoản nhanh</small>
+                        </div>
+                    </div>
+                    <div class="bank-details">
+                        <div class="detail-item">
+                            <span class="label">Ngân hàng:</span>
+                            <span class="value">
+                                <img src="~/img/MB.png" alt="Bank Logo" class="bank-logo mr-1" style="width: 50px; height: auto;">
+                                MBBank
+                            </span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Số tài khoản:</span>
+                            <div class="value-group">
+                                <span class="value" id="accountNumber">101003097477</span>
+                                <button class="copy-btn" data-clipboard-target="#accountNumber">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Chủ tài khoản:</span>
+                            <span class="value">NGUYEN HAI DANG</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Số tiền:</span>
+                            <div class="value-group">
+                                <span class="value" id="transferAmount"></span>
+                                <button class="copy-btn" data-clipboard-target="#transferAmount">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Nội dung CK:</span>
+                            <div class="value-group">
+                                <span class="value" id="transferContent"></span>
+                                <button class="copy-btn" data-clipboard-target="#transferContent">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-info mt-4 mb-0">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Vui lòng chuyển khoản chính xác số tiền và nội dung bên trên.
+                    Đơn hàng sẽ được xác nhận sau khi chúng tôi nhận được thanh toán.
+                </div>
+                <div class="text-center mt-4">
+                    <button type="button" class="btn btn-outline-secondary px-4 mr-3" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary px-4" id="confirmBankTransfer">
+                        Đã chuyển khoản
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!-- Modal Voucher -->
+<div class="modal fade" id="voucherModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Mã Giảm Giá Có Sẵn</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="voucherList" class="row">
+                    <!-- Vouchers will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+<div class="modal fade" id="emailVerificationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận đơn hàng</h5> 
+            </div>
+            <div class="modal-body">
+                <div class="verification-form">
+                    <div class="form-group">
+                        <label>Email xác nhận</label>
+                        <p class="text-muted" id="confirmationEmail"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Mã xác nhận</label>
+                        <input type="text" class="form-control" id="verificationCode" maxlength="6">
+                        <small class="form-text text-muted">Mã xác nhận gồm 6 chữ số sẽ hết hạn sau <span id="timeLeft">60</span> giây</small>
+                    </div>
+                    <div class="alert alert-danger" id="verificationError" style="display: none;"></div>
+                    <div class="alert alert-success" id="verificationSuccess" style="display: none;">
+                        Xác nhận đơn hàng thành công! Đơn hàng của bạn đang được xử lý.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="resendCode" disabled>
+                    Gửi lại mã (<span id="resendTimeLeft">60</span>s)
+                </button>
+                <button type="button" class="btn btn-primary" id="verifyCode">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .verification-form {
+        padding: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    #verificationCode {
+        letter-spacing: 3px;
+        font-size: 1.2em;
+        text-align: center;
+    }
+</style>
+
+<!-- CSS cho voucher card -->
+<style>
+    .breadcrumb-option {
+        padding: 80px 0;
+        position: relative;
+        min-height: 200px;
+    }
+
+    .breadcrumb__text {
+        position: relative;
+        z-index: 1;
+    }
+
+        .breadcrumb__text h4 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+    .breadcrumb__links a,
+    .breadcrumb__links span {
+        color: #ffffff;
+        font-size: 16px;
+    }
+
+        .breadcrumb__links a:hover {
+            color: #e53637;
+        }
+
+    /* Thêm overlay để text dễ đọc hơn trên background */
+    .breadcrumb-option::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .voucher-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+    }
+
+        .voucher-card::before,
+        .voucher-card::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #f8f9fa;
+            border-radius: 50%;
+        }
+
+        .voucher-card::before {
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: inset -1px 0 0 #ddd;
+        }
+
+        .voucher-card::after {
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: inset 1px 0 0 #ddd;
+        }
+
+    .voucher-content {
+        padding: 15px;
+        position: relative;
+    }
+
+    .voucher-brand {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .voucher-name {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .voucher-description {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 12px;
+    }
+
+    .voucher-code {
+        background: #f8f9fa;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        color: #333;
+        font-size: 0.9em;
+        border: 1px dashed #ddd;
+    }
+
+    .voucher-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    .voucher-limit {
+        font-size: 0.85em;
+        color: #dc3545;
+    }
+
+    .voucher-expiry {
+        font-size: 0.85em;
+        color: #6c757d;
+    }
+
+    .use-voucher-btn {
+        background: none;
+        border: none;
+        color: #007bff;
+        cursor: pointer;
+        padding: 5px 15px;
+        font-size: 0.9em;
+        transition: all 0.2s;
+    }
+
+        .use-voucher-btn:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+    .min-spend {
+        font-size: 0.85em;
+        color: #28a745;
+        margin-top: 5px;
+    }
+</style>
+@section Scripts {
+    <script>
+        // Global variables
+        let appliedVoucher = null;
+        let originalTotal = @total;
+        let timeLeft = 60;
+        let timer;
+        let orderDataCache = null;
+
+        // Voucher handling functions
+        function showMessage(message, isError = false) {
+            const messageDiv = $('#voucherMessage');
+            messageDiv
+                .removeClass('text-danger text-success')
+                .addClass(isError ? 'text-danger' : 'text-success')
+                .html(message)
+                .show();
+            setTimeout(() => messageDiv.fadeOut(), 5000);
+        }
+
+        function updateTotals(discountAmount, newTotal) {
+            $('#discountAmount').text(`₫${discountAmount}`);
+            $('#finalTotal').text(`₫${newTotal}`);
+        }
+
+        function removeVoucher() {
+            appliedVoucher = null;
+            updateTotals('0', originalTotal.toLocaleString('vi-VN'));
+            $('#appliedVoucher').hide();
+            $('#voucherCode').val('');
+        }
+
+        function useVoucher(code) {
+            $('#voucherCode').val(code);
+            $('#voucherModal').modal('hide');
+            applyVoucher();
+        }
+
+        function applyVoucher() {
+            const code = $('#voucherCode').val();
+            if (!code) {
+                showMessage('Vui lòng nhập mã giảm giá', true);
+                return;
+            }
+
+            $.ajax({
+                url: '/Home/ApplyVoucher',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    code: code,
+                    total: originalTotal
+                }),
+                success: function(response) {
+                    if (response.success) {
+                        appliedVoucher = response.voucher;
+                        updateTotals(response.discountAmount, response.newTotal);
+
+                        $('#voucherName').text(response.voucher.name);
+                        $('#voucherDisplayCode').text(response.voucher.code);
+                        $('#appliedVoucher').show();
+                        $('#voucherCode').val('');
+
+                        showMessage('Áp dụng mã giảm giá thành công!');
+                    } else {
+                        showMessage(response.message, true);
+                    }
+                },
+                error: function() {
+                    showMessage('Có lỗi xảy ra khi áp dụng mã giảm giá', true);
+                }
+            });
+        }
+
+        function loadAvailableVouchers() {
+            $.ajax({
+                url: '/Home/GetAvailableVouchers',
+                type: 'GET',
+                success: function(response) {
+                    if (response.success) {
+                        const voucherList = $('#voucherList');
+                        voucherList.empty();
+
+                        if (response.vouchers.length === 0) {
+                            voucherList.html('<div class="col-12 text-center py-4">Không có mã giảm giá nào khả dụng</div>');
+                            return;
+                        }
+
+                        response.vouchers.forEach(voucher => {
+                            const expiryDate = new Date(voucher.expirationDate).toLocaleDateString('vi-VN');
+                            const minSpend = voucher.minimumSpend ?
+                                `<div class="min-spend">Đơn tối thiểu ${voucher.minimumSpend.toLocaleString('vi-VN')}₫</div>` : '';
+
+                            const brandInfo = voucher.brandName ?
+                                `<div class="voucher-brand">Áp dụng cho ${voucher.brandName}</div>` :
+                                '<div class="voucher-brand">Áp dụng cho tất cả thương hiệu</div>';
+
+                            const voucherHtml = `
+                                <div class="col-md-6">
+                                    <div class="voucher-card">
+                                        <div class="voucher-content">
+                                            ${brandInfo}
+                                            <div class="voucher-name">${voucher.name}</div>
+                                            <div class="voucher-description">
+                                                ${voucher.description}<br>
+                                                <strong>${voucher.discount}</strong>
+                                            </div>
+                                            <div class="voucher-footer">
+                                                <span class="voucher-code">${voucher.code}</span>
+                                                <button type="button" class="use-voucher-btn"
+                                                    onclick="useVoucher('${voucher.code}')">
+                                                    Sử dụng
+                                                </button>
+                                            </div>
+                                            ${minSpend}
+                                            <div class="voucher-expiry">Hết hạn: ${expiryDate}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            voucherList.append(voucherHtml);
+                        });
+                    } else {
+                        $('#voucherList').html(`
+                            <div class="col-12 text-center text-danger py-4">
+                                ${response.message || 'Có lỗi xảy ra khi tải danh sách voucher'}
+                            </div>
+                        `);
+                    }
+                },
+                error: function() {
+                    $('#voucherList').html(`
+                        <div class="col-12 text-center text-danger py-4">
+                            Có lỗi xảy ra khi tải danh sách voucher
+                        </div>
+                    `);
+                }
+            });
+        }
+
+        function loadClientInfo() {
+            $.ajax({
+                url: '/Home/GetClientInfo',
+                type: 'GET',
+                success: function(response) {
+                    if (response.success && response.client) {
+                        $('#name').val(response.client.name);
+                        $('#gmail').val(response.client.gmail);
+                        $('#contact').val(response.client.contact);
+                        $('#location').val(response.client.location);
+                    }
+                },
+                error: function() {
+                    console.log('Error loading client information');
+                }
+            });
+        }
+
+        // Email verification functions
+        function startTimer() {
+            clearInterval(timer);
+            timeLeft = 60;
+            timer = setInterval(function() {
+                timeLeft--;
+                $('#timeLeft, #resendTimeLeft').text(timeLeft);
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    $('#resendCode').prop('disabled', false).text('Gửi lại mã');
+                }
+            }, 1000);
+        }
+
+        function resetVerificationForm() {
+            $('#verificationCode').val('');
+            $('#verificationError').hide();
+            $('#verificationSuccess').hide();
+            $('#verifyCode').prop('disabled', false);
+            startTimer();
+        }
+
+        async function sendVerificationCode(email, orderData) {
+            try {
+                $('#resendCode').prop('disabled', true);
+                const response = await $.ajax({
+                    url: '/Home/SendVerificationCode',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        email: email,
+                        orderData: orderData
+                    })
+                });
+
+                if (response.success) {
+                    startTimer();
+                } else {
+                    $('#verificationError').text(response.message || 'Có lỗi xảy ra khi gửi mã').show();
+                }
+            } catch (error) {
+                $('#verificationError').text('Không thể gửi mã xác nhận. Vui lòng thử lại.').show();
+                $('#resendCode').prop('disabled', false);
+            }
+        }
+
+        function showVerificationModal(email, orderData) {
+            orderDataCache = orderData;
+            $('#confirmationEmail').text(email);
+            resetVerificationForm();
+            $('#emailVerificationModal').modal('show');
+            sendVerificationCode(email, orderData);
+        }
+
+        // Document ready event handlers
+        $(document).ready(function() {
+
+                    $('#verifyCode').click(async function() {
+            const code = $('#verificationCode').val();
+            const email = $('#confirmationEmail').text();
+
+            if (!code || code.length !== 6) {
+                $('#verificationError').text('Vui lòng nhập mã xác nhận 6 số').show();
+                return;
+            }
+
+            try {
+                $('#verifyCode').prop('disabled', true);
+                const response = await $.ajax({
+                    url: '/Home/VerifyOrderCode',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        email: email,
+                        code: code,
+                        orderData: orderDataCache
+                    })
+                });
+
+                if (response.success) {
+                    $('#verificationSuccess').show();
+                    $('#verificationError').hide();
+                    $('#verifyCode').prop('disabled', true);
+                    const billId = response.data?.billId;
+                    if (billId) {
+                        setTimeout(() => {
+                            $('#emailVerificationModal').modal('hide');
+                            window.location.href = '/Home/Confirmation/' + billId;
+                        }, 1500);
+                    } else {
+                        console.error('Bill ID not found in response');
+                        $('#verificationError').text('Có lỗi xảy ra khi xử lý đơn hàng').show();
+                    }
+                } else {
+                    $('#verificationError').text(response.message || 'Xác nhận không thành công').show();
+                    $('#verifyCode').prop('disabled', false);
+                }
+            } catch (error) {
+                $('#verificationError').text('Có lỗi xảy ra. Vui lòng thử lại.').show();
+                $('#verifyCode').prop('disabled', false);
+            }
+        });
+        $('#creditCardModal .close, #creditCardModal button[data-dismiss="modal"]').on('click', function() {
+            $('#creditCardModal').modal('hide');
+        });
+
+        // Bank Transfer Modal close button
+        $('#bankTransferModal .close, #bankTransferModal button[data-dismiss="modal"]').on('click', function() {
+            $('#bankTransferModal').modal('hide');
+        });
+
+        // Voucher Modal close button
+        $('#voucherModal .close, #voucherModal button[data-dismiss="modal"]').on('click', function() {
+            $('#voucherModal').modal('hide');
+        });
+
+        // Email Verification Modal close button
+        $('#emailVerificationModal .close, #emailVerificationModal button[data-dismiss="modal"]').on('click', function() {
+            $('#emailVerificationModal').modal('hide');
+        });
+
+            // Load client info if authenticated
+            if (@Json.Serialize(ViewBag.IsAuthenticated)) {
+                loadClientInfo();
+            }
+
+            // Initialize card.js
+            var card = new Card({
+                form: '#creditCardForm',
+                container: '.card-wrapper',
+                placeholders: {
+                    number: '•••• •••• •••• ••••',
+                    name: 'Họ tên chủ thẻ',
+                    expiry: '••/••',
+                    cvc: '•••'
+                }
+            });
+
+            // Initialize clipboard.js
+            new ClipboardJS('.copy-btn');
+
+            // Show copied tooltip
+            $('.copy-btn').click(function() {
+                const btn = $(this);
+                const originalText = btn.html();
+                btn.html('<i class="fas fa-check"></i>');
+                setTimeout(() => btn.html(originalText), 1000);
+            });
+
+            // Payment processing
+            function processPayment(orderData) {
+                const paymentMethod = orderData.paymentMethod;
+                const amount = $('#finalTotal').text();
+
+                if (paymentMethod === 'Credit Card') {
+                    $('#creditCardAmount').text(amount);
+                    $('#creditCardModal').modal('show');
+                } else if (paymentMethod === 'Bank Transfer') {
+                    $('#transferAmount').text(amount);
+                    $('#transferContent').text('DH' + Date.now().toString().slice(-6));
+                    $('#bankTransferModal').modal('show');
+                } else {
+                    // Cash payment - proceed directly to verification
+                    showVerificationModal(orderData.clientInfo.gmail, orderData);
+                }
+            }
+
+            // Handle credit card form submission
+            $('#creditCardForm').on('submit', function(e) {
+                e.preventDefault();
+                $('#creditCardModal').modal('hide');
+                showVerificationModal(orderDataCache.clientInfo.gmail, orderDataCache);
+            });
+
+            // Handle bank transfer confirmation
+            $('#confirmBankTransfer').click(function() {
+                $('#bankTransferModal').modal('hide');
+                showVerificationModal(orderDataCache.clientInfo.gmail, {
+                    ...orderDataCache,
+                    transferCode: $('#transferContent').text()
+                });
+            });
+
+            // Voucher modal handlers
+            $('#voucherModal').on('show.bs.modal', loadAvailableVouchers);
+            $('#applyVoucher').click(applyVoucher);
+            $('#removeVoucher').click(removeVoucher);
+
+            // Voucher code input enter key handler
+            $('#voucherCode').keypress(function(e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                    applyVoucher();
+                }
+            });
+
+            // Verification code input handler - only numbers
+            $('#verificationCode').on('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+
+            // Email verification modal handlers
+            $('#resendCode').click(function() {
+                const email = $('#confirmationEmail').text();
+                sendVerificationCode(email, orderDataCache);
+            });
+
+            // Form submit handler for final checkout
+            $('#checkoutForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const orderData = {
+                    clientInfo: {
+                        name: $('#name').val(),
+                        gmail: $('#gmail').val(),
+                        contact: $('#contact').val(),
+                        location: $('#location').val()
+                    },
+                    orderNotes: $('#orderNotes').val(),
+                    paymentMethod: $('input[name="paymentMethod"]:checked').val(),
+                    voucherCode: appliedVoucher?.code
+                };
+
+                orderDataCache = orderData;
+                processPayment(orderData);
+            });
+
+            // Reset verification form when modal is closed
+            $('#emailVerificationModal').on('hidden.bs.modal', resetVerificationForm);
+
+            // Background image handler
+            const elements = document.querySelectorAll('[data-setbg]');
+            elements.forEach(element => {
+                const bgUrl = element.getAttribute('data-setbg');
+                element.style.backgroundImage = `url(${bgUrl})`;
+                element.style.backgroundSize = 'cover';
+                element.style.backgroundPosition = 'center';
+                element.style.backgroundRepeat = 'no-repeat';
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}

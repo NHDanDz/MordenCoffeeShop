@@ -1,0 +1,1626 @@
+[2024-12-29 08:29:59.702] [INF] Access Login Page
+[2024-12-29 08:30:44.317] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 08:30:44.886] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 08:30:49.551] [INF] Access Login Page
+[2024-12-29 08:30:50.652] [INF] Login successful
+[2024-12-29 08:30:52.885] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 08:30:52.915] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 08:30:59.785] [INF] Current user role: Admin
+[2024-12-29 08:31:00.024] [INF] Current user role: Admin
+[2024-12-29 08:35:04.160] [INF] Current user role: Admin
+[2024-12-29 08:35:05.542] [INF] Current user role: Admin
+[2024-12-29 08:51:22.976] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 08:51:24.353] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 08:52:34.787] [INF] Access Login Page
+[2024-12-29 08:52:35.884] [INF] Login successful
+[2024-12-29 08:52:36.008] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 08:52:36.037] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 08:52:39.201] [INF] Current user role: Admin
+[2024-12-29 08:52:39.507] [INF] Current user role: Admin
+[2024-12-29 08:52:58.304] [INF] Current user role: Admin
+[2024-12-29 08:52:58.586] [INF] Current user role: Admin
+[2024-12-29 08:54:04.499] [INF] Current user role: Admin
+[2024-12-29 08:54:04.760] [INF] Current user role: Admin
+[2024-12-29 08:54:24.674] [INF] Current user role: Admin
+[2024-12-29 08:54:24.913] [INF] Current user role: Admin
+[2024-12-29 08:55:23.082] [INF] Current user role: Admin
+[2024-12-29 08:55:23.334] [INF] Current user role: Admin
+[2024-12-29 08:57:40.337] [INF] Current user role: Admin
+[2024-12-29 08:57:40.967] [INF] Current user role: Admin
+[2024-12-29 08:57:44.471] [INF] Current user role: Admin
+[2024-12-29 08:57:44.726] [INF] Current user role: Admin
+[2024-12-29 08:57:52.897] [INF] Current user role: Admin
+[2024-12-29 08:57:53.039] [INF] Current user role: Admin
+[2024-12-29 08:57:59.712] [INF] Current user role: Admin
+[2024-12-29 08:57:59.932] [INF] Current user role: Admin
+[2024-12-29 08:59:35.305] [INF] Current user role: Admin
+[2024-12-29 08:59:35.734] [INF] Current user role: Admin
+[2024-12-29 09:01:02.786] [INF] Current user role: Admin
+[2024-12-29 09:01:03.192] [INF] Current user role: Admin
+[2024-12-29 09:01:35.524] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 09:01:36.015] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 09:01:39.976] [INF] Access Login Page
+[2024-12-29 09:01:41.669] [INF] Login successful
+[2024-12-29 09:01:41.792] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 09:01:41.822] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 09:01:44.981] [INF] Current user role: Admin
+[2024-12-29 09:01:45.290] [INF] Current user role: Admin
+[2024-12-29 09:02:11.573] [INF] Current user role: Admin
+[2024-12-29 09:02:11.844] [INF] Current user role: Admin
+[2024-12-29 09:02:33.524] [INF] Current user role: Admin
+[2024-12-29 09:02:33.761] [INF] Current user role: Admin
+[2024-12-29 09:02:34.898] [INF] Current user role: Admin
+[2024-12-29 09:02:35.077] [INF] Current user role: Admin
+[2024-12-29 09:02:49.954] [INF] Current user role: Admin
+[2024-12-29 09:02:50.062] [INF] Current user role: Admin
+[2024-12-29 09:05:52.933] [INF] Current user role: Admin
+[2024-12-29 09:05:53.251] [INF] Current user role: Admin
+[2024-12-29 09:05:56.394] [INF] Current user role: Admin
+[2024-12-29 09:05:56.672] [INF] Current user role: Admin
+[2024-12-29 09:06:48.430] [INF] Current user role: Admin
+[2024-12-29 09:06:49.074] [INF] Current user role: Admin
+[2024-12-29 09:07:15.939] [INF] Current user role: Admin
+[2024-12-29 09:07:16.286] [INF] Current user role: Admin
+[2024-12-29 09:07:29.374] [INF] Current user role: Admin
+[2024-12-29 09:07:29.622] [INF] Current user role: Admin
+[2024-12-29 09:08:05.517] [INF] Current user role: Admin
+[2024-12-29 09:08:05.925] [INF] Current user role: Admin
+[2024-12-29 09:08:16.739] [INF] Current user role: Admin
+[2024-12-29 09:08:16.990] [INF] Current user role: Admin
+[2024-12-29 09:10:26.965] [INF] Current user role: Admin
+[2024-12-29 09:10:28.375] [INF] Current user role: Admin
+[2024-12-29 09:10:38.365] [INF] Current user role: Admin
+[2024-12-29 09:10:38.662] [INF] Current user role: Admin
+[2024-12-29 09:10:44.448] [INF] Current user role: Admin
+[2024-12-29 09:10:44.686] [INF] Current user role: Admin
+[2024-12-29 09:14:06.528] [INF] Current user role: Admin
+[2024-12-29 09:14:07.341] [INF] Current user role: Admin
+[2024-12-29 09:14:34.881] [INF] Current user role: Admin
+[2024-12-29 09:14:35.571] [INF] Current user role: Admin
+[2024-12-29 09:15:06.186] [INF] Current user role: Admin
+[2024-12-29 09:15:06.716] [INF] Current user role: Admin
+[2024-12-29 09:15:23.642] [INF] Current user role: Admin
+[2024-12-29 09:15:23.817] [INF] Current user role: Admin
+[2024-12-29 09:15:24.914] [INF] Current user role: Admin
+[2024-12-29 09:15:25.105] [INF] Current user role: Admin
+[2024-12-29 09:15:42.985] [INF] Current user role: Admin
+[2024-12-29 09:15:43.219] [INF] Current user role: Admin
+[2024-12-29 09:15:50.056] [INF] Current user role: Admin
+[2024-12-29 09:15:50.266] [INF] Current user role: Admin
+[2024-12-29 09:15:51.482] [INF] Current user role: Admin
+[2024-12-29 09:15:51.628] [INF] Current user role: Admin
+[2024-12-29 09:15:55.048] [INF] Current user role: Admin
+[2024-12-29 09:15:55.232] [INF] Current user role: Admin
+[2024-12-29 09:18:56.728] [INF] Current user role: Admin
+[2024-12-29 09:18:57.645] [INF] Current user role: Admin
+[2024-12-29 09:20:00.629] [INF] Current user role: Admin
+[2024-12-29 09:20:00.916] [INF] Current user role: Admin
+[2024-12-29 09:20:47.427] [INF] Current user role: Admin
+[2024-12-29 09:20:48.499] [INF] Current user role: Admin
+[2024-12-29 09:21:37.372] [INF] Current user role: Admin
+[2024-12-29 09:21:37.831] [INF] Current user role: Admin
+[2024-12-29 09:22:11.969] [INF] Current user role: Admin
+[2024-12-29 09:22:12.557] [INF] Current user role: Admin
+[2024-12-29 09:25:13.211] [INF] Current user role: Admin
+[2024-12-29 09:25:15.474] [INF] Current user role: Admin
+[2024-12-29 09:25:22.784] [INF] Current user role: Admin
+[2024-12-29 09:25:24.975] [INF] Current user role: Admin
+[2024-12-29 09:25:27.656] [INF] Current user role: Admin
+[2024-12-29 09:25:30.526] [INF] Current user role: Admin
+[2024-12-29 09:25:30.720] [INF] Current user role: Admin
+[2024-12-29 09:25:32.720] [INF] Current user role: Admin
+[2024-12-29 09:26:57.844] [INF] Current user role: Admin
+[2024-12-29 09:26:59.329] [INF] Current user role: Admin
+[2024-12-29 09:27:23.392] [INF] Current user role: Admin
+[2024-12-29 09:27:23.934] [INF] Current user role: Admin
+[2024-12-29 09:27:56.091] [INF] Current user role: Admin
+[2024-12-29 09:27:56.726] [INF] Current user role: Admin
+[2024-12-29 09:28:06.398] [INF] Current user role: Admin
+[2024-12-29 09:28:06.605] [INF] Current user role: Admin
+[2024-12-29 09:28:15.530] [INF] Current user role: Admin
+[2024-12-29 09:28:15.715] [INF] Current user role: Admin
+[2024-12-29 09:28:21.451] [INF] Current user role: Admin
+[2024-12-29 09:28:21.544] [INF] Current user role: Admin
+[2024-12-29 09:28:22.634] [INF] Current user role: Admin
+[2024-12-29 09:28:22.842] [INF] Current user role: Admin
+[2024-12-29 09:28:33.018] [INF] Current user role: Admin
+[2024-12-29 09:28:33.111] [INF] Current user role: Admin
+[2024-12-29 09:28:50.862] [INF] Current user role: Admin
+[2024-12-29 09:28:50.966] [INF] Current user role: Admin
+[2024-12-29 10:10:17.218] [INF] Access Login Page
+[2024-12-29 10:10:18.387] [INF] Login successful
+[2024-12-29 10:10:20.014] [INF] Current user role: Admin
+[2024-12-29 10:10:20.248] [INF] Current user role: Admin
+[2024-12-29 10:22:08.508] [INF] Access Login Page
+[2024-12-29 10:22:12.167] [INF] Access Login Page
+[2024-12-29 10:22:25.474] [INF] Access Login Page
+[2024-12-29 10:22:28.810] [INF] Login successful
+[2024-12-29 10:22:36.866] [INF] Access Login Page
+[2024-12-29 10:22:39.272] [INF] Login successful
+[2024-12-29 10:22:44.743] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:22:44.760] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:22:45.594] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:22:45.594] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:22:45.596] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:22:45.597] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:22:46.017] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:22:46.017] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:22:46.018] [INF] Product Cappuccino1 price: 4000
+[2024-12-29 10:22:46.021] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:22:46.022] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:22:46.022] [INF] Product Cappuccino1 price: 4000
+[2024-12-29 10:22:55.333] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:22:55.334] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:22:55.335] [INF] Product Cappuccino1 price: 4000
+[2024-12-29 10:22:55.340] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:22:55.340] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:22:55.341] [INF] Product Cappuccino1 price: 4000
+[2024-12-29 10:22:55.372] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-29 10:22:55.421] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:22:55.421] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 10:22:55.422] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:22:55.422] [INF] Product: Cappuccino1, Price: 4000, Size: Size01    
+[2024-12-29 10:23:58.147] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-29 10:24:03.004] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-29 10:24:26.486] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-29 10:24:38.925] [INF] Access Login Page
+[2024-12-29 10:24:40.800] [INF] Login successful
+[2024-12-29 10:24:56.505] [INF] Access Login Page
+[2024-12-29 10:24:58.640] [INF] Login successful
+[2024-12-29 10:25:07.994] [INF] Access Login Page
+[2024-12-29 10:25:11.474] [INF] Access Login Page
+[2024-12-29 10:25:12.755] [INF] Login successful
+[2024-12-29 10:25:46.493] [INF] Access Login Page
+[2024-12-29 10:25:48.354] [INF] Login successful
+[2024-12-29 10:26:06.852] [INF] Access Login Page
+[2024-12-29 10:26:08.598] [INF] Login successful
+[2024-12-29 10:26:28.112] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-29 10:26:28.137] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-29 10:26:45.750] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:26:45.754] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:26:47.270] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:26:47.272] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:26:47.275] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:26:47.276] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:15.263] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:15.263] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:15.266] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:15.266] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:15.305] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:27:15.306] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:27:15.306] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:27:21.228] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:21.228] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:21.229] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:21.231] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:21.231] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:21.232] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:22.349] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:22.350] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:22.351] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:22.353] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:22.354] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:22.354] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:27:22.359] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:27:22.360] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:27:22.360] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:27:22.361] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:27:31.397] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:29:32.761] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.762] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.763] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.764] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.765] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.765] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.900] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.901] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.901] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.902] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.904] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.904] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.905] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:32.905] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.034] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.035] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.035] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.036] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.036] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.038] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.039] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.039] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.040] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.040] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.187] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.188] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.189] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.189] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.190] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.191] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.193] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.193] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.194] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.194] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.195] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.195] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.322] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.323] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.323] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.324] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.324] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.325] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.325] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.327] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.328] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.329] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.329] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.330] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.330] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.331] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.469] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.469] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.470] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.470] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.471] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.471] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.472] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.472] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.474] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.475] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.475] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.476] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.476] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.477] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.477] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.478] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.601] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.602] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.603] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.603] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.604] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.605] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.605] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.606] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.606] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.609] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.609] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.610] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.611] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.611] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.612] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.612] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.613] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:33.614] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.747] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.748] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.749] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.749] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.750] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.750] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.751] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.751] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.752] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.755] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.755] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.756] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.756] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.757] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.757] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.758] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.758] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.759] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:34.806] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:29:34.807] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:34.808] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:34.808] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:34.809] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:34.810] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:34.810] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:34.811] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:34.811] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:34.812] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:37.432] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:29:38.973] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:29:39.789] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:29:40.551] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:29:41.460] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:29:42.439] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:29:43.217] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:29:47.009] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:47.010] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:47.011] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:47.013] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:47.014] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:47.014] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:48.317] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:48.318] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:48.318] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:48.321] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:48.321] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:48.322] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:48.372] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:29:48.373] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:48.373] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:48.374] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:54.114] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.115] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.116] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.117] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.118] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.119] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.259] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.260] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.260] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.262] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.263] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.263] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.395] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.396] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.396] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.398] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.398] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.399] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.543] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.544] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.544] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.546] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.547] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.547] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.670] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.671] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.671] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.673] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.674] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.674] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.798] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.799] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.800] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.802] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.802] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.803] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.933] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.934] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.935] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.937] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.937] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:54.938] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:56.259] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:56.260] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:56.261] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:56.262] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:56.263] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:56.263] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:29:56.267] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:29:56.268] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:56.268] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:29:56.269] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:30:08.149] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:30:08.150] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:08.150] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:08.151] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:08.153] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:30:08.154] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:08.154] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:08.155] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:09.160] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:30:09.160] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:09.161] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:09.162] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:09.164] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:30:09.164] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:09.165] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:09.166] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:30:09.169] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:30:09.170] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 10:30:09.170] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:30:09.171] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:30:09.171] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:30:12.922] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:45:25.285] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 10:45:25.778] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 10:45:31.823] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:31.824] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:31.825] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:31.833] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:31.834] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:31.835] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:31.905] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-29 10:45:31.973] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:45:31.975] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 10:45:31.976] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:45:31.977] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:45:36.083] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:45:37.545] [INF] Attempting to remove product: SP001     
+[2024-12-29 10:45:41.738] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-29 10:45:41.751] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-29 10:45:47.572] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:47.572] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:47.574] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:47.575] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:48.168] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:48.169] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:48.171] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:48.172] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:50.378] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:50.379] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:50.381] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:50.382] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:52.221] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:52.222] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:52.224] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:52.225] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:52.229] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:45:52.230] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 10:45:52.230] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:45:58.908] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:58.909] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:45:58.911] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:45:58.912] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:00.534] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:00.535] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:00.538] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:00.538] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:00.591] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:46:00.593] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 10:46:00.594] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:46:05.188] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:05.189] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:05.189] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:05.192] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:05.192] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:05.193] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:06.643] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:06.644] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:06.644] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:06.647] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:06.647] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:06.648] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:06.694] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:46:06.696] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 10:46:06.697] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:46:06.698] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:46:14.552] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:14.553] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:14.553] [INF] Product Trà Đào price: 47000
+[2024-12-29 10:46:14.554] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:14.556] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:14.556] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:14.556] [INF] Product Trà Đào price: 47000
+[2024-12-29 10:46:14.557] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:15.099] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:15.100] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:15.101] [INF] Product Trà Đào price: 47000
+[2024-12-29 10:46:15.101] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:15.102] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 10:46:15.104] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:15.105] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:15.105] [INF] Product Trà Đào price: 47000
+[2024-12-29 10:46:15.106] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:15.106] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 10:46:18.100] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:18.101] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:18.102] [INF] Product Trà Đào price: 47000
+[2024-12-29 10:46:18.102] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:18.103] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 10:46:18.105] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:18.106] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:18.107] [INF] Product Trà Đào price: 47000
+[2024-12-29 10:46:18.107] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:18.108] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 10:46:18.111] [INF] Found cart for user khnguyenne: True
+[2024-12-29 10:46:18.112] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 10:46:18.113] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:46:18.113] [INF] Product: Trà Đào, Price: 47000, Size: Size01    
+[2024-12-29 10:46:18.113] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 10:46:18.114] [INF] Product: Trà Oloong Dâu, Price: 55000, Size: Size01    
+[2024-12-29 10:46:28.489] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 10:46:28.490] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:28.491] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:28.491] [INF] Product Trà Đào price: 47000
+[2024-12-29 10:46:28.492] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:28.492] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 10:46:28.494] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 10:46:28.494] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 10:46:28.495] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:28.496] [INF] Product Trà Đào price: 47000
+[2024-12-29 10:46:28.496] [INF] Product Cappuccino price: 55000
+[2024-12-29 10:46:28.496] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 10:47:57.102] [INF] Access Login Page
+[2024-12-29 10:47:58.873] [INF] Login successful
+[2024-12-29 10:48:01.329] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 10:48:01.347] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 10:48:02.737] [INF] Current user role: Admin
+[2024-12-29 10:48:03.036] [INF] Current user role: Admin
+[2024-12-29 10:48:05.224] [INF] Current user role: Admin
+[2024-12-29 10:48:05.363] [INF] Current user role: Admin
+[2024-12-29 10:49:54.946] [INF] Current user role: Admin
+[2024-12-29 10:49:55.189] [INF] Current user role: Admin
+[2024-12-29 10:51:45.388] [INF] Current user role: Admin
+[2024-12-29 10:51:46.876] [INF] Current user role: Admin
+[2024-12-29 10:51:56.170] [INF] Current user role: Admin
+[2024-12-29 10:51:56.962] [INF] Current user role: Admin
+[2024-12-29 10:52:01.596] [INF] Current user role: Admin
+[2024-12-29 10:52:02.347] [INF] Current user role: Admin
+[2024-12-29 10:52:09.315] [INF] Current user role: Admin
+[2024-12-29 10:52:09.742] [INF] Current user role: Admin
+[2024-12-29 10:52:19.310] [INF] Current user role: Admin
+[2024-12-29 10:52:19.618] [INF] Current user role: Admin
+[2024-12-29 10:53:42.759] [INF] Current user role: Admin
+[2024-12-29 10:53:43.627] [INF] Current user role: Admin
+[2024-12-29 10:54:25.022] [INF] Current user role: Admin
+[2024-12-29 10:54:25.706] [INF] Current user role: Admin
+[2024-12-29 10:54:49.384] [INF] Current user role: Admin
+[2024-12-29 10:54:49.811] [INF] Current user role: Admin
+[2024-12-29 10:54:58.089] [INF] Current user role: Admin
+[2024-12-29 10:54:58.551] [INF] Current user role: Admin
+[2024-12-29 10:55:01.690] [INF] Current user role: Admin
+[2024-12-29 10:55:01.813] [INF] Current user role: Admin
+[2024-12-29 10:59:40.410] [INF] Current user role: Admin
+[2024-12-29 10:59:40.697] [INF] Current user role: Admin
+[2024-12-29 10:59:41.777] [INF] Current user role: Admin
+[2024-12-29 10:59:42.040] [INF] Current user role: Admin
+[2024-12-29 11:00:00.619] [INF] Current user role: Admin
+[2024-12-29 11:00:00.822] [INF] Current user role: Admin
+[2024-12-29 11:00:12.615] [INF] Current user role: Admin
+[2024-12-29 11:00:13.087] [INF] Current user role: Admin
+[2024-12-29 11:00:44.030] [INF] Current user role: Admin
+[2024-12-29 11:00:44.410] [INF] Current user role: Admin
+[2024-12-29 11:02:44.488] [INF] Current user role: Admin
+[2024-12-29 11:02:44.739] [INF] Current user role: Admin
+[2024-12-29 11:04:09.104] [INF] Current user role: Admin
+[2024-12-29 11:04:09.853] [INF] Current user role: Admin
+[2024-12-29 11:04:19.350] [INF] Current user role: Admin
+[2024-12-29 11:04:21.373] [INF] Current user role: Admin
+[2024-12-29 11:04:31.996] [INF] Current user role: Admin
+[2024-12-29 11:04:34.211] [INF] Current user role: Admin
+[2024-12-29 11:04:45.398] [INF] Current user role: Admin
+[2024-12-29 11:04:45.977] [INF] Current user role: Admin
+[2024-12-29 11:04:55.944] [INF] Current user role: Admin
+[2024-12-29 11:04:56.279] [INF] Current user role: Admin
+[2024-12-29 11:05:01.590] [INF] Current user role: Admin
+[2024-12-29 11:05:01.805] [INF] Current user role: Admin
+[2024-12-29 11:05:02.908] [INF] Current user role: Admin
+[2024-12-29 11:05:03.015] [INF] Current user role: Admin
+[2024-12-29 11:05:13.575] [INF] Current user role: Admin
+[2024-12-29 11:05:13.834] [INF] Current user role: Admin
+[2024-12-29 11:05:14.961] [INF] Current user role: Admin
+[2024-12-29 11:05:15.067] [INF] Current user role: Admin
+[2024-12-29 11:06:06.885] [INF] Current user role: Admin
+[2024-12-29 11:06:07.139] [INF] Current user role: Admin
+[2024-12-29 11:07:30.849] [INF] Current user role: Admin
+[2024-12-29 11:07:31.684] [INF] Current user role: Admin
+[2024-12-29 11:07:52.975] [INF] Current user role: Admin
+[2024-12-29 11:07:53.639] [INF] Current user role: Admin
+[2024-12-29 11:08:05.343] [INF] Current user role: Admin
+[2024-12-29 11:08:05.682] [INF] Current user role: Admin
+[2024-12-29 11:08:07.335] [INF] Current user role: Admin
+[2024-12-29 11:08:07.457] [INF] Current user role: Admin
+[2024-12-29 11:08:12.433] [INF] Current user role: Admin
+[2024-12-29 11:08:12.670] [INF] Current user role: Admin
+[2024-12-29 11:09:19.591] [INF] Current user role: Admin
+[2024-12-29 11:09:19.890] [INF] Current user role: Admin
+[2024-12-29 11:09:23.046] [INF] Current user role: Admin
+[2024-12-29 11:09:23.268] [INF] Current user role: Admin
+[2024-12-29 11:09:38.612] [INF] Current user role: Admin
+[2024-12-29 11:09:38.821] [INF] Current user role: Admin
+[2024-12-29 11:09:39.471] [INF] Current user role: Admin
+[2024-12-29 11:09:39.590] [INF] Current user role: Admin
+[2024-12-29 11:10:28.780] [INF] Current user role: Admin
+[2024-12-29 11:10:29.174] [INF] Current user role: Admin
+[2024-12-29 11:10:29.796] [INF] Current user role: Admin
+[2024-12-29 11:10:30.070] [INF] Current user role: Admin
+[2024-12-29 11:12:11.271] [INF] Current user role: Admin
+[2024-12-29 11:12:11.532] [INF] Current user role: Admin
+[2024-12-29 11:12:13.672] [INF] Current user role: Admin
+[2024-12-29 11:12:13.813] [INF] Current user role: Admin
+[2024-12-29 11:12:19.994] [INF] Current user role: Admin
+[2024-12-29 11:12:20.205] [INF] Current user role: Admin
+[2024-12-29 11:12:26.685] [INF] Current user role: Admin
+[2024-12-29 11:12:27.256] [INF] Current user role: Admin
+[2024-12-29 11:12:28.306] [INF] Access Login Page
+[2024-12-29 11:12:31.933] [INF] Login successful
+[2024-12-29 11:15:24.217] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:24.217] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:24.218] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:24.218] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:24.219] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:24.219] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:24.221] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:24.222] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:24.222] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:24.223] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:24.223] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:24.223] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:24.270] [INF] Found cart for user khnguyenne: True
+[2024-12-29 11:15:24.271] [INF] Product: Frosty Phin Gato, Price: 55000, Size: Size01    
+[2024-12-29 11:15:24.272] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 11:15:24.272] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:24.272] [INF] Product: Trà Đào, Price: 47000, Size: Size01    
+[2024-12-29 11:15:24.273] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:24.273] [INF] Product: Trà Oloong Dâu, Price: 55000, Size: Size01    
+[2024-12-29 11:15:27.203] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:27.204] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:27.204] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:27.205] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:27.205] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:27.206] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:27.208] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:27.209] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:27.209] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:27.210] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:27.210] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:27.211] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:27.214] [INF] Found cart for user khnguyenne: True
+[2024-12-29 11:15:27.215] [INF] Product: Frosty Phin Gato, Price: 55000, Size: Size01    
+[2024-12-29 11:15:27.215] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 11:15:27.216] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:27.216] [INF] Product: Trà Đào, Price: 47000, Size: Size01    
+[2024-12-29 11:15:27.217] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:27.218] [INF] Product: Trà Oloong Dâu, Price: 55000, Size: Size01    
+[2024-12-29 11:15:30.757] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:30.758] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:30.758] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:30.759] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:30.760] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:30.760] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:30.765] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:30.766] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:30.766] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:30.767] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:30.768] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:30.768] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:30.832] [INF] Found cart for user khnguyenne: True
+[2024-12-29 11:15:30.832] [INF] Product: Frosty Phin Gato, Price: 55000, Size: Size01    
+[2024-12-29 11:15:30.833] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 11:15:30.834] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:30.834] [INF] Product: Trà Đào, Price: 47000, Size: Size01    
+[2024-12-29 11:15:30.835] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:30.835] [INF] Product: Trà Oloong Dâu, Price: 55000, Size: Size01    
+[2024-12-29 11:15:44.644] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:44.645] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:44.646] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:44.646] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:44.647] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:44.647] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:44.650] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:44.651] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:44.651] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:44.652] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:44.652] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:44.653] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:44.704] [INF] Found cart for user khnguyenne: True
+[2024-12-29 11:15:44.706] [INF] Product: Frosty Phin Gato, Price: 55000, Size: Size01    
+[2024-12-29 11:15:44.706] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 11:15:44.707] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:44.707] [INF] Product: Trà Đào, Price: 47000, Size: Size01    
+[2024-12-29 11:15:44.708] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:44.708] [INF] Product: Trà Oloong Dâu, Price: 55000, Size: Size01    
+[2024-12-29 11:15:53.573] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:53.573] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:53.574] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:53.574] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:53.575] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:53.575] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:53.577] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:15:53.578] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:15:53.578] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:53.579] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:15:53.579] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:15:53.580] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:15:53.584] [INF] Found cart for user khnguyenne: True
+[2024-12-29 11:15:53.584] [INF] Product: Frosty Phin Gato, Price: 55000, Size: Size01    
+[2024-12-29 11:15:53.585] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 11:15:53.585] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:53.586] [INF] Product: Trà Đào, Price: 47000, Size: Size01    
+[2024-12-29 11:15:53.586] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:15:53.587] [INF] Product: Trà Oloong Dâu, Price: 55000, Size: Size01    
+[2024-12-29 11:24:44.247] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:24:44.248] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:24:44.249] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:44.249] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:24:44.250] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:44.251] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:24:44.255] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:24:44.256] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:24:44.256] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:44.257] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:24:44.258] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:44.259] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:24:44.758] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:24:44.758] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:24:44.759] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:44.760] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:24:44.760] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:44.761] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:24:44.763] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:24:44.763] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:24:44.764] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:44.764] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:24:44.765] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:44.765] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:24:47.253] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:24:47.254] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:24:47.255] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:47.255] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:24:47.256] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:47.257] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:24:47.259] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:24:47.260] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:24:47.261] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:47.262] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:24:47.263] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:24:47.263] [INF] Product Trà Oloong Dâu price: 55000
+[2024-12-29 11:24:47.312] [INF] Found cart for user khnguyenne: True
+[2024-12-29 11:24:47.313] [INF] Product: Frosty Phin Gato, Price: 55000, Size: Size01    
+[2024-12-29 11:24:47.314] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 11:24:47.314] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:24:47.314] [INF] Product: Trà Đào, Price: 47000, Size: Size01    
+[2024-12-29 11:24:47.315] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 11:24:47.315] [INF] Product: Trà Oloong Dâu, Price: 55000, Size: Size01    
+[2024-12-29 11:24:52.088] [INF] Attempting to remove product: SP044     
+[2024-12-29 11:28:05.435] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:28:05.436] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:28:05.437] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:28:05.437] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:28:05.438] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:28:05.440] [INF] Product Frosty Phin Gato price: 55000
+[2024-12-29 11:28:05.441] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 11:28:05.441] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:28:05.441] [INF] Product Trà Đào price: 47000
+[2024-12-29 11:28:05.442] [INF] Product Cappuccino price: 55000
+[2024-12-29 11:32:56.053] [INF] Access Login Page
+[2024-12-29 11:32:58.190] [INF] Login successful
+[2024-12-29 11:33:02.858] [INF] Current user role: Admin
+[2024-12-29 11:33:03.135] [INF] Current user role: Admin
+[2024-12-29 11:33:17.804] [INF] Current user role: Admin
+[2024-12-29 11:33:18.030] [INF] Current user role: Admin
+[2024-12-29 11:33:39.253] [INF] Current user role: Admin
+[2024-12-29 11:33:39.517] [INF] Current user role: Admin
+[2024-12-29 11:33:41.471] [INF] Current user role: Admin
+[2024-12-29 11:33:41.585] [INF] Current user role: Admin
+[2024-12-29 11:33:43.879] [INF] Current user role: Admin
+[2024-12-29 11:33:44.107] [INF] Current user role: Admin
+[2024-12-29 12:22:02.367] [INF] Access Login Page
+[2024-12-29 12:22:03.718] [INF] Login successful
+[2024-12-29 12:22:13.840] [INF] Current user role: Admin
+[2024-12-29 12:22:14.041] [INF] Current user role: Admin
+[2024-12-29 12:22:53.859] [INF] Current user role: Admin
+[2024-12-29 12:22:54.232] [INF] Current user role: Admin
+[2024-12-29 12:22:58.693] [INF] Current user role: Admin
+[2024-12-29 12:22:58.820] [INF] Current user role: Admin
+[2024-12-29 12:23:04.003] [INF] Current user role: Admin
+[2024-12-29 12:23:04.113] [INF] Current user role: Admin
+[2024-12-29 12:23:05.297] [INF] Current user role: Admin
+[2024-12-29 12:23:05.559] [INF] Current user role: Admin
+[2024-12-29 12:23:32.561] [INF] Current user role: Admin
+[2024-12-29 12:23:32.841] [INF] Current user role: Admin
+[2024-12-29 12:24:42.649] [INF] Current user role: Admin
+[2024-12-29 12:24:42.958] [INF] Current user role: Admin
+[2024-12-29 12:28:23.033] [INF] Current user role: Admin
+[2024-12-29 12:28:23.183] [INF] Current user role: Admin
+[2024-12-29 12:28:26.126] [INF] Current user role: Admin
+[2024-12-29 12:28:26.340] [INF] Current user role: Admin
+[2024-12-29 12:28:58.609] [INF] Current user role: Admin
+[2024-12-29 12:28:58.830] [INF] Current user role: Admin
+[2024-12-29 12:29:00.224] [INF] Access Login Page
+[2024-12-29 12:29:01.504] [INF] Access Login Page
+[2024-12-29 12:29:02.801] [INF] Login successful
+[2024-12-29 12:31:47.630] [INF] Access Login Page
+[2024-12-29 12:31:48.737] [INF] Login successful
+[2024-12-29 12:32:59.017] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 12:32:59.554] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 12:33:03.562] [INF] Access Login Page
+[2024-12-29 12:33:04.894] [INF] Login successful
+[2024-12-29 12:33:08.017] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 12:33:08.045] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 13:17:16.714] [INF] Access Login Page
+[2024-12-29 13:17:18.503] [INF] Login successful
+[2024-12-29 13:18:36.162] [INF] Current user role: Admin
+[2024-12-29 13:18:36.462] [INF] Current user role: Admin
+[2024-12-29 13:19:32.536] [INF] Current user role: Admin
+[2024-12-29 13:19:32.860] [INF] Current user role: Admin
+[2024-12-29 13:20:30.159] [INF] Current user role: Admin
+[2024-12-29 13:20:30.555] [INF] Current user role: Admin
+[2024-12-29 13:20:51.091] [INF] Current user role: Admin
+[2024-12-29 13:20:51.426] [INF] Current user role: Admin
+[2024-12-29 13:22:40.522] [INF] Current user role: Admin
+[2024-12-29 13:22:40.914] [INF] Current user role: Admin
+[2024-12-29 13:22:54.763] [INF] Current user role: Admin
+[2024-12-29 13:22:55.086] [INF] Current user role: Admin
+[2024-12-29 13:23:21.220] [INF] Current user role: Admin
+[2024-12-29 13:23:21.674] [INF] Current user role: Admin
+[2024-12-29 13:23:38.812] [INF] Current user role: Admin
+[2024-12-29 13:23:39.127] [INF] Current user role: Admin
+[2024-12-29 13:23:49.263] [INF] Current user role: Admin
+[2024-12-29 13:23:49.429] [INF] Current user role: Admin
+[2024-12-29 13:23:51.160] [INF] Current user role: Admin
+[2024-12-29 13:23:51.410] [INF] Current user role: Admin
+[2024-12-29 13:27:50.758] [INF] Access Login Page
+[2024-12-29 13:27:56.656] [INF] Access Login Page
+[2024-12-29 13:27:58.195] [INF] Login successful
+[2024-12-29 13:28:05.203] [INF] Current user role: Admin
+[2024-12-29 13:28:05.477] [INF] Current user role: Admin
+[2024-12-29 13:28:06.404] [INF] Current user role: Admin
+[2024-12-29 13:28:06.532] [INF] Current user role: Admin
+[2024-12-29 13:28:07.189] [INF] Current user role: Admin
+[2024-12-29 13:28:07.398] [INF] Current user role: Admin
+[2024-12-29 13:28:10.899] [INF] Current user role: Admin
+[2024-12-29 13:28:11.120] [INF] Current user role: Admin
+[2024-12-29 13:28:11.635] [INF] Current user role: Admin
+[2024-12-29 13:28:11.754] [INF] Current user role: Admin
+[2024-12-29 13:28:14.607] [INF] Access Login Page
+[2024-12-29 13:31:23.222] [INF] Access Login Page
+[2024-12-29 13:31:24.258] [INF] Login successful
+[2024-12-29 13:35:28.574] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:35:28.601] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:35:40.490] [INF] Product Latte price: 55000
+[2024-12-29 13:35:40.490] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:35:40.492] [INF] Product Latte price: 55000
+[2024-12-29 13:35:40.493] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:35:40.796] [INF] Product Latte price: 55000
+[2024-12-29 13:35:40.796] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:35:40.798] [INF] Product Latte price: 55000
+[2024-12-29 13:35:40.798] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:35:40.946] [INF] Product Latte price: 55000
+[2024-12-29 13:35:40.946] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:35:40.948] [INF] Product Latte price: 55000
+[2024-12-29 13:35:40.948] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:00.637] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 13:41:01.464] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 13:41:26.094] [INF] Product Latte price: 55000
+[2024-12-29 13:41:26.094] [INF] Product Latte price: 55000
+[2024-12-29 13:41:26.095] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:26.095] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:26.099] [INF] Product Latte price: 55000
+[2024-12-29 13:41:26.099] [INF] Product Latte price: 55000
+[2024-12-29 13:41:26.099] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:26.100] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:27.349] [INF] Product Latte price: 55000
+[2024-12-29 13:41:27.349] [INF] Product Latte price: 55000
+[2024-12-29 13:41:27.349] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:27.349] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:27.350] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:27.350] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:27.350] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:27.351] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:27.353] [INF] Product Latte price: 55000
+[2024-12-29 13:41:27.354] [INF] Product Latte price: 55000
+[2024-12-29 13:41:27.354] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:27.354] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:27.355] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:27.355] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:27.355] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:27.355] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:30.035] [INF] Product Latte price: 55000
+[2024-12-29 13:41:30.036] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:30.037] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:30.037] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:30.040] [INF] Product Latte price: 55000
+[2024-12-29 13:41:30.041] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:30.041] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 13:41:30.042] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 13:41:30.069] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-29 13:41:30.112] [INF] Found cart for user admin: True
+[2024-12-29 13:41:30.113] [INF] Product: Latte, Price: 55000, Size: Size01    
+[2024-12-29 13:41:30.114] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 13:41:30.115] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 13:41:30.115] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 13:52:32.054] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-29 13:52:32.066] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-29 13:58:53.962] [INF] Access Login Page
+[2024-12-29 13:59:33.158] [INF] Access Login Page
+[2024-12-29 13:59:33.974] [INF] Login successful
+[2024-12-29 14:03:14.561] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 14:03:15.225] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 14:09:54.203] [INF] Access Login Page
+[2024-12-29 14:09:55.702] [INF] Login successful
+[2024-12-29 14:17:26.297] [INF] Access Login Page
+[2024-12-29 14:17:27.370] [INF] Login successful
+[2024-12-29 14:17:29.044] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 14:17:29.066] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-29 14:18:04.437] [INF] Access Login Page
+[2024-12-29 14:18:06.280] [INF] Login successful
+[2024-12-29 14:18:26.413] [INF] Access Login Page
+[2024-12-29 14:18:27.416] [INF] Login successful
+[2024-12-29 14:18:31.143] [INF] Current user role: Admin
+[2024-12-29 14:18:31.516] [INF] Current user role: Admin
+[2024-12-29 14:18:35.400] [INF] Current user role: Admin
+[2024-12-29 14:18:35.513] [INF] Current user role: Admin
+[2024-12-29 14:18:43.978] [INF] Current user role: Admin
+[2024-12-29 14:18:44.084] [INF] Current user role: Admin
+[2024-12-29 14:38:32.979] [INF] Product Latte price: 55000
+[2024-12-29 14:38:32.979] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 14:38:32.980] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 14:38:32.980] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 14:38:32.988] [INF] Product Latte price: 55000
+[2024-12-29 14:38:32.988] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 14:38:32.989] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 14:38:32.989] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 14:38:33.018] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-29 14:38:33.059] [INF] Found cart for user admin: True
+[2024-12-29 14:38:33.060] [INF] Product: Latte, Price: 55000, Size: Size01    
+[2024-12-29 14:38:33.061] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 14:38:33.061] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 14:38:33.061] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 15:57:19.067] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-29 15:57:19.083] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-29 15:58:01.261] [INF] Access Login Page
+[2024-12-29 15:58:05.642] [INF] Login successful
+[2024-12-29 15:58:11.830] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:11.832] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:11.833] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:11.834] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:22.722] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:22.722] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:22.723] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:22.725] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:22.726] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:22.726] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:26.672] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:26.673] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:26.674] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:26.674] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:26.676] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:26.678] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:26.678] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:26.679] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:27.948] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:27.948] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:27.949] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:27.949] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:27.950] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:27.952] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:27.953] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:27.953] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:27.954] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:27.955] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:28.909] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:28.910] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:28.910] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:28.911] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:28.913] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:28.915] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:28.917] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:28.918] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:28.918] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:28.919] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:28.920] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:28.920] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:29.862] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:29.863] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:29.863] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:29.864] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:29.864] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:29.865] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:29.866] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:29.869] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:29.870] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:29.870] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:29.871] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:29.871] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:29.872] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:29.873] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:33.788] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:33.789] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:33.789] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:33.790] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:33.791] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:33.791] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:33.792] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:33.792] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:33.795] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:33.795] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:33.796] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:33.796] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:33.797] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:33.798] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:33.798] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:33.799] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:34.400] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:34.400] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:34.401] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:34.401] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:34.402] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:34.402] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:34.403] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:34.403] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:34.404] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:34.406] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:34.407] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:34.407] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:34.407] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:34.408] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:34.408] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:34.409] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:34.409] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:34.410] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:35.151] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:35.151] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:35.152] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:35.152] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:35.153] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:35.153] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:35.154] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:35.154] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:35.155] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:35.155] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:35.157] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:35.158] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:35.158] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:35.159] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:35.159] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:35.160] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:35.160] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:35.161] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:35.161] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:35.162] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:36.060] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:36.061] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:36.061] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:36.062] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:36.063] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:36.063] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:36.063] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:36.064] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:36.065] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:36.065] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:36.066] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:36.068] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:36.069] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:36.069] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:36.070] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:36.070] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:36.071] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:36.071] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:36.072] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:36.073] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:36.073] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:36.073] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:39.026] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:39.027] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:39.027] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:39.028] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:39.028] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:39.029] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:39.029] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:39.029] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:39.030] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:39.030] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:39.031] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:58:39.031] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:39.034] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:39.034] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:39.035] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:39.035] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:39.036] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:39.037] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:39.037] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:39.038] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:39.038] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:39.039] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:39.040] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:58:39.040] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:40.086] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:40.087] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:40.087] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:40.088] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:40.088] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:40.089] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:40.089] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:40.090] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:40.090] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:40.091] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:40.091] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:58:40.092] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:58:40.093] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:40.095] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:40.095] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:40.096] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:40.096] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:40.097] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:40.098] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:40.098] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:40.099] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:40.099] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:40.100] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:40.100] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:58:40.101] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:58:40.102] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:41.102] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:41.103] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:41.103] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:41.104] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:41.104] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:41.104] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:41.105] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:58:41.105] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:41.106] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:41.106] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:41.107] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:41.107] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:58:41.108] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:58:41.108] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:41.111] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:41.111] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:41.112] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:41.112] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:41.113] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:41.113] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:41.114] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:58:41.114] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:41.115] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:41.115] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:41.116] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:41.116] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:58:41.117] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:58:41.117] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:42.213] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:58:42.213] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:42.214] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:42.214] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:42.215] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:42.215] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:42.216] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:42.216] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:58:42.217] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:42.217] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:42.218] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:42.218] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:42.219] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:58:42.219] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:58:42.220] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:58:42.222] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:58:42.223] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:58:42.224] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:58:42.224] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:58:42.225] [INF] Product Gấm price: 54000
+[2024-12-29 15:58:42.225] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:58:42.226] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:58:42.226] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:58:42.227] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:58:42.227] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:58:42.228] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:58:42.228] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:58:42.229] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:58:42.229] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:58:42.230] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:20.976] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:20.977] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:20.978] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:20.978] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:20.979] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:20.980] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:20.980] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:20.981] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:20.981] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:20.982] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:20.982] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:20.983] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:20.983] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:20.984] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:20.985] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:20.985] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:20.988] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:20.988] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:20.989] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:20.989] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:20.990] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:20.990] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:20.991] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:20.991] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:20.992] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:20.992] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:20.993] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:20.993] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:20.994] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:20.994] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:20.995] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:20.995] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:21.953] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:21.954] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:21.956] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:21.956] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:21.957] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:21.957] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:21.958] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:21.958] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:21.958] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:21.959] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:21.959] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:21.959] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:21.960] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:21.960] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:21.960] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:21.961] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:21.961] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:21.963] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:21.964] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:21.964] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:21.965] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:21.965] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:21.966] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:21.967] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:21.968] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:21.968] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:21.969] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:21.969] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:21.970] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:21.971] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:21.972] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:21.972] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:21.973] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:21.973] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:39.740] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:39.741] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:39.742] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:39.742] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:39.742] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:39.743] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:39.743] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:39.744] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:39.744] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:39.745] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:39.745] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:39.745] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:39.745] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:39.746] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:39.746] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:39.746] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:39.747] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:39.747] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:39.749] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:39.749] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:39.749] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:39.750] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:39.750] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:39.751] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:39.751] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:39.751] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:39.752] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:39.752] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:39.752] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:39.753] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:39.753] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:39.753] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:39.754] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:39.754] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:39.754] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:39.754] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:40.656] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:40.657] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:40.657] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:40.658] [INF] Product Matcha Đá Xay price: 60000
+[2024-12-29 15:59:40.659] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:40.659] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:40.660] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:40.660] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:40.661] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:40.661] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:40.662] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:40.662] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:40.663] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:40.663] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:40.664] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:40.665] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:40.665] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:40.666] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:40.666] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:40.669] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:40.670] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:40.670] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:40.671] [INF] Product Matcha Đá Xay price: 60000
+[2024-12-29 15:59:40.671] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:40.672] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:40.672] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:40.673] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:40.673] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:40.674] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:40.675] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:40.675] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:40.676] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:40.676] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:40.677] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:40.677] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:40.678] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:40.678] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:40.679] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:41.350] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:41.351] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:41.351] [INF] Product Oreo Dâu Đá Xay price: 60000
+[2024-12-29 15:59:41.352] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:41.353] [INF] Product Matcha Đá Xay price: 60000
+[2024-12-29 15:59:41.353] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:41.354] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:41.354] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:41.355] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:41.356] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:41.356] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:41.357] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:41.357] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:41.358] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:41.358] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:41.359] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:41.359] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:41.360] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:41.360] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:41.361] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:41.362] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:41.363] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:41.363] [INF] Product Oreo Dâu Đá Xay price: 60000
+[2024-12-29 15:59:41.363] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:41.364] [INF] Product Matcha Đá Xay price: 60000
+[2024-12-29 15:59:41.364] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:41.364] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:41.365] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:41.365] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:41.365] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:41.366] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:41.366] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:41.366] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:41.367] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:41.367] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:41.367] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:41.368] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:41.368] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:41.368] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:41.369] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:41.982] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:41.983] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:41.984] [INF] Product Oreo Dâu Đá Xay price: 60000
+[2024-12-29 15:59:41.984] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:41.985] [INF] Product Matcha Đá Xay price: 60000
+[2024-12-29 15:59:41.985] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:41.986] [INF] Product Khoai Môn Đá Xay price: 60000
+[2024-12-29 15:59:41.986] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:41.987] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:41.987] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:41.988] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:41.988] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:41.989] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:41.989] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:41.990] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:41.990] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:41.991] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:41.991] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:41.992] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:41.992] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:41.993] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:41.995] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:41.996] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:41.996] [INF] Product Oreo Dâu Đá Xay price: 60000
+[2024-12-29 15:59:41.997] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:41.997] [INF] Product Matcha Đá Xay price: 60000
+[2024-12-29 15:59:41.997] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:41.998] [INF] Product Khoai Môn Đá Xay price: 60000
+[2024-12-29 15:59:41.998] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:41.999] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:42.000] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:42.001] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:42.001] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:42.002] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:42.002] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:42.003] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:42.003] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:42.004] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:42.004] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:42.005] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:42.015] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:42.015] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:44.692] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:44.692] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:44.693] [INF] Product Oreo Dâu Đá Xay price: 60000
+[2024-12-29 15:59:44.694] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:44.694] [INF] Product Matcha Đá Xay price: 60000
+[2024-12-29 15:59:44.695] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:44.695] [INF] Product Khoai Môn Đá Xay price: 60000
+[2024-12-29 15:59:44.696] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:44.696] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:44.697] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:44.697] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:44.698] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:44.698] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:44.699] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:44.699] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:44.700] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:44.700] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:44.701] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:44.702] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:44.702] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:44.703] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:44.706] [INF] Product Trà Sữa Matcha price: 45000
+[2024-12-29 15:59:44.706] [INF] Product Trà Vỏ Cà Phê price: 54000
+[2024-12-29 15:59:44.707] [INF] Product Oreo Dâu Đá Xay price: 60000
+[2024-12-29 15:59:44.707] [INF] Product Trà Vải Lài price: 45000
+[2024-12-29 15:59:44.708] [INF] Product Matcha Đá Xay price: 60000
+[2024-12-29 15:59:44.708] [INF] Product Oloong Đào Đỏ price: 54000
+[2024-12-29 15:59:44.709] [INF] Product Khoai Môn Đá Xay price: 60000
+[2024-12-29 15:59:44.710] [INF] Product Gấm price: 54000
+[2024-12-29 15:59:44.710] [INF] Product Hồng Trà Sữa price: 50000
+[2024-12-29 15:59:44.711] [INF] Product Trà Sữa Lài price: 40000
+[2024-12-29 15:59:44.711] [INF] Product Trà Sữa Nhãn Sen price: 50000
+[2024-12-29 15:59:44.712] [INF] Product Phê Cappuchino price: 45000
+[2024-12-29 15:59:44.712] [INF] Product Phin Sữa Đá price: 30000
+[2024-12-29 15:59:44.713] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 15:59:44.713] [INF] Product Phê Truffle price: 55000
+[2024-12-29 15:59:44.714] [INF] Product Trà Sữa Bá Tước price: 50000
+[2024-12-29 15:59:44.714] [INF] Product Phê Latte price: 45000
+[2024-12-29 15:59:44.715] [INF] Product Trà Bá Tước Lựu Đỏ price: 60000
+[2024-12-29 15:59:44.715] [INF] Product Phin Đen Nóng price: 30000
+[2024-12-29 15:59:44.716] [INF] Product Trà Sữa Oloongg Nhãn Sen price: 55000
+[2024-12-29 15:59:44.716] [INF] Product Cappuccino price: 55000
+[2024-12-29 15:59:44.768] [INF] Found cart for user haidangctn: True
+[2024-12-29 15:59:44.769] [INF] Product: Trà Sữa Matcha, Price: 45000, Size: Size01    
+[2024-12-29 15:59:44.770] [INF] Product: Trà Vỏ Cà Phê, Price: 54000, Size: Size01    
+[2024-12-29 15:59:44.770] [INF] Product: Oreo Dâu Đá Xay, Price: 60000, Size: Size01    
+[2024-12-29 15:59:44.771] [INF] Product: Trà Vải Lài, Price: 45000, Size: Size01    
+[2024-12-29 15:59:44.772] [INF] Product: Matcha Đá Xay, Price: 60000, Size: Size01    
+[2024-12-29 15:59:44.772] [INF] Product: Oloong Đào Đỏ, Price: 54000, Size: Size01    
+[2024-12-29 15:59:44.773] [INF] Product: Khoai Môn Đá Xay, Price: 60000, Size: Size01    
+[2024-12-29 15:59:44.773] [INF] Product: Gấm, Price: 54000, Size: Size01    
+[2024-12-29 15:59:44.774] [INF] Product: Hồng Trà Sữa, Price: 50000, Size: Size01    
+[2024-12-29 15:59:44.774] [INF] Product: Trà Sữa Lài, Price: 40000, Size: Size01    
+[2024-12-29 15:59:44.775] [INF] Product: Trà Sữa Nhãn Sen, Price: 50000, Size: Size01    
+[2024-12-29 15:59:44.775] [INF] Product: Phê Cappuchino, Price: 45000, Size: Size01    
+[2024-12-29 15:59:44.776] [INF] Product: Phin Sữa Đá, Price: 30000, Size: Size01    
+[2024-12-29 15:59:44.776] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 15:59:44.777] [INF] Product: Phê Truffle, Price: 55000, Size: Size01    
+[2024-12-29 15:59:44.777] [INF] Product: Trà Sữa Bá Tước, Price: 50000, Size: Size01    
+[2024-12-29 15:59:44.778] [INF] Product: Phê Latte, Price: 45000, Size: Size01    
+[2024-12-29 15:59:44.778] [INF] Product: Trà Bá Tước Lựu Đỏ, Price: 60000, Size: Size01    
+[2024-12-29 15:59:44.779] [INF] Product: Phin Đen Nóng, Price: 30000, Size: Size01    
+[2024-12-29 15:59:44.779] [INF] Product: Trà Sữa Oloongg Nhãn Sen, Price: 55000, Size: Size01    
+[2024-12-29 15:59:44.780] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-29 16:00:03.446] [ERR] Error sending verification email: No such host is known.
+[2024-12-29 16:04:24.841] [INF] Access Login Page
+[2024-12-29 16:04:27.448] [INF] Login successful
+[2024-12-29 16:13:34.486] [INF] Product Latte price: 55000
+[2024-12-29 16:13:34.487] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:13:34.488] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:13:34.488] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 16:13:34.490] [INF] Product Latte price: 55000
+[2024-12-29 16:13:34.491] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:13:34.491] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:13:34.492] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 16:13:34.537] [INF] Found cart for user admin: True
+[2024-12-29 16:13:34.538] [INF] Product: Latte, Price: 55000, Size: Size01    
+[2024-12-29 16:13:34.538] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:13:34.539] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:13:34.539] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 16:28:00.721] [INF] Product Latte price: 55000
+[2024-12-29 16:28:00.722] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:00.723] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:00.723] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 16:28:00.726] [INF] Product Latte price: 55000
+[2024-12-29 16:28:00.726] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:00.727] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:00.728] [INF] Product Bạc Xỉu price: 30000
+[2024-12-29 16:28:00.778] [INF] Found cart for user admin: True
+[2024-12-29 16:28:00.778] [INF] Product: Latte, Price: 55000, Size: Size01    
+[2024-12-29 16:28:00.779] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:28:00.780] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:28:00.780] [INF] Product: Bạc Xỉu, Price: 30000, Size: Size01    
+[2024-12-29 16:28:05.859] [INF] Attempting to remove product: SP005     
+[2024-12-29 16:28:07.297] [INF] Attempting to remove product: SP002     
+[2024-12-29 16:28:15.935] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:15.936] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:15.939] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:15.939] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:15.942] [INF] Found cart for user admin: True
+[2024-12-29 16:28:15.943] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:28:15.944] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:28:20.359] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:20.360] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:20.362] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:20.363] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:20.366] [INF] Found cart for user admin: True
+[2024-12-29 16:28:20.367] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:28:20.367] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:28:28.744] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:28.745] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:28.747] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:28.748] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:28:28.754] [INF] Found cart for user admin: True
+[2024-12-29 16:28:28.755] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:28:28.755] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:29:09.100] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:09.101] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:09.103] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:09.104] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:09.149] [INF] Found cart for user admin: True
+[2024-12-29 16:29:09.150] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:29:09.151] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:29:22.609] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:22.610] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:22.612] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:22.612] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:22.616] [INF] Found cart for user admin: True
+[2024-12-29 16:29:22.617] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:29:22.617] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:29:28.138] [INF] Attempting to remove product: SP022     
+[2024-12-29 16:29:28.592] [INF] Attempting to remove product: SP022     
+[2024-12-29 16:29:43.058] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:43.061] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:43.919] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:43.920] [INF] Product Trà Sữa Bá Tước price: 60000
+[2024-12-29 16:29:43.922] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:43.922] [INF] Product Trà Sữa Bá Tước price: 60000
+[2024-12-29 16:29:44.489] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:44.489] [INF] Product Trà Sữa Bá Tước price: 60000
+[2024-12-29 16:29:44.490] [INF] Product Okinawa Latte price: 50000
+[2024-12-29 16:29:44.492] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:44.493] [INF] Product Trà Sữa Bá Tước price: 60000
+[2024-12-29 16:29:44.493] [INF] Product Okinawa Latte price: 50000
+[2024-12-29 16:29:45.032] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:45.033] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:45.034] [INF] Product Trà Sữa Bá Tước price: 60000
+[2024-12-29 16:29:45.034] [INF] Product Okinawa Latte price: 50000
+[2024-12-29 16:29:45.037] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:45.037] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:45.038] [INF] Product Trà Sữa Bá Tước price: 60000
+[2024-12-29 16:29:45.038] [INF] Product Okinawa Latte price: 50000
+[2024-12-29 16:29:47.172] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:47.173] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:47.174] [INF] Product Trà Sữa Bá Tước price: 60000
+[2024-12-29 16:29:47.174] [INF] Product Okinawa Latte price: 50000
+[2024-12-29 16:29:47.177] [INF] Product Yakult Đào Đá Xay price: 60000
+[2024-12-29 16:29:47.177] [INF] Product Okinawa Milk Foam Smoothie price: 50000
+[2024-12-29 16:29:47.178] [INF] Product Trà Sữa Bá Tước price: 60000
+[2024-12-29 16:29:47.178] [INF] Product Okinawa Latte price: 50000
+[2024-12-29 16:29:47.182] [INF] Found cart for user admin: True
+[2024-12-29 16:29:47.183] [INF] Product: Yakult Đào Đá Xay, Price: 60000, Size: Size01    
+[2024-12-29 16:29:47.183] [INF] Product: Okinawa Milk Foam Smoothie, Price: 50000, Size: Size01    
+[2024-12-29 16:29:47.184] [INF] Product: Trà Sữa Bá Tước, Price: 60000, Size: Size01    
+[2024-12-29 16:29:47.184] [INF] Product: Okinawa Latte, Price: 50000, Size: Size01    
+[2024-12-29 16:35:02.323] [INF] Access Login Page
+[2024-12-29 20:35:14.984] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 20:35:18.532] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 20:35:28.427] [INF] Access Login Page
+[2024-12-29 20:35:46.685] [INF] Access Login Page
+[2024-12-29 20:35:58.327] [INF] Access Login Page
+[2024-12-29 20:36:09.325] [INF] Access Login Page
+[2024-12-29 20:36:11.097] [INF] Access Login Page
+[2024-12-29 20:36:15.684] [INF] Access Login Page
+[2024-12-29 20:36:20.853] [INF] Access Login Page
+[2024-12-29 20:37:25.553] [INF] Access Login Page
+[2024-12-29 20:38:09.403] [INF] Access Login Page
+[2024-12-29 20:38:12.289] [INF] Access Login Page
+[2024-12-29 20:38:15.900] [INF] Login successful
+[2024-12-29 20:38:19.863] [INF] Access Login Page
+[2024-12-29 20:38:40.169] [INF] Access Login Page
+[2024-12-29 20:38:45.625] [INF] Access Login Page
+[2024-12-29 20:40:09.213] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 20:40:10.177] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 20:40:14.477] [INF] Access Login Page
+[2024-12-29 20:40:17.235] [INF] Access Login Page
+[2024-12-29 20:40:17.979] [INF] Access Login Page
+[2024-12-29 20:40:18.346] [INF] Access Login Page
+[2024-12-29 20:41:56.608] [INF] Access Login Page
+[2024-12-29 20:41:57.826] [INF] Login successful
+[2024-12-29 20:42:00.368] [INF] Access Login Page
+[2024-12-29 20:42:02.912] [INF] Login successful
+[2024-12-29 20:42:06.248] [INF] Access Login Page
+[2024-12-29 20:42:21.459] [INF] Login successful
+[2024-12-29 20:42:24.487] [INF] Access Login Page
+[2024-12-29 20:42:39.902] [INF] Login successful
+[2024-12-29 20:42:41.985] [INF] Access Login Page
+[2024-12-29 20:42:53.382] [INF] Login successful
+[2024-12-29 20:42:55.358] [INF] Access Login Page
+[2024-12-29 22:07:27.642] [INF] Access Login Page
+[2024-12-29 22:07:28.795] [INF] Access Login Page
+[2024-12-29 22:07:39.790] [INF] Access Login Page
+[2024-12-29 22:07:40.816] [INF] Access Login Page
+[2024-12-29 22:07:50.716] [WRN] Failed to determine the https port for redirect.
+[2024-12-29 22:07:51.928] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-29 22:08:02.351] [INF] Access Login Page
+[2024-12-29 22:08:19.907] [INF] Access Login Page
+[2024-12-29 22:08:22.529] [INF] Access Login Page
+[2024-12-29 22:08:23.297] [INF] Access Login Page
+[2024-12-29 22:08:28.699] [INF] Access Login Page
+[2024-12-29 22:08:33.239] [INF] Access Login Page
+[2024-12-29 22:08:33.773] [INF] Access Login Page
+[2024-12-29 22:08:38.121] [INF] Access Login Page
+[2024-12-29 22:08:39.084] [INF] Access Login Page
+[2024-12-29 22:09:48.544] [INF] Access Login Page
+[2024-12-29 22:09:48.841] [INF] Access Login Page
+[2024-12-29 22:09:48.985] [INF] Access Login Page
+[2024-12-29 22:09:49.267] [INF] Access Login Page
+[2024-12-29 22:17:51.853] [INF] Access Login Page

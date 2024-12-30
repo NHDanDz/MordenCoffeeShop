@@ -1,0 +1,41 @@
+﻿/* Responsive adjustments */
+@media (max-width: 992px) {
+    .table thead th {
+        font-size: 13px;
+        padding: 0.75rem;
+    }
+
+    .table tbody td {
+        font-size: 13px;
+        padding: 0.75rem;
+    }
+
+    .btn-sm {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .badge {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 768px) {
+    .order__history__table {
+        padding: 10px;
+    }
+
+    .table-responsive {
+        border: 0;
+    }
+
+    .btn-sm {
+        padding: 3px 6px;
+        font-size: 11px;
+    }
+
+        .btn-sm i {
+            margin-right: 2px;
+        }
+}

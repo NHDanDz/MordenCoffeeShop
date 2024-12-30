@@ -1,0 +1,74 @@
+﻿@model DemoApp_Test.Areas.Login.Models.LoginViewModel
+@{
+    var isLoggedIn = !string.IsNullOrEmpty(Context.Session.GetString("username"));
+}
+
+@if (isLoggedIn)
+{
+    <div class="user-panel">
+        <span class="welcome-text">Welcome, @Context.Session.GetString("username")</span>
+        <form asp-area="Login" asp-controller="Login" asp-action="Logout" method="post" class="d-inline">
+            <button type="submit" class="logout-btn">
+                <i class="fa fa-sign-out"></i> Logout
+            </button>
+        </form>
+    </div>
+}
+else
+{
+    <div class="login-container">
+        <form id="loginForm" class="login100-form validate-form" method="post"
+              asp-area="Login" asp-controller="Login" asp-action="Login">
+            @Html.AntiForgeryToken()
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger mt-3">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <span class="login100-form-title">
+                <h1 class="mb-3" style="font-weight: bold !important; color: #f7b86a !important;"> NHDanDz </h1>
+                <h1 class="mb-3" style="font-weight: bold !important; color: #F89B28 !important;"> Coffee Shop </h1>
+            </span>
+
+            <div class="wrap-input100 validate-input" data-validate="Username is required">
+                <input class="input100" type="text" name="Username" placeholder="Username"
+                       required value="@ViewBag.LastUsername">
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+                <input class="input100" type="password" name="Password" placeholder="Password" required>
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
+            </div>
+
+            <div class="container-login100-form-btn">
+                <button type="submit" class="login100-form-btn">
+                    Login
+                </button>
+            </div>
+
+            <div class="text-center p-t-12">
+                <span class="txt1">Forgot</span>
+                <a class="txt2" asp-area="Login" asp-controller="Login" asp-action="ForgotPassword">
+                    Username / Password?
+                </a>
+            </div>
+
+            <div class="text-center p-t-136">
+                <a class="txt2" asp-area="Login" asp-controller="Login" asp-action="Register">
+                    Create your Account
+                    <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+}

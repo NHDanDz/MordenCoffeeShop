@@ -1,0 +1,166 @@
+﻿@model Bill
+@{
+    ViewData["Title"] = "Order Confirmation";
+    var voucherInfo = Model.Bill_Voucher.FirstOrDefault();
+    var subtotal = Model.Product_Bill.Sum(item => item.Amount);
+}
+
+<!-- Existing breadcrumb section remains the same -->
+
+<style>
+    .breadcrumb-option {
+        padding: 80px 0;
+        position: relative;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+    }
+
+        /* Thêm overlay để text dễ đọc hơn trên background */
+        .breadcrumb-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+    .breadcrumb__text {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+    }
+
+        .breadcrumb__text h2 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .breadcrumb__text p {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+    /* Class for background image handling */
+    .set-bg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+</style>
+
+<section class="breadcrumb-option set-bg" data-setbg="/img/hero/hero-6.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h2>CẢM ƠN BẠN ĐÃ ĐẶT HÀNG.</h2>
+                    <p class="mb-3">Đơn hàng của bạn đã được đặt thành công!</p>
+                    <p>ID đơn hàng: <strong>@Model.Bill_id</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="checkout spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 
+                <!-- Existing order details and delivery information remain the same -->
+
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <h4 class="mb-4">Chi Tiết Đơn Hàng</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sản Phẩm</th>
+                                    <th>Tùy Chọn</th>
+                                    <th>Số Lượng</th>
+                                    <th>Giá</th>
+                                    <th>Tổng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Product_Bill)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.Product?.ProductName
+                                            @if (item.Discount > 0)
+                                            {
+                                                <br />
+                                                <small class="text-danger">(-@item.Discount%)</small>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (item.Size != null || item.Ice != null || item.Sugar != null)
+                                            {
+                                                <small> 
+                                                    @if (item.Ice != null)
+                                                    {
+                                                        <span>Đá: @item.Ice.IceDetail</span>
+                                                        <br />
+                                                    }
+                                                    @if (item.Sugar != null)
+                                                    {
+                                                        <span>Đường: @item.Sugar.SugarDetail</span>
+                                                    }
+                                                </small>
+                                            }
+                                        </td>
+                                        <td>@item.Quantity</td>
+                                        <td>₫@item.Amount.ToString("#,0").Replace(",", ".")</td>
+                                        <td>₫@((item.Amount).ToString("#,0").Replace(",", "."))</td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="text-right"><strong>Tạm tính:</strong></td>
+                                    <td><strong>₫@subtotal.ToString("#,0").Replace(",", ".")</strong></td>
+                                </tr>
+                                @if (voucherInfo != null)
+                                {
+                                    <tr>
+                                        <td colspan="4" class="text-right">
+                                            <strong>Áp dụng Mã Giảm Giá:</strong>
+                                            <br />
+                                            <small>(@voucherInfo.Voucher?.Name)</small>
+                                        </td>
+                                        <td>
+                                            <strong class="text-danger">
+                                                -₫@voucherInfo.DiscountAmount.ToString("#,0").Replace(",", ".")
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                }
+                                <tr class="table-active">
+                                    <td colspan="4" class="text-right"><strong>Tổng tiền:</strong></td>
+                                    <td>
+                                        <strong>
+                                            ₫@(Convert.ToDecimal(Model.Total).ToString("#,0").Replace(",", "."))
+                                        </strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a asp-controller="Home" asp-action="Menu" class="site-btn">Tiếp Tục Mua Hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

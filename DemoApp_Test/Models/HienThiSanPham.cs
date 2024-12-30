@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using static DemoApp_Test.Controllers.HomeController;
 
 namespace DemoApp_Test.Models
 {
@@ -20,10 +21,10 @@ namespace DemoApp_Test.Models
         public double Giagoc { get; set; }
 
         [Display(Name = "Đánh giá")]
-        public double Rating { get; set; }
+        public double? Rating { get; set; }
 
         [Display(Name = "Số lượng đánh giá")]
-        public int ReviewCount { get; set; }
+        public int? ReviewCount { get; set; }
 
         [Display(Name = "Giảm giá")]
         public int? Discount { get; set; }
@@ -43,7 +44,10 @@ namespace DemoApp_Test.Models
 
         [Display(Name = "Số lượng")]
         public int So_Luong { get; set; }
+        public int SoldQuantity { get; set; }  // Add this property
+        public bool status { get; set; }
 
+        public string? Description { get; set; }
         // Thêm thuộc tính tính toán nếu cần
         public double GiaSauGiam
         {
@@ -54,5 +58,7 @@ namespace DemoApp_Test.Models
                 return Giagoc;
             }
         }
+        public List<FeedbackViewModel> Feedbacks { get; set; }
+
     }
 }

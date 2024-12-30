@@ -9803,3 +9803,6 @@ h6,
     -ms-flex-pack: center;
     justify-content: center;
 }
+.required {
+    color: red;
+}

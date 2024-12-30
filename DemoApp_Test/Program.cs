@@ -1,15 +1,24 @@
-﻿using DemoApp_Test.Repository;
+﻿using DemoApp_Test.Enums;
+using DemoApp_Test.Repository;
+using DemoApp_Test.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
-
+using Microsoft.AspNetCore.Http;
+using DemoApp_Test.Services.BackgroundServices;
 var builder = WebApplication.CreateBuilder(args);
 
 // Services
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<RoleAuthorizationFilter>();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<RoleAuthorizationFilter>();
+});
+builder.Services.AddSingleton<IApplicationState, ApplicationState>();
+builder.ConfigureVisitorCounter();
 // Authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -21,6 +30,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Cookie.HttpOnly = true;
         options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
     });
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireRole(UserRole.Admin.ToString()));
+});
 builder.Services.AddLogging(logging =>
 {
     logging.ClearProviders();
@@ -55,6 +71,8 @@ Log.Logger = new LoggerConfiguration()
         outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{Level:u3}] {Message:lj}{NewLine}{Exception}")
     .WriteTo.Console()
     .CreateLogger();
+builder.Services.AddHostedService<SessionCleanupService>();
+
 
 builder.Host.UseSerilog();
 
@@ -75,13 +93,14 @@ app.Use(async (context, next) =>
     context.Response.Headers["Expires"] = "0";
     await next();
 });
-
-app.UseHttpsRedirection();
+ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseSession();
+app.UseVisitorCounter();
+
 app.UseAuthorization();
 
 // Routes
@@ -95,12 +114,7 @@ app.MapAreaControllerRoute(
     name: "AdminRouting",
     areaName: "Admin",
     pattern: "Admin/{controller=Admin}/{action=Index}/{id?}");
-
-app.MapAreaControllerRoute(
-    name: "AdminNRouting",
-    areaName: "AdminN",
-    pattern: "AdminN/{controller=Admin}/{action=Index}/{id?}");
-
+ 
 
 app.MapControllerRoute(
     name: "areas",

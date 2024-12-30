@@ -106,6 +106,8 @@ ol {
     margin: 0;
 }
 
+
+
 /*---------------------
   Helper CSS
 -----------------------*/
@@ -2746,6 +2748,24 @@ ol {
             opacity: 0;
         }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+    .product__details__pic__item {
+        margin-bottom: 20px;
+    }
+
+    .product__details__option label {
+        margin-bottom: 10px;
+    }
+
+    .product__details__cart__option {
+        flex-direction: column;
+    }
+
+    .quantity {
+        margin-bottom: 15px;
+    }
+}
 .checkout__input__checkbox p {
     color: #0d0d0d;
     font-size: 14px;
@@ -2754,6 +2774,7 @@ ol {
 }
 
 .checkout__order {
+    width: 450px;
     background: #f3f2ee;
     padding: 30px;
 }
@@ -4076,10 +4097,10 @@ ol {
         border-radius: 45px;
         color: #33211D;
         background: #DA9F5B
-    }
+    } 
 
-
-
+    
+     
     /*my costume*/
     .container-fluid {
         width: 100%;
@@ -4106,17 +4127,47 @@ ol {
         height: 260px;
         position: relative;
     }
-}
 
-.sidebar {
-    a
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
 
-{
-    color: aliceblue;
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-{
-    text-decoration: none;
-}
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-}
+    @keyframes loading {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+
+        100% {
+            opacity: 1;
+        }
+
+        .sidebar {
+            a
+        }
+    }
+        @media (max-width: 768px) {
+        .product__item__pic
+
+    {
+        height: 220px;
+    }
 }

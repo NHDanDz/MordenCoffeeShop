@@ -1,81 +1,98 @@
 ﻿@model IEnumerable<Product>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet">
+<!-- Css Styles -->
+<link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="~/css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="~/css/style.css" type="text/css">
 
-
-@foreach (var item in Model)
-{
-    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new">
-        <div class="product__item new"> 
-
-        <div class="product__item__pic set-bg" data-setbg="img/@(item.Brand?.BrandName ?? "default")/@(item.TypeCoffee?.TypeName ?? "default")/@(item.Image ?? "default.jpg")">
-                <span class="label">New</span> 
-                <ul class="product__hover">
-                    <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                    <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                    <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                </ul>
-            </div>
-            <div class="product__item__text">
-                <h6>@item.ProductName</h6>
-                <a href="#" class="add-cart add-to-cart" data-product-id="@item.Product_id">+ Add To Cart</a>
-                <div class="rating">
-                    @{
-                        int fullStars = (int)(item.Rating / 20);
-                        bool hasHalfStar = (item.Rating % 20 >= 10);
-                    }
-                    @for (int i = 0; i < fullStars; i++)
-                    {
-                        <i class="fa fa-star"></i>
-                    }
-                    @if (hasHalfStar)
-                    {
-                        <i class="fa fa-star-o"></i>
-                    }
-                    <small>(@item.ReviewCount)</small> 
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new">
+            <div class="product__item new">
+                <div class="product__item__pic" style="padding-bottom: 0px !important">
+                    <a href="/Home/ProductDetailView?id=@item.Product_id">
+                        <img src="@Url.Content($"~/img/{item.Brand?.BrandName ?? "default"}/{item.TypeCoffee?.TypeName ?? "default"}/{item.Image ?? "default.jpg"}")"
+                             alt="@item.ProductName"
+                             class="product__item__img" />
+                    </a>
+                    <span class="label">New</span> 
                 </div>
-                <h5>$ @(item.Price - (item.Price * item.Discount / 100))</h5>
-                <h6 class="text-muted ml-2"><del>$ @item.Price</del></h6>
-                <div class="product__color__select">
-                    <label for="pc-1">
-                        <input type="radio" id="pc-1">
-                    </label>
-                    <label class="active black" for="pc-2">
-                        <input type="radio" id="pc-2">
-                    </label>
-                    <label class="grey" for="pc-3">
-                        <input type="radio" id="pc-3">
-                    </label>
+                <div class="product__item__text">
+                    <h6>@item.ProductName</h6>
+                    <a href="#" class="add-cart add-to-cart" data-product-id="@item.Product_id">+ Thêm vào giỏ hàng</a>
+                    <div class="rating">
+                        @{
+                            int fullStars = (int)(item.Rating / 20);
+                            bool hasHalfStar = (item.Rating % 20 >= 10);
+                        }
+                        @for (int i = 0; i < fullStars; i++)
+                        {
+                            <i class="fa fa-star"></i>
+                        }
+                        @if (hasHalfStar)
+                        {
+                            <i class="fa fa-star-o"></i>
+                        }
+                        <small>(@item.ReviewCount)</small>
+                    </div>
+                    <h5>₫ @string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:#,0}", item.Price - (item.Price * item.Discount / 100))</h5>
+                    <h6 class="text-muted ml-2"><del>$ @item.Price</del></h6>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
+</div>
+
 <script>
-    let clickCount = 0;
+    document.addEventListener('DOMContentLoaded', function () {
+        // Xử lý add to cart
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                const productId = this.getAttribute('data-product-id');
+                const button = this;
 
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function (event) {
-            event.preventDefault(); // Ngăn chặn chuyển hướng mặc định
-            const productId = this.getAttribute('data-product-id');
+                button.classList.add('loading');
+                button.innerHTML = 'Đang thêm...';
 
-            clickCount++;
-            console.log("Product ID: ", productId, " - Click count: ", clickCount);
+                fetch('/cart/AddToCart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(productId)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error adding to cart');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (document.querySelector('.cart-count')) {
+                        document.querySelector('.cart-count').textContent = data.cartCount;
+                    }
 
-            fetch('/Home/AddToCart', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(productId) // Truyền productId trực tiếp thay vì một object
-            })
-            .then(response => {
-                if (!response.ok) {
-                    console.error('Error adding to cart:', response.statusText);
-                } else {
-                    console.log('Product added to cart successfully');
-                }
-            })
-            .catch(error => console.error('Fetch error:', error));
+                    button.innerHTML = '<span style="color: green;">✓ Đã thêm thành công</span>';
+
+                    setTimeout(() => {
+                        button.innerHTML = '+ Thêm vào giỏ hàng';
+                        button.classList.remove('loading');
+                    }, 1500);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    button.classList.remove('loading');
+                    button.innerHTML = '+ Thêm vào giỏ hàng';
+                });
+            });
         });
     });
-
 </script>

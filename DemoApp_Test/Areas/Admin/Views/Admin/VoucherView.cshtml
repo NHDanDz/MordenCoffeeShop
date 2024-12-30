@@ -1,0 +1,835 @@
+﻿@model DemoApp_Test.Models.VoucherSearchViewModel
+@{
+    ViewData["Title"] = "Quản lý voucher";
+}
+
+<div class="page-header">
+    <h2 class="page-title" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">
+        Quản lý Mã giảm giá
+    </h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a>Quản lý</a></li>
+            <li class="breadcrumb-item active">Quản lý voucher</li>
+        </ol>
+    </nav>
+</div>
+<style>
+    .voucher-stats-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .stat-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    .stat-info {
+        flex-grow: 1;
+    }
+
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+    }
+
+        .stat-icon i {
+            font-size: 1.75rem;
+            color: white;
+        }
+
+    .total-vouchers .stat-icon {
+        background: linear-gradient(45deg, #2196F3, #1976D2);
+    }
+
+    .active-vouchers .stat-icon {
+        background: linear-gradient(45deg, #4CAF50, #45a049);
+    }
+
+    .used-vouchers .stat-icon {
+        background: linear-gradient(45deg, #ff9800, #f57c00);
+    }
+
+    .total-discount .stat-icon {
+        background: linear-gradient(45deg, #e91e63, #c2185b);
+    }
+
+    .stat-label {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important;
+        font-weight: bold;
+    }
+
+    .stat-value {
+        color: #333;
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+        font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important;
+    }
+
+    .stat-subtitle {
+        color: #888;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+     
+</style>
+
+<div class="voucher-stats-container">
+    <!-- Tổng số voucher -->
+    <div class="stat-card total-vouchers">
+        <div class="stat-info">
+            <div class="stat-label">TỔNG VOUCHER</div>
+            <div class="stat-value">@(ViewBag.TotalVouchers?.ToString("N0") ?? "0")</div>
+            <div class="stat-subtitle">
+                <i class="mdi mdi-ticket"></i>
+                Tất cả voucher
+            </div>
+        </div>
+        <div class="stat-icon">
+            <i class="mdi mdi-ticket-confirmation"></i>
+        </div>
+    </div>
+
+    <!-- Voucher đang hoạt động -->
+    <div class="stat-card active-vouchers">
+        <div class="stat-info">
+            <div class="stat-label">ĐANG HOẠT ĐỘNG</div>
+            <div class="stat-value">@(ViewBag.ActiveVouchers?.ToString("N0") ?? "0")</div>
+            <div class="stat-subtitle">
+                <i class="mdi mdi-check-circle"></i>
+                Voucher khả dụng
+            </div>
+        </div>
+        <div class="stat-icon">
+            <i class="mdi mdi-ticket-percent"></i>
+        </div>
+    </div>
+
+    <!-- Voucher đã sử dụng -->
+    <div class="stat-card used-vouchers">
+        <div class="stat-info">
+            <div class="stat-label">ĐÃ SỬ DỤNG</div>
+            <div class="stat-value">@(ViewBag.UsedVouchers?.ToString("N0") ?? "0")</div>
+            <div class="stat-subtitle">
+                <i class="mdi mdi-ticket-account"></i>
+                Lượt sử dụng
+            </div>
+        </div>
+        <div class="stat-icon">
+            <i class="mdi mdi-ticket-outline"></i>
+        </div>
+    </div>
+
+    <!-- Tổng giảm giá -->
+    <div class="stat-card total-discount">
+        <div class="stat-info">
+            <div class="stat-label">TỔNG GIẢM GIÁ</div>
+            <div class="stat-value">₫@((ViewBag.TotalDiscount ?? 0).ToString("#,0"))</div>
+            <div class="stat-subtitle">
+                <i class="mdi mdi-currency-usd"></i>
+                Giá trị giảm
+            </div>
+        </div>
+        <div class="stat-icon">
+            <i class="mdi mdi-sale"></i>
+        </div>
+    </div>
+</div>
+<form class="d-flex flex-column" action="@Url.Action("VoucherView", "Admin")" method="get">
+    @Html.AntiForgeryToken()
+
+    <div class="d-flex align-items-center mb-3" style="width: 100%; gap: 10px;">
+        <!-- Search -->
+        <div class="input-group" style="flex: 1;">
+            <div class="input-group-prepend bg-transparent">
+                <i class="input-group-text border-0 mdi mdi-magnify"></i>
+            </div>
+            <input type="text"
+                   class="form-control"
+                   name="query"
+                   placeholder="Tìm kiếm theo mã voucher, tên hoặc mô tả"
+                   value="@Model?.Query" />
+        </div>
+
+        <!-- Voucher Type -->
+        <div class="input-group" style="flex: 1; height: 47px !important; font-size: 15px;">
+            <select class="form-control" name="voucherType" asp-for="VoucherType">
+                <option value="">Tất cả loại voucher</option>
+                <option value="PERCENT">Giảm theo phần trăm</option>
+                <option value="FIXED">Giảm số tiền cố định</option>
+            </select>
+        </div>
+
+        <!-- Brand Filter -->
+        <div class="input-group" style="flex: 1; height: 47px !important; font-size: 15px;">
+            <select class="form-control" name="brandId" asp-for="Brand_id">
+                <option value="">Tất cả thương hiệu</option>
+                @foreach (var brand in Model.Brands)
+                {
+                    <option value="@brand.Brand_id">@brand.BrandName</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center mb-3" style="width: 100%; gap: 10px;">
+        <div class="input-group" style="flex: 1;">
+            <input type="date"
+                   class="form-control"
+                   name="fromDate"
+                   placeholder="Từ ngày"
+                   value="@(Model?.FromDate?.ToString("yyyy-MM-dd"))" />
+        </div>
+        <div class="input-group" style="flex: 1;">
+            <input type="date"
+                   class="form-control"
+                   name="toDate"
+                   placeholder="Đến ngày"
+                   value="@(Model?.ToDate?.ToString("yyyy-MM-dd"))" />
+        </div>
+        <div class="input-group" style="flex: 1; height: 47px !important; font-size: 15px;">
+            <select class="form-control" name="status" asp-for="Status">
+                <option value="">Tất cả trạng thái</option>
+                <option value="true">Đang hoạt động</option>
+                <option value="false">Ngừng hoạt động</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <button type="submit" class="btn btn-gradient-success btn-fw" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">
+                <i class="mdi mdi-magnify" ></i> Tìm kiếm
+            </button>
+            <button type="button" id="clearButton" class="btn btn-gradient-danger btn-fw" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">
+                <i class="mdi mdi-delete"></i> Đặt lại
+            </button>
+        </div>
+        <button type="button" class="btn btn-gradient-primary" id="createVoucherBtn" style="font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;">
+            <i class="mdi mdi-plus"></i> Tạo Voucher Mới
+        </button>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"" data-sort="code">Mã voucher</th>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"">Tên</th>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"" data-sort="type">Loại</th>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"" data-sort="value">Giá trị</th>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"">Điều kiện</th>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"" data-sort="expiry">Ngày hết hạn</th>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"" data-sort="usage">Đã sử dụng</th>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"">Trạng thái</th>
+                <th style="text-align: center; font-family: 'Roboto', 'Open Sans', Arial, sans-serif !important; font-weight: bold;" class="sortable" data-sort="orderId"">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var voucher in Model.Vouchers)
+            {
+                <tr>
+                    <td style="text-align: center;">@voucher.Code</td>
+                    <td>@voucher.Name</td>
+                    <td style="text-align: center;">
+                        @(voucher.VoucherType == "PERCENT" ? "Giảm %" : "Giảm tiền")
+                    </td>
+                    <td style="text-align: right; padding-right: 10px;">
+                        @if (voucher.VoucherType == "PERCENT")
+                        {
+                            @($"{voucher.Detail:N0}%")
+                        }
+                        else
+                        {
+                            @($"₫{voucher.Detail:N0}")
+                        }
+                    </td>
+                    <td style="text-align: right; padding-right: 10px;">
+                        @if (voucher.MinimumSpend > 0)
+                        {
+                            @($"Đơn từ ₫{voucher.MinimumSpend:N0}")
+                        }
+                        @if (voucher.MaximumDiscount.HasValue)
+                        {
+                            <br />
+                            @($"Tối đa ₫{voucher.MaximumDiscount:N0}")
+                        }
+                    </td>
+                    <td style="text-align: center;">
+                        @voucher.ExpirationDate?.ToString("dd/MM/yyyy")
+                    </td>
+                    <td style="text-align: center;">
+                        @if (voucher.UsageLimit.HasValue)
+                        {
+                            @($"{voucher.UsageCount}/{voucher.UsageLimit}")
+                        }
+                        else
+                        {
+                            @voucher.UsageCount
+                        }
+                    </td>
+                    <td style="text-align: center;">
+                        <div class="form-check form-switch d-flex justify-content-center">
+                            <input class="form-check-input status-toggle"
+                                   type="checkbox"
+                            @(voucher.Status == true ? "checked" : "")
+                                   data-voucher-id="@voucher.Voucher_id">
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <button type="button" class="btn btn-icon btn-outline-info view-voucher-btn"
+                                data-voucher-id="@voucher.Voucher_id" title="Chi tiết">
+                            <i class="mdi mdi-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-icon btn-outline-warning edit-voucher-btn"
+                                data-voucher-id="@voucher.Voucher_id" title="Chỉnh sửa">
+                            <i class="mdi mdi-pencil"></i>
+                        </button>
+                        <button type="button" class="btn btn-icon btn-outline-danger delete-voucher-btn"
+                                data-voucher-id="@voucher.Voucher_id" title="Xóa">
+                            <i class="mdi mdi-delete"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Create/Edit Voucher Modal -->
+<div class="modal fade" id="voucherModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tạo Voucher Mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="voucherForm">
+                    <input type="hidden" id="voucherId">
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 35px">
+                                <label class="form-label" >Mã Voucher</label>
+                            </div>
+                            <div class="col-md-9" >
+                                <input type="text" class="form-control bg-light" id="voucherCode" required maxlength="50">
+                                <small class="form-text text-muted">
+                                    Vui lòng chỉ nhập các kí tự chữ cái (A-Z), số (0-9); tối đa 5 kí tự.
+                                 </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 20px">
+                                <label class="form-label">Tên Voucher</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control bg-light" id="voucherName" required maxlength="100">
+                                <small class="form-text text-muted">Tên Voucher sẽ không được hiển thị cho Người mua</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 20px">
+                                <label class="form-label">Loại Voucher</label>
+                            </div>
+                            <div class="col-md-9"  >
+                                <select class="form-control bg-light" id="voucherType" style="flex: 1; height: 47px !important; font-size: 15px;">
+                                    <option value="PERCENT">Giảm theo phần trăm</option>
+                                    <option value="FIXED">Giảm số tiền cố định</option>
+                                </select>
+                                <small class="form-text text-muted">Chọn loại giảm giá phù hợp cho voucher</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 40px">
+                                <label class="form-label" >Giá trị</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="number" class="form-control bg-light" id="voucherDetail" required min="0">
+                                <small class="form-text text-muted">
+                                    Với loại % - Nhập giá trị từ 1-100
+                                    <br>Với loại tiền - Nhập số tiền giảm cụ thể
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 20px">
+                                <label class="form-label">Ngày hết hạn</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="date" class="form-control bg-light" id="expirationDate" required>
+                                <small class="form-text text-muted">Chọn ngày hết hạn cho voucher</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 35px">
+                                <label class="form-label">Đơn tối thiểu</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="number" class="form-control bg-light" id="minimumSpend" min="0">
+                                <small class="form-text text-muted">Giá trị đơn hàng tối thiểu để áp dụng voucher</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 35px">
+                                <label class="form-label">Giảm tối đa</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="number" class="form-control bg-light" id="maximumDiscount" min="0">
+                                <small class="form-text text-muted">Giới hạn số tiền giảm tối đa cho mỗi đơn hàng</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 35px">
+                                <label class="form-label">Giới hạn sử dụng</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="number" class="form-control bg-light" id="usageLimit" min="0">
+                                <small class="form-text text-muted">Tổng số Mã giảm giá có thể sử dụng</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 35px">
+                                <label class="form-label">Thương hiệu áp dụng</label>
+                            </div>
+                            <div class="col-md-9">
+                                <select class="form-control bg-light" id="brandId" style="flex: 1; height: 47px !important; font-size: 15px;">
+                                    <option value="">Tất cả thương hiệu</option>
+                @foreach (var brand in Model.Brands)
+                {
+                                        <option value="@brand.Brand_id">@brand.BrandName</option>
+                }
+                                </select>
+                                <small class="form-text text-muted">Chọn thương hiệu áp dụng voucher hoặc để trống nếu áp dụng cho tất cả</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row">
+                            <div class="col-md-3" style="text-align: right !important; margin-bottom: 35px">
+                                <label class="form-label">Mô tả</label>
+                            </div>
+                            <div class="col-md-9">
+                                <textarea class="form-control bg-light" id="description" rows="3" maxlength="500"></textarea>
+                                <small class="form-text text-muted">Nhập mô tả chi tiết về voucher (tối đa 500 ký tự)</small>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" id="saveVoucher">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>  
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const voucherModal = new bootstrap.Modal(document.getElementById('voucherModal'));
+            let isEditMode = false;
+
+            // Clear button
+            document.getElementById('clearButton').addEventListener('click', function() {
+                document.querySelectorAll('form input, form select').forEach(input => {
+                    input.value = '';
+                });
+            });
+
+            // Create Voucher
+            document.getElementById('createVoucherBtn').addEventListener('click', function() {
+                isEditMode = false;
+                document.getElementById('voucherForm').reset();
+                document.querySelector('#voucherModal .modal-title').textContent = 'Tạo Voucher Mới';
+                generateVoucherId();
+                voucherModal.show();
+            });
+
+            async function generateVoucherId() {
+                try {
+                    const response = await fetch('/Admin/Admin/GetNewVoucherId');
+                    const result = await response.json();
+                    if (result.success) {
+                        document.getElementById('voucherId').value = result.voucherId;
+                    }
+                } catch (error) {
+                    console.error('Error generating voucher ID:', error);
+                }
+            }
+
+            // Edit Voucher
+            document.querySelectorAll('.edit-voucher-btn').forEach(button => {
+                button.addEventListener('click', async function() {
+                    const voucherId = this.getAttribute('data-voucher-id');
+                    await loadVoucherDetails(voucherId);
+                });
+            });
+
+            // View Voucher Details
+            document.querySelectorAll('.view-voucher-btn').forEach(button => {
+                button.addEventListener('click', async function() {
+                    const voucherId = this.getAttribute('data-voucher-id');
+                    await loadVoucherDetails(voucherId, true);
+                });
+            });
+
+                   async function loadVoucherDetails(voucherId, readOnly = false) {
+            try {
+                const response = await fetch(`/Admin/Admin/GetVoucher?id=${voucherId}`);
+                const result = await response.json();
+
+                if (result.success) {
+                    isEditMode = !readOnly;
+                    const voucher = result.data;
+
+                    // Populate form
+                    document.getElementById('voucherId').value = voucher.voucher_id;
+                    document.getElementById('voucherCode').value = voucher.code;
+                    document.getElementById('voucherName').value = voucher.name;
+                    document.getElementById('voucherType').value = voucher.voucherType;
+                    document.getElementById('voucherDetail').value = voucher.detail;
+                    document.getElementById('expirationDate').value = voucher.expirationDate;
+                    document.getElementById('minimumSpend').value = voucher.minimumSpend;
+                    document.getElementById('maximumDiscount').value = voucher.maximumDiscount;
+                    document.getElementById('usageLimit').value = voucher.usageLimit;
+                    document.getElementById('brandId').value = voucher.brand_id || '';
+                    document.getElementById('description').value = voucher.description;
+
+                    // Set read-only state if viewing
+                    const formElements = document.querySelectorAll('#voucherForm input, #voucherForm select, #voucherForm textarea');
+                    formElements.forEach(element => {
+                        element.readOnly = readOnly;
+                        if (element.tagName === 'SELECT') {
+                            element.disabled = readOnly;
+                        }
+                    });
+
+                    // Update modal title and show/hide save button
+                    document.querySelector('#voucherModal .modal-title').textContent =
+                        readOnly ? 'Chi tiết Voucher' : 'Chỉnh sửa Voucher';
+                    document.getElementById('saveVoucher').style.display = readOnly ? 'none' : 'block';
+
+                    voucherModal.show();
+                } else {
+                    throw new Error(result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi',
+                    text: 'Không thể tải thông tin voucher'
+                });
+            }
+        }
+
+            // Save Voucher
+            document.getElementById('saveVoucher').addEventListener('click', async function() {
+                if (!validateForm()) return;
+
+                const formData = {
+                    voucher_id: document.getElementById('voucherId').value,
+                    code: document.getElementById('voucherCode').value,
+                    name: document.getElementById('voucherName').value,
+                    voucherType: document.getElementById('voucherType').value,
+                    detail: parseFloat(document.getElementById('voucherDetail').value),
+                    expirationDate: document.getElementById('expirationDate').value,
+                    minimumSpend: parseFloat(document.getElementById('minimumSpend').value) || 0,
+                    maximumDiscount: parseFloat(document.getElementById('maximumDiscount').value) || null,
+                    usageLimit: parseInt(document.getElementById('usageLimit').value) || null,
+                    brand_id: document.getElementById('brandId').value || null,
+                    description: document.getElementById('description').value,
+                    status: true
+                };
+
+                try {
+                    const url = isEditMode ? '/Admin/Admin/EditVoucher' : '/Admin/Admin/CreateVoucher';
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        voucherModal.hide();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thành công',
+                            text: isEditMode ? 'Voucher đã được cập nhật!' : 'Voucher đã được tạo thành công!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                            window.location.reload();
+                        });
+                    } else {
+                        throw new Error(result.message);
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi',
+                        text: error.message || 'Có lỗi xảy ra'
+                    });
+                }
+            });
+
+            function validateForm() {
+                const requiredFields = ['voucherCode', 'voucherName', 'voucherDetail', 'expirationDate'];
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    const element = document.getElementById(field);
+                    if (!element.value.trim()) {
+                        isValid = false;
+                        element.classList.add('is-invalid');
+                    } else {
+                        element.classList.remove('is-invalid');
+                    }
+                });
+
+                // Validate voucher detail based on type
+                const detail = parseFloat(document.getElementById('voucherDetail').value);
+                const type = document.getElementById('voucherType').value;
+                
+                if (type === 'PERCENT' && (detail <= 0 || detail > 100)) {
+                    isValid = false;
+        Swal.fire({
+                                icon: 'error',
+                                title: 'Lỗi',
+                                text: 'Giá trị phần trăm phải từ 0 đến 100'
+                            });
+                            return false;
+                        }
+
+                        if (type === 'FIXED' && detail <= 0) {
+                            isValid = false;
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Lỗi',
+                                text: 'Giá trị giảm phải lớn hơn 0'
+                            });
+                            return false;
+                        }
+
+                        // Validate expiration date
+                        const expirationDate = new Date(document.getElementById('expirationDate').value);
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+
+                        if (expirationDate < today) {
+                            isValid = false;
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Lỗi',
+                                text: 'Ngày hết hạn không thể là ngày trong quá khứ'
+                            });
+                            return false;
+                        }
+
+                        // Validate minimum spend and maximum discount
+                        const minimumSpend = parseFloat(document.getElementById('minimumSpend').value) || 0;
+                        const maximumDiscount = parseFloat(document.getElementById('maximumDiscount').value) || 0;
+
+                        if (minimumSpend < 0) {
+                            isValid = false;
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Lỗi',
+                                text: 'Giá trị đơn tối thiểu không thể âm'
+                            });
+                            return false;
+                        }
+
+                        if (maximumDiscount && maximumDiscount <= 0) {
+                            isValid = false;
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Lỗi',
+                                text: 'Giảm giá tối đa phải lớn hơn 0'
+                            });
+                            return false;
+                        }
+
+                        return isValid;
+                    }
+
+                    // Status Toggle
+                         // In your status toggle event listener code:
+        document.querySelectorAll('.status-toggle').forEach(toggle => {
+            toggle.addEventListener('change', async function() {
+                const voucherId = this.getAttribute('data-voucher-id');
+                const newStatus = this.checked;
+
+                try {
+                    // Fix: Parse and stringify the data properly
+                    const response = await fetch('/Admin/Admin/UpdateVoucherStatus', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',     // Ensure content type is set correctly
+                            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                        },
+                        body: JSON.stringify({     // Fix: Ensure properties match the model exactly
+                            Id: voucherId,         // Changed from 'id' to 'Id'
+                            Status: newStatus      // Changed from 'status' to 'Status'
+                        })
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thành công',
+                            text: `Đã ${newStatus ? 'kích hoạt' : 'vô hiệu hóa'} voucher`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    } else {
+                        throw new Error(result.message);
+                    }
+                } catch (error) {
+                    this.checked = !newStatus; // Revert toggle
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi',
+                        text: error.message || 'Không thể cập nhật trạng thái'
+                    });
+                }
+            });
+        });
+
+                    // Delete Voucher
+                    document.querySelectorAll('.delete-voucher-btn').forEach(button => {
+                        button.addEventListener('click', async function() {
+                            const voucherId = this.getAttribute('data-voucher-id');
+
+                            const result = await Swal.fire({
+                                title: 'Xác nhận xóa?',
+                                text: 'Voucher đã xóa không thể khôi phục. Tiếp tục?',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#d33',
+                                cancelButtonColor: '#3085d6',
+                                confirmButtonText: 'Xóa',
+                                cancelButtonText: 'Hủy'
+                            });
+
+                            if (result.isConfirmed) {
+                                try {
+                                    const response = await fetch('/Admin/Admin/DeleteVoucher', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                                        },
+                                        body: JSON.stringify(voucherId)
+                                    });
+
+                                    const result = await response.json();
+                                    if (result.success) {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Thành công',
+                                            text: 'Đã xóa voucher',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        }).then(() => {
+                                            window.location.reload();
+                                        });
+                                    } else {
+                                        throw new Error(result.message);
+                                    }
+                                } catch (error) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Lỗi',
+                                        text: error.message || 'Không thể xóa voucher'
+                                    });
+                                }
+                            }
+                        });
+                    });
+
+                    // Input Formatters and Validators
+                    document.getElementById('voucherCode').addEventListener('input', function() {
+                        this.value = this.value.toUpperCase().replace(/\s/g, '');
+                    });
+
+                    document.getElementById('voucherDetail').addEventListener('input', function() {
+                        const type = document.getElementById('voucherType').value;
+                        if (type === 'PERCENT') {
+                            if (this.value > 100) this.value = 100;
+                        }
+                        if (this.value < 0) this.value = 0;
+                    });
+
+                    // Update validation rules when voucher type changes
+                    document.getElementById('voucherType').addEventListener('change', function() {
+                        const detailInput = document.getElementById('voucherDetail');
+                        if (this.value === 'PERCENT') {
+                            if (detailInput.value > 100) detailInput.value = 100;
+                        }
+                    });
+                });
+
+    </script>
+}

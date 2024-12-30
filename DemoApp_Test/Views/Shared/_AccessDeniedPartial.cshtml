@@ -1,0 +1,41 @@
+﻿<div class="modal fade" id="accessDeniedModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    Không đủ quyền truy cập
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <p class="mb-4">Bạn không có đủ quyền hạn để truy cập trang này. Vui lòng liên hệ quản trị viên để được hỗ trợ.</p>
+                <button type="button" class="btn btn-primary" onclick="goBack()">
+                    <i class="fas fa-arrow-left me-2"></i>Quay lại
+                </button>
+                <a href="/" class="btn btn-secondary ms-2">
+                    <i class="fas fa-home me-2"></i>Về trang chủ
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    // Hiển thị modal khi trang được load
+    $(document).ready(function() {
+        $('#accessDeniedModal').modal('show');
+    });
+
+    // Tự động đóng modal và quay lại sau 5 giây
+    setTimeout(function() {
+        $('#accessDeniedModal').modal('hide');
+        setTimeout(function() {
+            window.history.back();
+        }, 500);
+    }, 5000);
+</script>

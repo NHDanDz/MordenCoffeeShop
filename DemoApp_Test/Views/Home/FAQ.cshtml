@@ -1,0 +1,295 @@
+﻿@page
+@{
+}
+
+
+<style> 
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .accordion-button {
+        font-size: 14px; /* Giảm kích thước chữ */
+        border: none; /* Loại bỏ viền */
+        box-shadow: none; /* Loại bỏ bóng */
+    }
+
+    .accordion-item {
+        background: none; /* Loại bỏ màu nền */
+    }
+
+    .accordion-body {
+        font-size: 13px; /* Giảm kích thước chữ */
+        line-height: 1.6;
+    }
+
+    h3 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px; /* Nhỏ gọn hơn */
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    button {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>  
+
+
+<!-- FAQ 3 - Bootstrap Brain Component -->
+<section class="bsb-faq-3 py-3 py-md-5 py-xl-8">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                <h2 class="mb-4 display-5 text-center">Câu Hỏi Thường Gặp</h2>
+                <p class="text-secondary text-center lead fs-4">Chào mừng bạn đến với trang Câu Hỏi Thường Gặp, nơi cung cấp câu trả lời cho những thắc mắc phổ biến nhất.</p>
+                <p class="mb-5 text-center">Dù bạn là khách hàng mới muốn tìm hiểu thêm về sản phẩm hay là khách quen đang cần làm rõ một số thông tin, trang này cung cấp những giải đáp ngắn gọn và rõ ràng về các sản phẩm và dịch vụ của chúng tôi.</p>
+                <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQs: Tài khoản của bạn -->
+    <div class="mb-8">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 col-xl-10 mx-auto">
+                    <div class="d-flex align-items-end mb-5">
+                        <h3 class="m-0">Tài Khoản Của Bạn</h3>
+                    </div>
+                </div>
+                <div class="col-11 col-xl-10">
+                    <div class="accordion accordion-flush" id="faqAccount">
+                        <div class="accordion-item bg-transparent border-top border-bottom py-3">
+                            <h2 class="accordion-header" id="faqAccountHeading1">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqAccountCollapse1" aria-expanded="false" aria-controls="faqAccountCollapse1">
+                                    Tài khoản là gì?
+                                </button>
+                            </h2>
+                            <div id="faqAccountCollapse1" class="accordion-collapse collapse" aria-labelledby="faqAccountHeading1">
+                                <div class="accordion-body">
+                                    <p>Tài khoản của bạn trên trang web của chúng tôi giúp bạn dễ dàng đặt hàng, quản lý thông tin giao dịch và lưu giữ lịch sử mua sắm. Mỗi tài khoản được bảo mật bằng tên đăng nhập và mật khẩu.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqAccountHeading2">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqAccountCollapse2" aria-expanded="false" aria-controls="faqAccountCollapse2">
+                                    Làm thế nào để tạo tài khoản?
+                                </button>
+                            </h2>
+                            <div id="faqAccountCollapse2" class="accordion-collapse collapse" aria-labelledby="faqAccountHeading2">
+                                <div class="accordion-body">
+                                    <p>Để tạo tài khoản, hãy nhấp vào nút "Đăng ký" trên trang web. Nhập các thông tin cần thiết như email, mật khẩu, và thông tin cá nhân. Sau khi hoàn tất, bạn sẽ có thể đăng nhập để mua sắm những loại cà phê yêu thích.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqAccountHeading3">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqAccountCollapse3" aria-expanded="false" aria-controls="faqAccountCollapse3">
+                                    Làm sao để bảo mật tài khoản của tôi?
+                                </button>
+                            </h2>
+                            <div id="faqAccountCollapse3" class="accordion-collapse collapse" aria-labelledby="faqAccountHeading3">
+                                <div class="accordion-body">
+                                    <p>Để bảo mật tài khoản, bạn nên sử dụng mật khẩu mạnh, không chia sẻ mật khẩu với người khác. Đổi mật khẩu định kỳ để tài khoản luôn an toàn.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqAccountHeading4">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqAccountCollapse4" aria-expanded="false" aria-controls="faqAccountCollapse4">
+                                    Tôi nên làm gì nếu quên mật khẩu?
+                                </button>
+                            </h2>
+                            <div id="faqAccountCollapse4" class="accordion-collapse collapse" aria-labelledby="faqAccountHeading4">
+                                <div class="accordion-body">
+                                    <p>Nếu quên mật khẩu, hãy nhấp vào nút "Quên mật khẩu" tại trang đăng nhập. Làm theo hướng dẫn để đặt lại mật khẩu qua email. Đảm bảo tạo mật khẩu mới an toàn hơn.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqAccountHeading5">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqAccountCollapse5" aria-expanded="false" aria-controls="faqAccountCollapse5">
+                                    Tôi phải làm gì nếu tài khoản bị xâm phạm?
+                                </button>
+                            </h2>
+                            <div id="faqAccountCollapse5" class="accordion-collapse collapse" aria-labelledby="faqAccountHeading5">
+                                <div class="accordion-body">
+                                    <p>Nếu nghi ngờ tài khoản bị xâm phạm, hãy đổi mật khẩu ngay và liên hệ với bộ phận hỗ trợ của chúng tôi qua email hoặc hotline. Chúng tôi sẽ giúp bạn bảo vệ tài khoản và khắc phục mọi vấn đề.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQs: Đặt hàng -->
+    <div class="mb-8">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 col-xl-10" style="padding-top: 45px; ">
+                    <div class="d-flex align-items-end mb-5">
+                        <h3 class="m-0">Đặt Hàng</h3>
+                    </div>
+                </div>
+                <div class="col-11 col-xl-10">
+                    <div class="accordion accordion-flush" id="faqOrder">
+                        <div class="accordion-item bg-transparent border-top border-bottom py-3">
+                            <h2 class="accordion-header" id="faqOrderHeading1">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqOrderCollapse1" aria-expanded="false" aria-controls="faqOrderCollapse1">
+                                    Tôi có cần tài khoản để đặt hàng không?
+                                </button>
+                            </h2>
+                            <div id="faqOrderCollapse1" class="accordion-collapse collapse" aria-labelledby="faqOrderHeading1">
+                                <div class="accordion-body">
+                                    <p>Bạn không cần tài khoản để đặt hàng. Tuy nhiên, nếu tạo tài khoản, bạn có thể lưu thông tin cá nhân, thanh toán nhanh chóng và dễ dàng theo dõi các đơn hàng của mình.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqOrderHeading2">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqOrderCollapse2" aria-expanded="false" aria-controls="faqOrderCollapse2">
+                                    Tôi có thể thay đổi hoặc hủy đơn hàng sau khi đã đặt không?
+                                </button>
+                            </h2>
+                            <div id="faqOrderCollapse2" class="accordion-collapse collapse" aria-labelledby="faqOrderHeading2">
+                                <div class="accordion-body">
+                                    <p>Bạn có thể thay đổi hoặc hủy đơn hàng trong vòng 1 giờ sau khi đặt hàng. Vui lòng liên hệ với bộ phận hỗ trợ khách hàng qua hotline hoặc email để được hỗ trợ kịp thời.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqOrderHeading3">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqOrderCollapse3" aria-expanded="false" aria-controls="faqOrderCollapse3">
+                                    Các phương thức thanh toán nào được chấp nhận?
+                                </button>
+                            </h2>
+                            <div id="faqOrderCollapse3" class="accordion-collapse collapse" aria-labelledby="faqOrderHeading3">
+                                <div class="accordion-body">
+                                    <p>Chúng tôi chấp nhận thanh toán qua thẻ tín dụng/thẻ visa và thanh toán khi nhận hàng (COD). Hãy chọn phương thức phù hợp khi thanh toán.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqOrderHeading4">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqOrderCollapse4" aria-expanded="false" aria-controls="faqOrderCollapse4">
+                                    Thông tin thanh toán của tôi có được bảo mật không?
+                                </button>
+                            </h2>
+                            <div id="faqOrderCollapse4" class="accordion-collapse collapse" aria-labelledby="faqOrderHeading4">
+                                <div class="accordion-body">
+                                    <p>Chúng tôi cam kết bảo mật thông tin thanh toán của bạn bằng công nghệ mã hóa SSL. Mọi giao dịch đều an toàn, và chúng tôi không lưu trữ thông tin thẻ của bạn trên hệ thống.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqOrderHeading5">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqOrderCollapse5" aria-expanded="false" aria-controls="faqOrderCollapse5">
+                                    Làm thế nào để tôi theo dõi trạng thái đơn hàng?
+                                </button>
+                            </h2>
+                            <div id="faqOrderCollapse5" class="accordion-collapse collapse" aria-labelledby="faqOrderHeading5">
+                                <div class="accordion-body">
+                                    <p>Bạn có thể theo dõi trạng thái đơn hàng bằng cách đăng nhập vào tài khoản và xem lịch sử đơn hàng. Nếu không có tài khoản, chúng tôi sẽ gửi thông báo trạng thái đơn hàng qua email hoặc SMS.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FAQs: Hoàn tiền và Đổi trả -->
+    <div class="mb-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 col-xl-10" style="padding-top: 45px">
+                    <div class="d-flex align-items-end mb-5">
+                        <h3 class="m-0">Hoàn Tiền và Đổi Trả</h3>
+                    </div>
+                </div>
+                <div class="col-11 col-xl-10">
+                    <div class="accordion accordion-flush" id="faqRefund">
+                        <div class="accordion-item bg-transparent border-top border-bottom py-3">
+                            <h2 class="accordion-header" id="faqRefundHeading1">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqRefundCollapse1" aria-expanded="false" aria-controls="faqRefundCollapse1">
+                                    Làm thế nào để yêu cầu hoàn tiền hoặc đổi trả?
+                                </button>
+                            </h2>
+                            <div id="faqRefundCollapse1" class="accordion-collapse collapse" aria-labelledby="faqRefundHeading1">
+                                <div class="accordion-body">
+                                    <p>Để yêu cầu hoàn tiền hoặc đổi trả, hãy thực hiện các bước sau:</p>
+                                    <ul>
+                                        <li>Liên hệ với bộ phận hỗ trợ khách hàng trong vòng 7 ngày kể từ khi nhận hàng.</li>
+                                        <li>Cung cấp mã đơn hàng, hình ảnh sản phẩm và lý do chi tiết.</li>
+                                        <li>Chờ đội ngũ hỗ trợ xác nhận và hướng dẫn các bước tiếp theo.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqRefundHeading2">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqRefundCollapse2" aria-expanded="false" aria-controls="faqRefundCollapse2">
+                                    Những sản phẩm nào đủ điều kiện để hoàn tiền hoặc đổi trả?
+                                </button>
+                            </h2>
+                            <div id="faqRefundCollapse2" class="accordion-collapse collapse" aria-labelledby="faqRefundHeading2">
+                                <div class="accordion-body">
+                                    <p>Sản phẩm đủ điều kiện để hoàn tiền hoặc đổi trả cần đáp ứng các điều kiện sau:</p>
+                                    <ul>
+                                        <li>Còn nguyên bao bì, chưa qua sử dụng và không bị hư hỏng do người dùng.</li>
+                                        <li>Yêu cầu được gửi trong thời gian quy định (7 ngày kể từ ngày nhận hàng).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqRefundHeading3">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqRefundCollapse3" aria-expanded="false" aria-controls="faqRefundCollapse3">
+                                 Tôi nên làm gì nếu nhận được sản phẩm bị lỗi hoặc không đúng?
+                                </button>
+                            </h2>
+                            <div id="faqRefundCollapse3" class="accordion-collapse collapse" aria-labelledby="faqRefundHeading3">
+                                <div class="accordion-body">
+                                    <p>Nếu nhận được sản phẩm bị lỗi, hư hỏng hoặc không đúng, hãy liên hệ ngay với bộ phận hỗ trợ khách hàng trong vòng 24 giờ kể từ khi nhận hàng. Chúng tôi sẽ hướng dẫn cách gửi lại sản phẩm và cung cấp phương án hoàn tiền hoặc thay thế sản phẩm.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqRefundHeading4">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqRefundCollapse4" aria-expanded="false" aria-controls="faqRefundCollapse4">
+                                    Ai sẽ chịu chi phí vận chuyển khi đổi trả?
+                                </button>
+                            </h2>
+                            <div id="faqRefundCollapse4" class="accordion-collapse collapse" aria-labelledby="faqRefundHeading4">
+                                <div class="accordion-body">
+                                    <p>Chúng tôi sẽ chịu chi phí vận chuyển khi đổi trả nếu sản phẩm bị lỗi hoặc không đúng theo đơn hàng. Trường hợp khách hàng muốn đổi sản phẩm vì lý do cá nhân, chi phí vận chuyển sẽ do khách hàng chi trả.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-3">
+                            <h2 class="accordion-header" id="faqRefundHeading5">
+                                <button class="accordion-button collapsed bg-transparent fw-bold shadow-none link-primary" type="button" data-bs-toggle="collapse" data-bs-target="#faqRefundCollapse5" aria-expanded="false" aria-controls="faqRefundCollapse5">
+                                    Tôi có thể thay đổi ý định về yêu cầu hoàn tiền hoặc đổi trả không?
+                                </button>
+                            </h2>
+                            <div id="faqRefundCollapse5" class="accordion-collapse collapse" aria-labelledby="faqRefundHeading5">
+                                <div class="accordion-body">
+                                    <p>Bạn có thể thay đổi ý định về yêu cầu hoàn tiền hoặc đổi trả bằng cách liên hệ với bộ phận hỗ trợ trước khi quy trình được xử lý. Một khi sản phẩm đã được hoàn lại hoặc thay thế, chúng tôi sẽ không thể hoàn tác.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

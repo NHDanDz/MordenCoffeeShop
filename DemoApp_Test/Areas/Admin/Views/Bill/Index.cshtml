@@ -154,7 +154,7 @@
                                 <td>@(bill.PaymentMethod ?? "Chưa có")</td>
                                 <td>
                                     <span class="@(bill.PaymentStatus ? "badge-status badge-processed" : "badge-status badge-pending")">
-                                        @(bill.PaymentStatus ? "Đã thanh toán" : "Chưa thanh toán")
+                                        @(bill.PaymentStatus ? "Hoàn thành" : "Đang vận chuyển")
                                     </span>
                                 </td>
                                 <td>@string.Format("{0:N0}$", bill.Total)</td>

@@ -1,0 +1,232 @@
+﻿@model ProfileViewModel
+
+<style>
+    .breadcrumb-option {
+        padding: 80px 0;
+        position: relative;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+    }
+
+        /* Thêm overlay để text dễ đọc hơn trên background */
+        .breadcrumb-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+    .breadcrumb__text {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+    }
+
+        .breadcrumb__text h2 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+    /* Class for background image handling */
+    .set-bg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+</style>
+
+<section class="breadcrumb-option set-bg" data-setbg="/img/hero/hero-12.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h2>Thông Tin Tài Khoản</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Profile Section Begin -->
+<section class="blog spad">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <div class="col-lg-3">
+                <div class="blog__sidebar">
+                    <div class="blog__sidebar__item">
+                        <h4>Tài Khoản</h4>
+                        <ul>
+                            <li class="active"><a href="@Url.Action("Profile", "Account")"><i class="fa fa-user"></i> Thông tin cá nhân</a></li>
+                            <li><a href="@Url.Action("OrderHistory", "Account")"><i class="fa fa-shopping-bag"></i> Đơn hàng của tôi</a></li>
+                            <li><a href="@Url.Action("ShowVouchers", "Account")"><i class="fas fa-ticket-alt"></i> Voucher khả dụng</a></li>
+
+                            <li><a href="@Url.Action("ChangePassword", "Account")"><i class="fa fa-key"></i> Đổi mật khẩu</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="col-lg-9">
+                <div class="shopping__cart__table">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    <div class="checkout__form">
+                        <form asp-action="UpdateProfile" method="post">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="checkout__input">
+                                        <p>Tên đăng nhập<span>*</span></p>
+                                        <input asp-for="Username" readonly class="checkout__input__add" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="checkout__input">
+                                                <p>Họ và tên<span>*</span></p>
+                                                <input asp-for="FullName" required  style="color: black;" />
+                                                <span asp-validation-for="FullName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="checkout__input">
+                                                <p>Email<span>*</span></p>
+                                                <input asp-for="Email" readonly type="email" required />
+                                                <span asp-validation-for="Email"  class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="checkout__input">
+                                                <p>Số điện thoại<span>*</span></p>
+                                                <input asp-for="PhoneNumber" required style="color: black;"   />
+                                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="checkout__input">
+                                                <p>Ngày đăng ký</p>
+                                                <input value="@(Model.RegistrationDate?.ToString("dd/MM/yyyy") ?? "N/A")" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkout__input">
+                                        <p>Địa chỉ<span>*</span></p>
+                                        <input asp-for="Address" class="checkout__input__add" required style="color: black; "></input>
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+                                    <div class="text-end">
+                                        <button type="submit" class="primary-btn">CẬP NHẬT THÔNG TIN</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Profile Section End -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function() {
+            // Auto-hide alerts after 5 seconds
+            setTimeout(function() {
+                $(".alert").fadeOut('slow');
+            }, 2000);
+        });
+    </script>
+}
+
+<style>
+    .blog__sidebar__item ul {
+        padding: 0;
+        list-style: none;
+    }
+
+        .blog__sidebar__item ul li {
+            margin-bottom: 10px;
+        }
+
+            .blog__sidebar__item ul li a {
+                color: #666666;
+                font-size: 15px;
+                padding: 10px 15px;
+                display: block;
+                transition: all 0.3s;
+            }
+
+                .blog__sidebar__item ul li.active a,
+                .blog__sidebar__item ul li a:hover {
+                    color: #e53637;
+                    background-color: #f5f5f5;
+                    border-radius: 5px;
+                }
+
+                .blog__sidebar__item ul li a i {
+                    margin-right: 10px;
+                    width: 20px;
+                }
+
+    .checkout__input textarea {
+        height: auto;
+    }
+
+    .text-danger {
+        color: #e53637;
+        font-size: 14px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .primary-btn {
+        background: #111111;
+    }
+
+        .primary-btn:hover {
+            background: #e53637;
+        }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tìm tất cả các element có thuộc tính data-setbg
+        const elements = document.querySelectorAll('[data-setbg]');
+
+        elements.forEach(element => {
+            const bgUrl = element.getAttribute('data-setbg');
+            // Set background-image bằng CSS
+            element.style.backgroundImage = `url(${bgUrl})`;
+            // Thêm các style cần thiết
+            element.style.backgroundSize = 'cover';
+            element.style.backgroundPosition = 'center';
+            element.style.backgroundRepeat = 'no-repeat';
+        });
+    });
+</script>

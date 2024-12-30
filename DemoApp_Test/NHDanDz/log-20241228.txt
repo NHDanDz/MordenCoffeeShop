@@ -1,0 +1,648 @@
+[2024-12-28 11:34:15.758] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 11:34:16.310] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 15:11:46.743] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 15:11:47.934] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 15:13:56.192] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 15:13:57.042] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 15:21:52.777] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 15:21:53.388] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 15:35:47.588] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 15:35:48.351] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 16:09:03.627] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 16:09:05.218] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 18:23:34.742] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 18:23:36.033] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 18:31:24.804] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 18:31:26.272] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 18:52:54.418] [INF] Access Login Page
+[2024-12-28 19:01:27.047] [INF] Access Login Page
+[2024-12-28 19:01:31.164] [INF] Login successful
+[2024-12-28 19:02:39.734] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-28 19:02:39.829] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-28 19:02:45.720] [INF] Current user role: Admin
+[2024-12-28 19:02:46.929] [INF] Current user role: Admin
+[2024-12-28 19:09:07.085] [ERR] Failed executing DbCommand (35ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 10), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Double), @p7='?' (Size = 4000), @p8='?' (DbType = Double), @p9='?' (DbType = Int32), @p10='?' (DbType = Boolean), @p11='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Product] ([Product_id], [Brand_id], [Date], [Description], [Discount], [Image], [Price], [ProductName], [Rating], [ReviewCount], [Status], [Type_id])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+[2024-12-28 19:09:07.148] [INF] Current user role: Admin
+[2024-12-28 19:09:07.261] [ERR] An exception occurred in the database while saving changes for context type 'DemoApp_Test.Repository.DataContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_SANPHAM'. Cannot insert duplicate key in object 'dbo.Product'. The duplicate key value is (SP024     ).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:2fc8be48-d250-44bd-9701-9f11ac8cbb85
+Error Number:2627,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_SANPHAM'. Cannot insert duplicate key in object 'dbo.Product'. The duplicate key value is (SP024     ).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:2fc8be48-d250-44bd-9701-9f11ac8cbb85
+Error Number:2627,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2024-12-28 19:09:07.775] [INF] Current user role: Admin
+[2024-12-28 19:09:23.701] [INF] Current user role: Admin
+[2024-12-28 19:09:23.967] [INF] Current user role: Admin
+[2024-12-28 19:09:27.287] [INF] Current user role: Admin
+[2024-12-28 19:09:27.559] [INF] Current user role: Admin
+[2024-12-28 19:09:30.068] [INF] Current user role: Admin
+[2024-12-28 19:09:30.412] [INF] Current user role: Admin
+[2024-12-28 19:10:38.231] [INF] Current user role: Admin
+[2024-12-28 19:10:38.760] [INF] Current user role: Admin
+[2024-12-28 19:10:46.820] [INF] Current user role: Admin
+[2024-12-28 19:10:47.045] [INF] Current user role: Admin
+[2024-12-28 19:10:49.261] [ERR] An exception occurred in the database while saving changes for context type 'DemoApp_Test.Repository.DataContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_Product_Size_Product". The conflict occurred in database "QLCoffeeShop", table "dbo.Product_Size", column 'Product_id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:2fc8be48-d250-44bd-9701-9f11ac8cbb85
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_Product_Size_Product". The conflict occurred in database "QLCoffeeShop", table "dbo.Product_Size", column 'Product_id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:2fc8be48-d250-44bd-9701-9f11ac8cbb85
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2024-12-28 19:10:49.424] [ERR] Error permanently deleting product
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_Product_Size_Product". The conflict occurred in database "QLCoffeeShop", table "dbo.Product_Size", column 'Product_id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:2fc8be48-d250-44bd-9701-9f11ac8cbb85
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DemoApp_Test.Area.Admin.Controllers.AdminController.DeleteProductPermanently(String id)
+[2024-12-28 19:10:50.994] [INF] Current user role: Admin
+[2024-12-28 19:10:51.238] [INF] Current user role: Admin
+[2024-12-28 19:11:32.049] [INF] Current user role: Admin
+[2024-12-28 19:11:32.369] [INF] Current user role: Admin
+[2024-12-28 19:11:36.438] [INF] Current user role: Admin
+[2024-12-28 19:11:36.679] [INF] Current user role: Admin
+[2024-12-28 19:12:46.740] [INF] Current user role: Admin
+[2024-12-28 19:12:46.775] [ERR] An exception occurred while iterating over the results of a query for context type 'DemoApp_Test.Repository.DataContext'.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+[2024-12-28 19:12:47.408] [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList.GetListItemsWithValueField()
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.DefaultHtmlGenerator.GenerateGroupsAndOptions(String optionLabel, IEnumerable`1 selectList, ICollection`1 currentValues)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.DefaultHtmlGenerator.GenerateSelect(ViewContext viewContext, ModelExplorer modelExplorer, String optionLabel, String expression, IEnumerable`1 selectList, ICollection`1 currentValues, Boolean allowMultiple, Object htmlAttributes)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCoreGeneratedDocument.Areas_Admin_Views_Admin_ShowProduct.<ExecuteAsync>b__19_0()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCoreGeneratedDocument.Areas_Admin_Views_Admin_ShowProduct.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-28 19:12:49.369] [INF] Current user role: Admin
+[2024-12-28 19:12:49.390] [ERR] An exception occurred while iterating over the results of a query for context type 'DemoApp_Test.Repository.DataContext'.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+[2024-12-28 19:12:49.735] [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList.GetListItemsWithValueField()
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.DefaultHtmlGenerator.GenerateGroupsAndOptions(String optionLabel, IEnumerable`1 selectList, ICollection`1 currentValues)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.DefaultHtmlGenerator.GenerateSelect(ViewContext viewContext, ModelExplorer modelExplorer, String optionLabel, String expression, IEnumerable`1 selectList, ICollection`1 currentValues, Boolean allowMultiple, Object htmlAttributes)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCoreGeneratedDocument.Areas_Admin_Views_Admin_ProductStorageView.<ExecuteAsync>b__19_0()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCoreGeneratedDocument.Areas_Admin_Views_Admin_ProductStorageView.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-28 19:13:09.467] [INF] Current user role: Admin
+[2024-12-28 19:13:09.497] [ERR] An exception occurred while iterating over the results of a query for context type 'DemoApp_Test.Repository.DataContext'.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+[2024-12-28 19:13:09.674] [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList.GetListItemsWithValueField()
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.DefaultHtmlGenerator.GenerateGroupsAndOptions(String optionLabel, IEnumerable`1 selectList, ICollection`1 currentValues)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.DefaultHtmlGenerator.GenerateSelect(ViewContext viewContext, ModelExplorer modelExplorer, String optionLabel, String expression, IEnumerable`1 selectList, ICollection`1 currentValues, Boolean allowMultiple, Object htmlAttributes)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCoreGeneratedDocument.Areas_Admin_Views_Admin_ShowProduct.<ExecuteAsync>b__19_0()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCoreGeneratedDocument.Areas_Admin_Views_Admin_ShowProduct.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-28 19:13:12.926] [INF] Current user role: Admin
+[2024-12-28 19:13:12.949] [ERR] An exception occurred while iterating over the results of a query for context type 'DemoApp_Test.Repository.DataContext'.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+[2024-12-28 19:13:13.070] [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method1005(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList.GetListItemsWithValueField()
+   at Microsoft.AspNetCore.Mvc.Rendering.MultiSelectList.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.DefaultHtmlGenerator.GenerateGroupsAndOptions(String optionLabel, IEnumerable`1 selectList, ICollection`1 currentValues)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.DefaultHtmlGenerator.GenerateSelect(ViewContext viewContext, ModelExplorer modelExplorer, String optionLabel, String expression, IEnumerable`1 selectList, ICollection`1 currentValues, Boolean allowMultiple, Object htmlAttributes)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper.Process(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.TagHelpers.TagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCoreGeneratedDocument.Areas_Admin_Views_Admin_ProductStorageView.<ExecuteAsync>b__19_0()
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCoreGeneratedDocument.Areas_Admin_Views_Admin_ProductStorageView.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2024-12-28 19:15:53.124] [INF] Current user role: Admin
+[2024-12-28 19:15:53.615] [INF] Current user role: Admin
+[2024-12-28 19:15:56.878] [INF] Current user role: Admin
+[2024-12-28 19:15:57.120] [INF] Current user role: Admin
+[2024-12-28 19:16:00.225] [INF] Current user role: Admin
+[2024-12-28 19:16:00.555] [INF] Current user role: Admin
+[2024-12-28 19:18:38.650] [WRN] Failed to determine the https port for redirect.
+[2024-12-28 19:18:39.509] [WRN] The foreign key property 'Shipping.Bill_id1' was created in shadow state because a conflicting property with the simple name 'Bill_id' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2024-12-28 19:18:45.053] [INF] Access Login Page
+[2024-12-28 19:18:46.776] [INF] Login successful
+[2024-12-28 19:18:50.155] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-28 19:18:50.219] [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+[2024-12-28 19:18:53.384] [INF] Current user role: Admin
+[2024-12-28 19:18:53.873] [INF] Current user role: Admin
+[2024-12-28 19:18:54.685] [INF] Current user role: Admin
+[2024-12-28 19:18:55.063] [INF] Current user role: Admin
+[2024-12-28 19:19:23.334] [INF] Current user role: Admin
+[2024-12-28 19:19:23.961] [INF] Current user role: Admin
+[2024-12-28 19:20:05.217] [INF] Current user role: Admin
+[2024-12-28 19:20:05.825] [INF] Current user role: Admin
+[2024-12-28 19:20:37.982] [INF] Current user role: Admin
+[2024-12-28 19:20:38.610] [INF] Current user role: Admin
+[2024-12-28 19:20:42.293] [INF] Current user role: Admin
+[2024-12-28 19:20:42.589] [INF] Current user role: Admin
+[2024-12-28 19:20:53.502] [INF] Current user role: Admin
+[2024-12-28 19:20:53.711] [INF] Current user role: Admin
+[2024-12-28 19:21:41.842] [INF] Current user role: Admin
+[2024-12-28 19:21:42.191] [INF] Current user role: Admin
+[2024-12-28 19:21:43.356] [INF] Current user role: Admin
+[2024-12-28 19:21:43.772] [INF] Current user role: Admin
+[2024-12-28 19:22:19.343] [INF] Current user role: Admin
+[2024-12-28 19:22:19.878] [INF] Current user role: Admin
+[2024-12-28 19:22:44.130] [INF] Current user role: Admin
+[2024-12-28 19:22:44.646] [INF] Current user role: Admin
+[2024-12-28 19:23:19.057] [INF] Current user role: Admin
+[2024-12-28 19:23:19.608] [INF] Current user role: Admin
+[2024-12-28 19:24:45.313] [INF] Current user role: Admin
+[2024-12-28 19:24:45.915] [INF] Current user role: Admin
+[2024-12-28 19:25:26.653] [INF] Current user role: Admin
+[2024-12-28 19:25:27.152] [INF] Current user role: Admin
+[2024-12-28 19:25:51.229] [INF] Current user role: Admin
+[2024-12-28 19:25:51.797] [INF] Current user role: Admin
+[2024-12-28 19:28:48.011] [INF] Current user role: Admin
+[2024-12-28 19:28:48.444] [INF] Current user role: Admin
+[2024-12-28 19:28:50.641] [INF] Current user role: Admin
+[2024-12-28 19:28:51.105] [INF] Current user role: Admin
+[2024-12-28 19:29:05.755] [INF] Current user role: Admin
+[2024-12-28 19:29:05.969] [INF] Current user role: Admin
+[2024-12-28 19:29:21.951] [INF] Current user role: Admin
+[2024-12-28 19:29:22.213] [INF] Current user role: Admin
+[2024-12-28 19:29:36.019] [INF] Current user role: Admin
+[2024-12-28 19:29:36.367] [INF] Current user role: Admin
+[2024-12-28 19:29:37.071] [INF] Current user role: Admin
+[2024-12-28 19:29:37.374] [INF] Current user role: Admin
+[2024-12-28 19:31:20.732] [INF] Current user role: Admin
+[2024-12-28 19:31:21.310] [INF] Current user role: Admin
+[2024-12-28 19:32:20.420] [INF] Current user role: Admin
+[2024-12-28 19:32:21.119] [INF] Current user role: Admin
+[2024-12-28 19:32:52.057] [INF] Current user role: Admin
+[2024-12-28 19:32:52.644] [INF] Current user role: Admin
+[2024-12-28 19:33:25.392] [INF] Current user role: Admin
+[2024-12-28 19:33:25.984] [INF] Current user role: Admin
+[2024-12-28 19:34:16.363] [INF] Current user role: Admin
+[2024-12-28 19:34:16.906] [INF] Current user role: Admin
+[2024-12-28 19:35:15.192] [INF] Current user role: Admin
+[2024-12-28 19:35:15.768] [INF] Current user role: Admin
+[2024-12-28 19:36:37.940] [INF] Current user role: Admin
+[2024-12-28 19:36:38.322] [INF] Current user role: Admin
+[2024-12-28 19:36:52.953] [INF] Current user role: Admin
+[2024-12-28 19:36:53.223] [INF] Current user role: Admin
+[2024-12-28 19:37:05.494] [INF] Current user role: Admin
+[2024-12-28 19:37:05.905] [INF] Current user role: Admin
+[2024-12-28 19:38:18.058] [INF] Current user role: Admin
+[2024-12-28 19:38:18.604] [INF] Current user role: Admin
+[2024-12-28 19:38:47.906] [INF] Current user role: Admin
+[2024-12-28 19:38:48.468] [INF] Current user role: Admin
+[2024-12-28 19:39:39.627] [INF] Current user role: Admin
+[2024-12-28 19:39:40.360] [INF] Current user role: Admin
+[2024-12-28 19:40:21.453] [INF] Current user role: Admin
+[2024-12-28 19:40:22.045] [INF] Current user role: Admin
+[2024-12-28 19:42:22.386] [INF] Current user role: Admin
+[2024-12-28 19:42:22.944] [INF] Current user role: Admin
+[2024-12-28 19:44:04.879] [INF] Current user role: Admin
+[2024-12-28 19:44:05.332] [INF] Current user role: Admin
+[2024-12-28 19:44:58.732] [INF] Current user role: Admin
+[2024-12-28 19:44:59.064] [INF] Current user role: Admin
+[2024-12-28 19:46:17.672] [INF] Current user role: Admin
+[2024-12-28 19:46:18.144] [INF] Current user role: Admin
+[2024-12-28 19:46:23.682] [INF] Current user role: Admin
+[2024-12-28 19:46:24.080] [INF] Current user role: Admin
+[2024-12-28 19:46:31.975] [INF] Current user role: Admin
+[2024-12-28 19:46:32.235] [INF] Current user role: Admin
+[2024-12-28 19:48:05.107] [INF] Current user role: Admin
+[2024-12-28 19:48:05.582] [INF] Current user role: Admin
+[2024-12-28 19:50:03.945] [INF] Current user role: Admin
+[2024-12-28 19:50:04.417] [INF] Current user role: Admin
+[2024-12-28 19:51:31.133] [INF] Current user role: Admin
+[2024-12-28 19:51:31.657] [INF] Current user role: Admin
+[2024-12-28 19:51:32.985] [INF] Current user role: Admin
+[2024-12-28 19:51:33.516] [INF] Current user role: Admin
+[2024-12-28 19:52:40.355] [INF] Current user role: Admin
+[2024-12-28 19:52:40.921] [INF] Current user role: Admin
+[2024-12-28 19:53:53.008] [INF] Current user role: Admin
+[2024-12-28 19:53:53.417] [INF] Current user role: Admin
+[2024-12-28 19:56:17.302] [INF] Current user role: Admin
+[2024-12-28 19:56:18.077] [INF] Current user role: Admin
+[2024-12-28 19:57:37.180] [INF] Current user role: Admin
+[2024-12-28 19:57:37.657] [INF] Current user role: Admin
+[2024-12-28 19:59:43.354] [INF] Current user role: Admin
+[2024-12-28 19:59:43.971] [INF] Current user role: Admin
+[2024-12-28 19:59:48.268] [INF] Current user role: Admin
+[2024-12-28 19:59:48.647] [INF] Current user role: Admin
+[2024-12-28 20:00:21.929] [INF] Current user role: Admin
+[2024-12-28 20:00:22.453] [INF] Current user role: Admin
+[2024-12-28 20:00:24.687] [INF] Current user role: Admin
+[2024-12-28 20:00:25.172] [INF] Current user role: Admin
+[2024-12-28 20:00:53.965] [INF] Current user role: Admin
+[2024-12-28 20:00:54.641] [INF] Current user role: Admin
+[2024-12-28 20:02:03.781] [INF] Current user role: Admin
+[2024-12-28 20:02:04.548] [INF] Current user role: Admin
+[2024-12-28 20:02:06.393] [INF] Current user role: Admin
+[2024-12-28 20:02:06.791] [INF] Current user role: Admin
+[2024-12-28 20:02:14.661] [INF] Current user role: Admin
+[2024-12-28 20:02:14.988] [INF] Current user role: Admin
+[2024-12-28 20:02:16.428] [INF] Current user role: Admin
+[2024-12-28 20:02:16.957] [INF] Current user role: Admin
+[2024-12-28 20:02:36.332] [INF] Current user role: Admin
+[2024-12-28 20:02:37.138] [INF] Current user role: Admin
+[2024-12-28 20:03:32.722] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-28 20:03:32.754] [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2024-12-28 20:04:40.013] [INF] Current user role: Admin
+[2024-12-28 20:04:40.320] [INF] Current user role: Admin
+[2024-12-28 20:05:05.251] [INF] Access Login Page
+[2024-12-28 20:05:07.610] [INF] Access Login Page
+[2024-12-28 20:05:14.569] [WRN] Login failed for username: khng@gmail.com
+[2024-12-28 20:05:20.286] [WRN] Login failed for username: khng@gmail.com
+[2024-12-28 20:05:27.574] [WRN] Login failed for username: khng@gmail.com
+[2024-12-28 20:05:31.101] [INF] Login successful
+[2024-12-28 20:05:58.831] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:05:58.836] [INF] Product Mocha price: 55000
+[2024-12-28 20:05:58.840] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:05:58.847] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:05:58.852] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:05:58.872] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:05:58.874] [INF] Product Mocha price: 55000
+[2024-12-28 20:05:58.880] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:05:58.882] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:05:58.884] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:00.127] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:06:00.164] [INF] Product Phê Đen price: 40000
+[2024-12-28 20:06:00.197] [INF] Product Mocha price: 55000
+[2024-12-28 20:06:00.201] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:06:00.203] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:06:00.205] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:00.215] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:06:00.218] [INF] Product Phê Đen price: 40000
+[2024-12-28 20:06:00.219] [INF] Product Mocha price: 55000
+[2024-12-28 20:06:00.220] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:06:00.224] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:06:00.229] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:00.977] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:06:00.993] [INF] Product Phê Đen price: 40000
+[2024-12-28 20:06:01.001] [INF] Product Mocha price: 55000
+[2024-12-28 20:06:01.006] [INF] Product Phê Amee price: 45000
+[2024-12-28 20:06:01.009] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:06:01.011] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:06:01.013] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:01.027] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:06:01.031] [INF] Product Phê Đen price: 40000
+[2024-12-28 20:06:01.035] [INF] Product Mocha price: 55000
+[2024-12-28 20:06:01.042] [INF] Product Phê Amee price: 45000
+[2024-12-28 20:06:01.044] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:06:01.047] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:06:01.049] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:01.761] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:06:01.764] [INF] Product Phê Đen price: 40000
+[2024-12-28 20:06:01.768] [INF] Product Mocha price: 55000
+[2024-12-28 20:06:01.771] [INF] Product Phê Amee price: 45000
+[2024-12-28 20:06:01.775] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:06:01.778] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:06:01.783] [INF] Product Phê Nâu price: 50000
+[2024-12-28 20:06:01.785] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:01.805] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:06:01.811] [INF] Product Phê Đen price: 40000
+[2024-12-28 20:06:01.822] [INF] Product Mocha price: 55000
+[2024-12-28 20:06:01.827] [INF] Product Phê Amee price: 45000
+[2024-12-28 20:06:01.830] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:06:01.832] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:06:01.834] [INF] Product Phê Nâu price: 50000
+[2024-12-28 20:06:01.836] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:28.694] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:06:28.699] [INF] Product Phê Đen price: 40000
+[2024-12-28 20:06:28.702] [INF] Product Mocha price: 55000
+[2024-12-28 20:06:28.704] [INF] Product Phê Amee price: 45000
+[2024-12-28 20:06:28.707] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:06:28.710] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:06:28.713] [INF] Product Phê Nâu price: 50000
+[2024-12-28 20:06:28.716] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:28.727] [INF] Product Caramel Freeze Phindi price: 60000
+[2024-12-28 20:06:28.729] [INF] Product Phê Đen price: 40000
+[2024-12-28 20:06:28.732] [INF] Product Mocha price: 55000
+[2024-12-28 20:06:28.733] [INF] Product Phê Amee price: 45000
+[2024-12-28 20:06:28.736] [INF] Product Đà Lạt price: 45000
+[2024-12-28 20:06:28.738] [INF] Product Phin Đen Đá price: 30000
+[2024-12-28 20:06:28.740] [INF] Product Phê Nâu price: 50000
+[2024-12-28 20:06:28.742] [INF] Product Cappuccino price: 55000
+[2024-12-28 20:06:28.853] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-28 20:06:28.960] [INF] Found cart for user khnguyenne: True
+[2024-12-28 20:06:28.964] [INF] Product: Caramel Freeze Phindi, Price: 60000, Size: Size01    
+[2024-12-28 20:06:28.967] [INF] Product: Phê Đen, Price: 40000, Size: Size01    
+[2024-12-28 20:06:28.970] [INF] Product: Mocha, Price: 55000, Size: Size01    
+[2024-12-28 20:06:28.972] [INF] Product: Phê Amee, Price: 45000, Size: Size01    
+[2024-12-28 20:06:28.974] [INF] Product: Đà Lạt, Price: 45000, Size: Size01    
+[2024-12-28 20:06:28.976] [INF] Product: Phin Đen Đá, Price: 30000, Size: Size01    
+[2024-12-28 20:06:28.979] [INF] Product: Phê Nâu, Price: 50000, Size: Size01    
+[2024-12-28 20:06:28.981] [INF] Product: Cappuccino, Price: 55000, Size: Size01    
+[2024-12-28 20:06:33.782] [INF] Attempting to remove product: SP001     
+[2024-12-28 20:06:36.570] [INF] Attempting to remove product: SP006     
+[2024-12-28 20:06:37.768] [INF] Attempting to remove product: SP011     
+[2024-12-28 20:07:21.751] [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2024-12-28 22:19:30.274] [INF] Access Login Page
+[2024-12-28 22:19:33.843] [INF] Login successful
+[2024-12-28 22:19:38.837] [INF] Current user role: Admin
+[2024-12-28 22:19:39.222] [INF] Current user role: Admin
+[2024-12-28 22:20:27.375] [INF] Current user role: Admin
+[2024-12-28 22:20:27.748] [INF] Current user role: Admin
+[2024-12-28 22:20:43.101] [INF] Current user role: Admin
+[2024-12-28 22:20:43.809] [INF] Current user role: Admin
+[2024-12-28 22:21:31.497] [INF] Current user role: Admin
+[2024-12-28 22:21:31.754] [INF] Current user role: Admin
+[2024-12-28 22:21:36.103] [INF] Current user role: Admin
+[2024-12-28 22:21:36.686] [INF] Current user role: Admin
+[2024-12-28 22:22:25.892] [INF] Current user role: Admin
+[2024-12-28 22:22:26.643] [INF] Current user role: Admin
+[2024-12-28 22:22:40.458] [INF] Current user role: Admin
+[2024-12-28 22:22:40.789] [INF] Current user role: Admin
+[2024-12-28 22:22:52.102] [INF] Current user role: Admin
+[2024-12-28 22:22:52.351] [INF] Current user role: Admin
+[2024-12-28 22:23:25.995] [INF] Current user role: Admin
+[2024-12-28 22:23:26.623] [INF] Current user role: Admin
+[2024-12-28 22:23:38.262] [INF] Current user role: Admin
+[2024-12-28 22:23:38.627] [INF] Current user role: Admin
